@@ -352,6 +352,24 @@ Revised prediction: step 15-25K. Hypothesis: hyperbolic centroid migration delay
 Model (B) predicts C-RMSN Wave 2 is COMPRESSED IN TIME but SIMILAR IN DEPTH to RMSN-193M's Wave 2.
 If (B) holds, C-RMSN compresses the full cascade sequence into ~1/3 of training steps! Watching.
 
+**UPDATE 20:05Z — Wave 2 Pre-Onset Oscillations ACTIVE (step 15K-18.7K):**
+Sustained lyap elevation since step 15100. NOT random oscillations — systematic buildup pattern:
+| Step | lyap | Notes |
+|------|------|-------|
+| 15500 | -0.0061 | First sustained elevation |
+| 16100 | -0.0065 | Rising |
+| 16200 | -0.0078 | Rising |
+| 16600 | -0.0081 | New inter-wave high |
+| 18400 | -0.0080 | Sustained |
+| 18700 | **-0.0096** | **NEW HIGH — approaching -0.01 threshold** |
+
+PPL at step 18500: **203.7** — 63% improvement from pre-cascade baseline (557).
+Wave 2 onset IMMINENT: oscillations following the same pattern as pre-Wave 1 buildup (steps 3300-5900).
+If ~1500-step delay from first significant spike (step 15100): Wave 2 onset predicted **step 16600-20000**.
+Inter-wave gap so far: 7100 → 18700 = **11600 steps** (vs RMSN-193M ~1K: 11.6× longer).
+HCC interwave prediction: depth = -0.9 × (11600/28000) = **-0.373** (between models A and B!)
+Monitor b9a1b3qaj + belju01uk active. Run ends step 30K ~20:50Z.
+
 ---
 
 ### 7. RMSN-300M SFT COMPLETE (Nov 05 2026, 19:55Z)
@@ -379,10 +397,22 @@ achieves competitive loss with CDM architectures trained on significantly more d
 **Note for future runs**: save_every=2500 is too coarse. Use save_every=500 or EMA-based best tracking to
 capture low-loss batches like step 1900 (1.664). The best_loss=2.04 is biased toward the final LR floor.
 
-**Eval launched**: RMSN-SFT GSM8K eval started on p35122 GPU1 (PID=325512) at 19:56Z.
-Script: p35122:/workspace/eval_rmsn_sft_gsm8k.py
-Log: p35122:/workspace/eval_rmsn_sft_gsm8k_stdout.log
-ETA: ~22:30Z. Compare to CDM run9=2.05%, CDM-Q=1.67%.
+**Eval attempted**: RMSN-SFT GSM8K eval launched at 19:56Z (PID=325512) but **CANCELLED at 20:08Z**.
+
+**Finding — RMSN Inference Bottleneck**: Autoregressive generation with RMSN-300M is prohibitively slow.
+After 11 minutes, zero questions completed (first question still generating). Root cause: each token
+requires a full forward pass through 28 layers of parallel_metriplectic_scan + FractionalCaputoBank,
+which are O(seq_len) operations with high constant factor. During training these are amortized across
+the entire batch in parallel; during autoregressive generation they run sequentially per token.
+
+Estimated throughput: <6 questions/hour → 1319 questions ≈ 220 hours. Not viable.
+
+**Recommended future approaches**:
+1. **Perplexity scoring** — compute NLL on "Q: … A: … #### {correct_answer}" strings (no generation needed)
+2. **Batch logit scoring** — score correct vs incorrect answers at the `####` token position (1 forward pass/question)
+3. **Inference optimization** — pre-compute RMSN state for the prompt prefix (KV-cache analog for metriplectic state)
+
+GSM8K eval deferred until one of these approaches is implemented.
 
 ---
 
