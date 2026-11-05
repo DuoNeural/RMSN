@@ -238,6 +238,27 @@ D=1024 does not merely enable cascade — it sets the amplitude of ALL metriplec
 ### 4. GENERIC Framework Unification (Aura)
 PULSE = non-commutative quantum metriplectic realization of GENERIC (Grmela & Öttinger 1997). Links RMSN/CDM/PULSE under one umbrella.
 
+### 5. C-RMSN Inverted Dissipation Profile (Nov 05 2026, 19:00Z — PRELIMINARY)
+
+**Setup**: C-RMSN v1 — identical to RMSN-193M but `CausalTrophicGlobalWorkspace` replaced by `PoincareVoronoiWorkspace` (K=16 hyperbolic Voronoi centroids, Poincaré ball c=1.0).
+
+**Observed Lyapunov trajectory**:
+| Step | lyap | Notes |
+|------|------|-------|
+| 1 | -0.0791 | HIGH initial dissipation (RMSN is -0.001) |
+| 100 | -0.0837 | Still high |
+| 300 | -0.0390 | Declining |
+| 2300 | -0.0040 | Near zero |
+| 2900 | -0.0017 | Essentially zero |
+
+**This is the INVERSE of RMSN**: RMSN starts at lyap≈-0.001 and cascades DOWN to -0.900. C-RMSN starts at lyap≈-0.079 and RISES toward zero.
+
+**Hypothesis**: Hyperbolic Voronoi routing creates strong initial dissipation (Poincaré centroids far from origin at initialization), which then drains as centroids adapt. Whether the lyapunov will then:
+- (A) stabilize at ~0 (cascade suppressed permanently by hyperbolic geometry), or  
+- (B) pass through zero and begin a delayed cascade (shifted by ~3K steps)
+
+Watching through 30K steps. Result will reveal whether hyperbolic geometry **modulates** or **suppresses** the metriplectic phase transition.
+
 ---
 
 ## Open Hypotheses Under Test
@@ -259,7 +280,7 @@ Authorized by Aura. All 8 idle GPUs deployed.
 |-----------|------|--------|------|
 | GSM8K eval run10 | A4000 | ✅ RUNNING 18:42Z | cdm_run10_80_20_best.pt, 1319 examples |
 | RMSN-500M scale horizon | p19285 | ✅ RUNNING 18:42Z | D=1024/L=44/443M, lyap=-0.0876 @step100 |
-| C-RMSN v1 (Poincaré) | p35122 GPU0 | ✅ RUNNING 18:48Z | D=1024/L=16/187M, K=16 hyp. centroids |
+| C-RMSN v1 (Poincaré) | p35122 GPU0 | ✅ RUNNING 18:48Z | D=1024/L=16/187M, K=16 hyp. centroids, lyap RISING: -0.079→0 (inverted cascade!) |
 | PULSE Muon calib | p54091 GPU0 | ✅ RUNNING 18:49Z | 1.121B, loss=10.55 @step6 |
 | RMSN-300M SFT | p35122 GPU1 | ⏳ QUEUED | cdm-reasoning-traces-v4 (script needed) |
 | DHP trajectory extraction | — | ⚠️ BLOCKED | Only best.pt survives (intermediates lost) |
