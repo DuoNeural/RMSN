@@ -6,19 +6,19 @@ This file tracks all RMSN experimental runs. Updated automatically by Archon dur
 
 ---
 
-## Active Runs (Nov 05 2026 ~15:44Z — auto-updated)
+## Active Runs (Nov 05 2026 ~15:56Z — auto-updated)
 
 | Run | Node | Config | Status | Key Metric |
 |-----|------|--------|--------|------------|
 | ~~seed_repro~~ ✅ | p54091 GPU0 | D=1024/L=16/193M, wikitext-103 | **DONE 14:05Z** | **Best val ppl=93.1**, lyap stable 100% last 1K steps |
 | ~~code_corpus~~ ✅ | p54091 GPU1 | D=1024/L=16/193M, codeparrot-clean | **DONE 14:53Z** | **val_ppl=27.0** 🏆 best of all runs! |
-| **width_iso** ↩️ | p35122 GPU2 | D=1024/L=10/139M, wikitext-103 | step=28200/30K, lyap=**-0.0649** | ETA ~10min — late cascade signal! |
-| depth_iso ↩️ | p35122 GPU3 | D=768/L=24/160M, wikitext-103 | step=20900/30K, lyap=-0.0021 | ETA ~76min (control, no cascade) |
+| ~~width_iso~~ ✅ | p35122 GPU2 | D=1024/L=10/139M, wikitext-103 | **DONE 15:54Z** | **Best val ppl=162.8**, lyap stable, Wave 1 confirmed |
+| depth_iso ↩️ | p35122 GPU3 | D=768/L=24/160M, wikitext-103 | step=22300/30K, lyap=-0.0026 | ETA ~1.1h (D=768 control — no cascade throughout) |
 | ~~scale_300M~~ ✅ | p19285 GPU0 | D=1024/L=28/300M, wikitext-103 | **DONE 12:45Z** | **Best val ppl=81.7**, lyap stable 100% last 1K steps |
 | ~~golden_ratio~~ ✅ | p19970 GPU0 | D=1024/L=16/193M, 35/25/15/25 mix | **DONE 12:57Z** | val_ppl=1002.0, Wave 2 lyap=-1.0348 (deepest!) |
-| **run10_CDM** ↩️ | p35122 GPU0 | CDM 80/20 mix phase2 distill | DHP slots 3/10/11 firing | then GSM8K eval |
+| **run10_CDM** ↩️ | p35122 GPU0 | CDM 80/20 mix phase2 distill | DHP slots 0/5/8 firing | then GSM8K eval |
 
-**p35122 disk**: 16GB free (93%) ✓
+**p35122 disk**: 11GB free (95%) — watching, width_iso final checkpoint saved
 
 ---
 
@@ -137,6 +137,7 @@ If depth_iso cascades later → width is sufficient but not necessary (both axes
 | scale_300M | p19285 GPU0 | 300M, wikitext-103, 50K steps | **81.7** | Lyap stable. Wave cascade confirmed at 300M scale. |
 | seed_repro | p54091 GPU0 | 193M, wikitext-103, 50K steps, diff seed | **93.1** | Lyap stable. Cascade reproducible (seed-independent structure). |
 | golden_ratio | p19970 GPU0 | 193M, 35/25/15/25 CoT mix, 50K steps | 1002.0* | Wave 2 lyap=-1.0348 (deepest!). *ppl high due to mixed data eval. |
+| **width_iso** | p35122 GPU2 | 139M, D=1024/L=10, wikitext-103, 30K steps | **162.8** | Lyap stable. Wave 1 confirmed at step 6100 (-0.5634). Late lyap signal. |
 
 *golden_ratio ppl=1002 reflects heterogeneous test distribution, not poor training quality.
 
