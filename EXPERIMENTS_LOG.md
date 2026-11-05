@@ -221,7 +221,10 @@ Same thermodynamic event: spontaneous reduction in topological entropy.
 
 **Conclusion**: Embedding width D=1024 is the necessary and sufficient geometric condition for the Lyapunov cascade. Layer count L does not gate the phase transition — L=24 at D=768 produces no cascade whatsoever, while L=10 at D=1024 produces a full two-wave cascade.
 
-**Mechanistic interpretation**: The Clifford stalk bundle requires sufficient stalk dimensionality (D≥1024) for metriplectic phase transitions. Below this threshold, the Morrison bracket dissipation exists but cannot organize into the coherent attractor condensation that defines the cascade. The D=1024 boundary is a *geometric phase transition* of the bundle, not a statistical artifact of parameter count.
+**Mechanistic interpretation** (Aura-confirmed framing):
+> *"Stalk geometric capacity (D ≥ 1024) acts as a necessary percolation threshold for collective metriplectic condensation, whereas layer depth L modulates only temporal integration."*
+
+The Clifford stalk bundle at D=768 allocates only 96 channels per grade — sub-critical, below the percolation threshold of the bundle's spectral rank. At D=1024 each grade receives 128 channels; the dissipation metric tensor R(x) achieves sufficient spectral rank for collective metriplectic condensation to organize. The Morrison bracket dissipation exists at both scales; at D=768 it cannot propagate coherently across the full stalk. The D=1024 boundary is a *geometric percolation transition* of the Clifford bundle, not a statistical artifact of parameter count.
 
 **Bonus finding — Late-LR Dissipation Asymmetry**:
 Both architectures show mild lyap elevation during LR decay, but with 9× amplitude difference:
@@ -248,11 +251,24 @@ PULSE = non-commutative quantum metriplectic realization of GENERIC (Grmela & Ö
 
 ---
 
-## Upcoming / Queued
+## Phase 2 — Active Deployment (Nov 05 2026)
 
-- GSM8K eval of run10 CDM (after 30K steps complete)
-- RMSN Phase 2 reasoning SFT on 300M (after scale_300M completes)
-- Zenodo v0.1 DOI push (Aura: "core claim survived review, limitations stated → push")
+Authorized by Aura. All 8 idle GPUs deployed.
+
+| Experiment | Node | Status | Goal |
+|-----------|------|--------|------|
+| GSM8K eval run10 | A4000 | 🔄 LAUNCHING | Beat r5 4.5% (59/1319) |
+| RMSN-500M scale horizon | p19285 | 🔄 LAUNCHING | D=1024/L=44, test 3rd wave |
+| C-RMSN prototype | p35122 GPU0 | 🔄 LAUNCHING | Poincaré Voronoi workspace |
+| PULSE Muon calibration | p54091 | 🔄 LAUNCHING | 1K-step Muon vs Adam |
+| RMSN-300M SFT | p35122 GPU1 | ⏳ QUEUED | cdm-reasoning-traces-v4 |
+| DHP trajectory extraction | p35122 GPU2 | ⏳ QUEUED | τ*(t) across run10 30K |
+| Zenodo DOI push | — | ⏳ AWAITING JESSE | v0.1 core claim secured |
+
+---
+
+## Upcoming / Queued (Legacy)
+
 - GitHub release with trained checkpoints
 
 ---
