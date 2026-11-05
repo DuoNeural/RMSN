@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Checkpoints and weights
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.gguf
+checkpoints/
+continuation/
+lm_run/
+overnight/
+scale_300m/
+
+# Logs and outputs
+*.log
+*.out
+wandb/
+runs/
+.cache/
+data/
+wikitext/
+
+# Environment
+.venv/
+venv/
+env/
