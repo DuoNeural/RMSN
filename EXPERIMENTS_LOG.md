@@ -318,8 +318,18 @@ Full lyap history reveals:
 | Wave 1 max depth | λ ≈ -0.14 | λ ≈ -0.09 |
 | Wave 2 predicted | steps 33-50K | steps ~11-20K? |
 
-**HYPOTHESIS: Compressed cascade law** — cascade depth ∝ time at threshold before firing.
-RMSN-193M spent 28K steps at threshold, then cascaded deeply (-0.9). C-RMSN spent only 3400 steps at threshold, then cascaded shallowly (-0.09). The hyperbolic geometry "pre-releases" thermodynamic potential during the drain phase, leaving less energy to drive the cascade. Watching for Wave 2.
+**Hyperbolic Compressed Cascade (HCC) Law — preliminary formulation:**
+
+λ_max ≈ λ_ref × (T_threshold / T_ref)
+(λ_ref=-0.9, T_ref=28000 for RMSN-193M; T_threshold=steps at threshold before cascade)
+
+Calibration on C-RMSN: T_threshold≈3400 → predicted λ=-0.109. Observed: -0.0917. Error: 16%.
+
+Physical: cascade amplitude = thermodynamic potential stored during threshold residence.
+Like seismic strain: longer quiescence → larger release. Cascade is a metriplectic strain release.
+
+RMSN-500M prediction: T_threshold≈28K → λ_max≈-0.9 (same as 193M). Verification ~Nov06 01:00Z.
+C-RMSN Wave 2: predicted step ~11-15K (5K after Wave 1 at step ~7K). Watching.
 
 ---
 
