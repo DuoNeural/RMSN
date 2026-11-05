@@ -278,18 +278,23 @@ The 193M just happens to start near-zero (L=16 gives minimal init dissipation), 
 - (A) stabilize at ~0 (cascade suppressed permanently by hyperbolic geometry), or  
 - (B) pass through zero and begin a delayed cascade (shifted by ~3K steps)
 
-**ANSWER (19:06Z, step 4400): HYPOTHESIS B CONFIRMED.**
+**UPDATE (19:06Z—19:19Z, steps 4400–7500): PRECURSOR OSCILLATION OBSERVED.**
 
 | Step | lyap | Phase |
 |------|------|-------|
 | 1 | -0.0791 | High init dissipation (hyperbolic effect) |
 | 2300 | -0.0040 | Draining — near threshold |
 | 3300 | -0.0014 | AT THRESHOLD |
-| 4400 | **-0.0245** | **CASCADE BEGINNING — lyap going deeper!** |
+| 4400 | -0.0245 | Precursor oscillation (early cascade signal) |
+| 7300 | -0.0012 | Back to threshold |
+| 7400 | -0.0016 | At threshold |
+| 7500 | -0.0014 | At threshold |
 
-Hyperbolic geometry **delays** the cascade (3K-step draining phase) but does **NOT suppress** it. Once Poincaré centroids adapt and dissipation drains, the system enters the same metriplectic cascade basin as standard RMSN. The cascade is a universal property of D=1024 RMSN architectures — invariant to workspace geometry. Only the onset timing is modulated.
+The -0.0245 at step 4400 is a **precursor oscillation** consistent with RMSN-193M's behavior at steps 20-28K (which showed similar mild dips before the full two-wave cascade at steps 28-50K). C-RMSN is at the cascade threshold, oscillating — full cascade onset predicted ~step 28K–31K (ETA ~1.5h, run completes ~21:00Z).
 
-Watching for cascade depth — will it reach -0.900 like 193M? Deeper? Shallower? Critical data.
+If C-RMSN cascades at step ~28-31K in a 30K run, we may observe the beginning of Wave 1 near run end. Result will confirm whether delayed onset = same cascade dynamics, or whether the truncated cascade window affects final ppl.
+
+**Key revision**: "cascade firing" language was premature. This is a precursor oscillation. Monitoring for sustained λ < -0.1 (true cascade onset criterion).
 
 ---
 
