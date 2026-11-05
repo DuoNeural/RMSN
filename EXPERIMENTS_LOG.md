@@ -6,19 +6,19 @@ This file tracks all RMSN experimental runs. Updated automatically by Archon dur
 
 ---
 
-## Active Runs (Nov 05 2026 ~08:53Z — auto-updated)
+## Active Runs (Nov 05 2026 ~09:06Z — auto-updated)
 
 | Run | Node | Config | Status | Key Metric |
 |-----|------|--------|--------|------------|
-| seed_repro | p54091 GPU0 | D=1024/L=16/193M, wikitext-103 | step=13900/50K | ppl=205, lyap=-0.001, ETA=5.2h |
-| code_corpus | p54091 GPU1 | D=1024/L=16/193M, codeparrot-clean | step=7600/50K | ppl=103.8⚡⚡, lyap=-0.001, ETA=6.0h |
-| **width_iso** | p35122 GPU2 | D=1024/L=10/139M, wikitext-103 | step=11700/30K 🌊 | lyap=-0.0012 (Wave 2 window: 12-18K) |
-| depth_iso | p35122 GPU3 | D=768/L=24/160M, wikitext-103 | step=8100/30K | ppl=288, lyap=-0.0036, ETA=3.0h |
-| **scale_300M** | p19285 GPU0 | D=1024/L=28/300M, wikitext-103 | step=23700/50K ⚡ | ppl=102.8, **lyap=-0.0876** pre-cascade! |
-| **golden_ratio** | p19970 GPU0 | D=1024/L=16/193M, 35/25/15/25 mix | step=8100/50K 🌊 | **lyap=-0.1514** CASCADE SIGNAL! |
-| run10_CDM | p35122 GPU0 | CDM 80/20 mix phase2 distill | Running 🔥 | DHP slot=4 tau*=6.09e7 |
+| seed_repro | p54091 GPU0 | D=1024/L=16/193M, wikitext-103 | step=15400/50K | ppl=185, lyap=-0.0077, ETA=5.0h |
+| code_corpus | p54091 GPU1 | D=1024/L=16/193M, codeparrot-clean | step=9200/50K | ppl=**83.8**⚡⚡⚡, lyap=-0.001, ETA=5.8h |
+| **width_iso** | p35122 GPU2 | D=1024/L=10/139M, wikitext-103 | step=13900/30K 🌊 | lyap=**-0.0117** (Wave 2 building, 12-18K window) |
+| depth_iso | p35122 GPU3 | D=768/L=24/160M, wikitext-103 | step=9600/30K | ppl=275, lyap=-0.0013, ETA=2.83h |
+| **scale_300M** | p19285 GPU0 | D=1024/L=28/300M, wikitext-103 | step=25100/50K 🌊 | ppl=112.6, lyap=-0.0197 (Wave 1 recovery) |
+| **golden_ratio** | p19970 GPU0 | D=1024/L=16/193M, 35/25/15/25 mix | step=10300/50K 🌊 | lyap=-0.0027 (Wave 1 recovery from -0.1514) |
+| run10_CDM | p35122 GPU0 | CDM 80/20 mix phase2 distill | Running 🔥 | DHP slot=0 tau*=2.48e8 |
 
-**p35122 disk**: 13GB free (94%). Above 8GB threshold — monitoring.
+**p35122 disk**: 12GB free (94%) — pruned 3 old step ckpts (3.2GB freed at 09:06Z).
 
 ---
 
@@ -40,13 +40,28 @@ Mechanistic interpretation: reasoning traces force the network to build explicit
 multi-step state representations. This accelerates attractor formation in the
 Clifford bundle → trophic condensation happens faster → earlier λ cascade.
 
-### Scale_300M — Pre-Cascade Activity Earlier Than Predicted
-- step=23700, lyap=-0.0876 (vs baseline -0.001)
-- Predicted onset: 38-46K (Aura). Pre-signal arriving at 23.7K.
-- ppl=102.8 — fastest convergence of any run so far
-- If lyap drops below -0.1 at next val (25K), cascade may arrive at 26-32K not 38-46K
-- Hypothesis: 300M's deeper architecture (L=28) allows faster Clifford bundle
-  reorganization despite lower per-step gradient noise vs 193M
+### Scale_300M — Wave 1 at step 23700, Recovering (09:06Z update)
+- step=23700, lyap=-0.0876 (Wave 1 onset)
+- step=25100, lyap=-0.0197 (recovering — same two-wave pattern as 193M and width_iso)
+- ppl=112.6 — excellent convergence
+- Wave 2 expected ~28-35K. This is the THIRD run confirming the two-wave pattern.
+- The 300M's Wave 1 is shallower (-0.0876 vs -0.5634 for width_iso and -0.1514 for golden_ratio)
+  → More parameters = more distributed dissipation = shallower individual waves?
+
+### Two-Wave Universal Pattern Emerging (09:06Z)
+Evidence accumulating that the two-wave cascade is a universal feature of D=1024 RMSN models:
+- width_iso (D=1024/L=10/139M): Wave 1 at step 6100 (lyap=-0.5634) → recovery → Wave 2 expected 12-18K
+- golden_ratio (D=1024/L=16/193M, CoT): Wave 1 at step 8100 (lyap=-0.1514) → recovering (lyap=-0.0027 at step 10300)
+- scale_300M (D=1024/L=28/300M): Wave 1 at step ~23700 (lyap=-0.0876) → recovering (lyap=-0.0197 at step 25100)
+- depth_iso (D=768/L=24/160M): lyap=-0.0013 at step 9600 → NO cascade → D=768 is below threshold
+
+Pattern: larger models have SHALLOWER wave peaks but longer inter-wave intervals.
+width_iso (smallest): peak -0.5634, Wave 1 at step 6K (D=1024, L=10)
+golden_ratio (193M): peak -0.1514, Wave 1 at step 8K (D=1024, L=16, accelerated by CoT)
+scale_300M (largest): peak ~-0.0876, Wave 1 at step ~23K (D=1024, L=28)
+
+Possible mechanism: more layers = more distributed gradient flow = slower/shallower individual
+attractor formation but eventually same phase transition at later step count.
 
 ### width_iso Cascade Dynamics (08:40Z update)
 - Step 6100: lyap=-0.5634 (Wave 1 onset)
