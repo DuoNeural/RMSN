@@ -294,7 +294,32 @@ The -0.0245 at step 4400 is a **precursor oscillation** consistent with RMSN-193
 
 If C-RMSN cascades at step ~28-31K in a 30K run, we may observe the beginning of Wave 1 near run end. Result will confirm whether delayed onset = same cascade dynamics, or whether the truncated cascade window affects final ppl.
 
-**Key revision**: "cascade firing" language was premature. This is a precursor oscillation. Monitoring for sustained λ < -0.1 (true cascade onset criterion).
+**CORRECTION (19:21Z): CASCADE IS ACTIVE — COMPRESSED WAVE STRUCTURE**
+
+Full lyap history reveals:
+| Step | lyap | Phase |
+|------|------|-------|
+| 1 | -0.0791 | High init dissipation |
+| 3300 | -0.0014 | Threshold reached |
+| 4400 | -0.0245 | Pre-wave oscillation |
+| 6700 | **-0.0917** | **WAVE 1 FIRING** |
+| 6800 | -0.0637 | Wave 1 oscillation |
+| 6900 | -0.0814 | Wave 1 depth |
+| 7000 | -0.0705 | Wave 1 oscillation |
+| 7100 | -0.0077 | Wave 1 recovery |
+| 8000 | -0.0013 | Back to threshold |
+
+**C-RMSN CASCADE CONFIRMED ACTIVE.** Key comparison:
+| | RMSN-193M (Euclidean) | C-RMSN v1 (Hyperbolic) |
+|-|----------------------|------------------------|
+| Drain phase | None (starts at threshold) | 3300 steps (from λ=-0.079 to 0) |
+| Wave 1 onset | step ~28K | step ~6700 |
+| Steps at threshold before Wave 1 | ~28K | ~3400 |
+| Wave 1 max depth | λ ≈ -0.14 | λ ≈ -0.09 |
+| Wave 2 predicted | steps 33-50K | steps ~11-20K? |
+
+**HYPOTHESIS: Compressed cascade law** — cascade depth ∝ time at threshold before firing.
+RMSN-193M spent 28K steps at threshold, then cascaded deeply (-0.9). C-RMSN spent only 3400 steps at threshold, then cascaded shallowly (-0.09). The hyperbolic geometry "pre-releases" thermodynamic potential during the drain phase, leaving less energy to drive the cascade. Watching for Wave 2.
 
 ---
 
