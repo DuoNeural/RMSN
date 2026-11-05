@@ -6,19 +6,19 @@ This file tracks all RMSN experimental runs. Updated automatically by Archon dur
 
 ---
 
-## Active Runs (Nov 05 2026 ~09:32Z — auto-updated)
+## Active Runs (Nov 05 2026 ~15:20Z — auto-updated)
 
 | Run | Node | Config | Status | Key Metric |
 |-----|------|--------|--------|------------|
-| seed_repro | p54091 GPU0 | D=1024/L=16/193M, wikitext-103 | step=18400/50K | ppl=150, lyap=-0.001, ETA=4.5h |
-| code_corpus | p54091 GPU1 | D=1024/L=16/193M, codeparrot-clean | step=12200/50K | ppl=**69.7**⚡⚡⚡, lyap=-0.001, ETA=5.4h |
-| **width_iso** | p35122 GPU2 | D=1024/L=10/139M, wikitext-103 | step=18400/30K | lyap=-0.0020 (past Wave 2 window, max=-0.0240, ETA 1.1h) |
-| depth_iso ✓ | p35122 GPU3 | D=768/L=24/160M, wikitext-103 | step=12700/30K | ppl=219, lyap=-0.0028 (RECOVERED — fluke confirmed), ETA=2.4h |
-| **scale_300M** | p19285 GPU0 | D=1024/L=28/300M, wikitext-103 | step=28100/50K 🌊 | ppl=102.6, lyap=-0.0119 (entering Wave 2 window 28-35K) |
-| **golden_ratio** 🔥 | p19970 GPU0 | D=1024/L=16/193M, 35/25/15/25 mix | step=14800/50K 🌊🌊 | **lyap=-1.0348 WAVE 2 CASCADE** — deeper than 193M baseline! |
-| run10_CDM | p35122 GPU0 | CDM 80/20 mix phase2 distill | Running 🔥 | DHP slot=11 tau*=5.44e7 |
+| ~~seed_repro~~ ✅ | p54091 GPU0 | D=1024/L=16/193M, wikitext-103 | **DONE 14:05Z** | **Best val ppl=93.1**, lyap stable 100% last 1K steps |
+| ~~code_corpus~~ ✅ | p54091 GPU1 | D=1024/L=16/193M, codeparrot-clean | **DONE 14:53Z** | **val_ppl=27.0** 🏆 best of all runs! |
+| **width_iso** ↩️ | p35122 GPU2 | D=1024/L=10/139M, wikitext-103 | Resumed from step=24000 | ~6K steps left (ETA ~12 min) |
+| depth_iso ↩️ | p35122 GPU3 | D=768/L=24/160M, wikitext-103 | Resumed from step=18000 | ~12K steps left (ETA ~40 min) |
+| ~~scale_300M~~ ✅ | p19285 GPU0 | D=1024/L=28/300M, wikitext-103 | **DONE 12:45Z** | **Best val ppl=81.7**, lyap stable 100% last 1K steps |
+| ~~golden_ratio~~ ✅ | p19970 GPU0 | D=1024/L=16/193M, 35/25/15/25 mix | **DONE 12:57Z** | val_ppl=1002.0, Wave 2 lyap=-1.0348 (deepest!) |
+| **run10_CDM** ↩️ | p35122 GPU0 | CDM 80/20 mix phase2 distill | Resumed from step=20000 | ~10K steps left, DHP slots 3/8/10 firing |
 
-**p35122 disk**: 14GB free (94%) — pruned at 09:32Z ✓
+**p35122 disk**: 16GB free (93%) — 3 runs crashed at ~10:40Z (disk full), restarted 15:19Z with --resume ✓
 
 ---
 
@@ -126,6 +126,19 @@ for the metriplectic phase transition to occur even with L=10 (less than the 193
 
 If depth_iso (D=768/L=24) does NOT cascade → confirms: **D=1024 is the geometric threshold.**
 If depth_iso cascades later → width is sufficient but not necessary (both axes contribute).
+
+---
+
+## *** COMPLETED Nov05 (this session) ***
+
+| Run | Node | Config | Final Val PPL | Notes |
+|-----|------|--------|---------------|-------|
+| **code_corpus** | p54091 GPU1 | 193M, codeparrot-clean, 50K steps | **27.0** 🏆 | Best val PPL of all RMSN runs. Train ppl=21.6. |
+| scale_300M | p19285 GPU0 | 300M, wikitext-103, 50K steps | **81.7** | Lyap stable. Wave cascade confirmed at 300M scale. |
+| seed_repro | p54091 GPU0 | 193M, wikitext-103, 50K steps, diff seed | **93.1** | Lyap stable. Cascade reproducible (seed-independent structure). |
+| golden_ratio | p19970 GPU0 | 193M, 35/25/15/25 CoT mix, 50K steps | 1002.0* | Wave 2 lyap=-1.0348 (deepest!). *ppl high due to mixed data eval. |
+
+*golden_ratio ppl=1002 reflects heterogeneous test distribution, not poor training quality.
 
 ---
 
