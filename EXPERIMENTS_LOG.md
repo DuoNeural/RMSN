@@ -238,7 +238,28 @@ D=1024 does not merely enable cascade — it sets the amplitude of ALL metriplec
 ### 4. GENERIC Framework Unification (Aura)
 PULSE = non-commutative quantum metriplectic realization of GENERIC (Grmela & Öttinger 1997). Links RMSN/CDM/PULSE under one umbrella.
 
-### 5. C-RMSN Inverted Dissipation Profile (Nov 05 2026, 19:00Z — PRELIMINARY)
+### 5. Unified High-Init-Dissipation Draining Pattern (Nov 05 2026, 19:05Z — PRELIMINARY)
+
+**Observation**: Three independent experiments all show the same inverted Lyapunov trajectory:
+
+| Model | Params | Mechanism | lyap@init | lyap@step~3K |
+|-------|--------|-----------|-----------|--------------|
+| RMSN-193M | 193M | D=1024/L=16, baseline | -0.001 | CASCADE (-0.900) |
+| RMSN-300M | 300M | D=1024/L=28, more layers | -0.064 | ~draining (predicted cascade ~38-46K) |
+| RMSN-500M | 443M | D=1024/L=44, more layers | -0.088 | -0.002 (rising) |
+| C-RMSN v1 | 187M | D=1024/L=16, hyperbolic routing | -0.079 | -0.001 (rising) |
+
+**Pattern**: For D=1024 models with L>>16 OR with hyperbolic workspace geometry, there is a **high-init-dissipation draining phase** before any cascade can occur. The 193M (L=16, Euclidean) starts essentially at the cascade threshold and fires early. Everything else starts far below, drains toward zero, and presumably fires later (or the cascade is fully suppressed by geometry).
+
+**Implication**: The Lyapunov cascade is a threshold phenomenon in TWO senses:
+1. **Geometric threshold**: D≥1024 required (confirmed, stalk percolation)
+2. **Temporal threshold**: lyap must first RISE to near-zero before cascade fires
+
+The 193M just happens to start near-zero (L=16 gives minimal init dissipation), so it appears to cascade immediately. Deeper/geometrically-richer models drain to zero first, then cascade later (or not at all if geometry prevents it).
+
+---
+
+### 6. C-RMSN Inverted Dissipation Profile (Nov 05 2026, 19:00Z — PRELIMINARY)
 
 **Setup**: C-RMSN v1 — identical to RMSN-193M but `CausalTrophicGlobalWorkspace` replaced by `PoincareVoronoiWorkspace` (K=16 hyperbolic Voronoi centroids, Poincaré ball c=1.0).
 
