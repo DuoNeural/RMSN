@@ -343,7 +343,14 @@ Physical: cascade amplitude = thermodynamic potential stored during threshold re
 Like seismic strain: longer quiescence → larger release. Cascade is a metriplectic strain release.
 
 RMSN-500M prediction: T_threshold≈28K → λ_max≈-0.9 (same as 193M). Verification ~Nov06 01:00Z.
-C-RMSN Wave 2: predicted step ~11-15K (5K after Wave 1 at step ~7K). Watching.
+C-RMSN Wave 2: step 11.6K passed without firing. Inter-wave gap 4500+ steps (vs RMSN-193M ~1K = 4.5× longer).
+Revised prediction: step 15-25K. Hypothesis: hyperbolic centroid migration delays Wave 2.
+
+**Wave 2 depth prediction — two models:**
+(A) HCC: depth = -0.9 × (T_interwave/28000). If T_interwave=5400 → depth=-0.17. Triggered.
+(B) Wave2/Wave1 ratio law: RMSN-193M Wave2/Wave1 = 0.9/0.14 = 6.4×. C-RMSN Wave1=0.09 → Wave2=-0.58. Deep!
+Model (B) predicts C-RMSN Wave 2 is COMPRESSED IN TIME but SIMILAR IN DEPTH to RMSN-193M's Wave 2.
+If (B) holds, C-RMSN compresses the full cascade sequence into ~1/3 of training steps! Watching.
 
 ---
 
