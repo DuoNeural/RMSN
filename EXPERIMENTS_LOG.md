@@ -6,19 +6,19 @@ This file tracks all RMSN experimental runs. Updated automatically by Archon dur
 
 ---
 
-## Active Runs (Nov 05 2026 ~09:06Z — auto-updated)
+## Active Runs (Nov 05 2026 ~09:19Z — auto-updated)
 
 | Run | Node | Config | Status | Key Metric |
 |-----|------|--------|--------|------------|
-| seed_repro | p54091 GPU0 | D=1024/L=16/193M, wikitext-103 | step=15400/50K | ppl=185, lyap=-0.0077, ETA=5.0h |
-| code_corpus | p54091 GPU1 | D=1024/L=16/193M, codeparrot-clean | step=9200/50K | ppl=**83.8**⚡⚡⚡, lyap=-0.001, ETA=5.8h |
-| **width_iso** | p35122 GPU2 | D=1024/L=10/139M, wikitext-103 | step=13900/30K 🌊 | lyap=**-0.0117** (Wave 2 building, 12-18K window) |
-| depth_iso | p35122 GPU3 | D=768/L=24/160M, wikitext-103 | step=9600/30K | ppl=275, lyap=-0.0013, ETA=2.83h |
-| **scale_300M** | p19285 GPU0 | D=1024/L=28/300M, wikitext-103 | step=25100/50K 🌊 | ppl=112.6, lyap=-0.0197 (Wave 1 recovery) |
-| **golden_ratio** | p19970 GPU0 | D=1024/L=16/193M, 35/25/15/25 mix | step=10300/50K 🌊 | lyap=-0.0027 (Wave 1 recovery from -0.1514) |
-| run10_CDM | p35122 GPU0 | CDM 80/20 mix phase2 distill | Running 🔥 | DHP slot=0 tau*=2.48e8 |
+| seed_repro | p54091 GPU0 | D=1024/L=16/193M, wikitext-103 | step=16900/50K | ppl=177, lyap=-0.001, ETA=4.8h |
+| code_corpus | p54091 GPU1 | D=1024/L=16/193M, codeparrot-clean | step=10700/50K | ppl=**75.5**⚡⚡⚡, lyap=-0.001, ETA=5.6h |
+| **width_iso** | p35122 GPU2 | D=1024/L=10/139M, wikitext-103 | step=16200/30K 🌊 | lyap=**-0.0240** (Wave 2 building — ETA 1.3h) |
+| **depth_iso** ⚠️ | p35122 GPU3 | D=768/L=24/160M, wikitext-103 | step=11200/30K | ppl=226, lyap=**-0.0118** (unexpected elevation!), ETA=2.6h |
+| **scale_300M** | p19285 GPU0 | D=1024/L=28/300M, wikitext-103 | step=26600/50K 🌊 | ppl=104.4, lyap=-0.0230 (Wave 1 recovery) |
+| **golden_ratio** | p19970 GPU0 | D=1024/L=16/193M, 35/25/15/25 mix | step=12600/50K 🌊 | lyap=-0.0040 (Wave 1 recovery, Wave 2 ~15-22K) |
+| run10_CDM | p35122 GPU0 | CDM 80/20 mix phase2 distill | Running 🔥 | DHP slot=5 tau*=2.89e7 |
 
-**p35122 disk**: 12GB free (94%) — pruned 3 old step ckpts (3.2GB freed at 09:06Z).
+**p35122 disk**: 13GB free (94%) ✓
 
 ---
 
@@ -47,6 +47,16 @@ Clifford bundle → trophic condensation happens faster → earlier λ cascade.
 - Wave 2 expected ~28-35K. This is the THIRD run confirming the two-wave pattern.
 - The 300M's Wave 1 is shallower (-0.0876 vs -0.5634 for width_iso and -0.1514 for golden_ratio)
   → More parameters = more distributed dissipation = shallower individual waves?
+
+### depth_iso Unexpected Lyap Elevation (09:19Z)
+D=768/L=24/160M at step 11200: lyap=-0.0118 (up from -0.0013 at step 9600)
+This is the control run that was supposed to stay flat (confirming width-only hypothesis).
+Three possibilities:
+1. Random fluctuation — lyap can bounce at low values, common in early training
+2. L=24 provides enough depth to trigger a *delayed* cascade even at D=768 (would revise hypothesis)
+3. The D=768 boundary is at L=24 depth rather than absolute (joint D×L threshold)
+
+Will watch next tick: if lyap drops back to -0.001, it's a fluke. If it continues to -0.05+, Telegram Jesse.
 
 ### Two-Wave Universal Pattern Emerging (09:06Z)
 Evidence accumulating that the two-wave cascade is a universal feature of D=1024 RMSN models:
