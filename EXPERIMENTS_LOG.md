@@ -6,17 +6,25 @@ This file tracks all RMSN experimental runs. Updated automatically by Archon dur
 
 ---
 
-## Active Runs (Nov 05 2026 ~07:50Z)
+## Active Runs (Nov 05 2026 ~08:08Z — auto-updated)
 
 | Run | Node | Config | Status | Key Metric |
 |-----|------|--------|--------|------------|
-| seed_repro | p54091 GPU0 | D=1024/L=16/193M, wikitext-103 | Running step 6300/50K | ppl=361, lyap=-0.001 |
-| code_corpus | p54091 GPU1 | D=1024/L=16/193M, codeparrot-clean | Tokenizing | — |
-| width_iso | p35122 GPU2 | D=1024/L=10/139M, wikitext-103 | Running step 200/30K | — |
-| depth_iso | p35122 GPU3 | D=768/L=24/160M, wikitext-103 | Running step 100/30K | lyap=-0.095 |
-| scale_300M | p19285 GPU0 | D=1024/L=28/300M, wikitext-103 | Running step 16200/50K | ppl=170, lyap=-0.001 |
-| golden_ratio | p19970 GPU0 | D=1024/L=16/193M, 35/25/15/25 mix | Tokenizing | — |
-| run10_CDM | p35122 GPU0 | CDM 80/20 mix phase2 distill | Running step 75/30K | — |
+| seed_repro | p54091 GPU0 | D=1024/L=16/193M, wikitext-103 | step=8700/50K | ppl=280.9, lyap=-0.001, ETA=5.9h |
+| code_corpus | p54091 GPU1 | D=1024/L=16/193M, codeparrot-clean | step=2300/50K 🟢 TRAINING | ppl=675, lyap=-0.001, ETA=6.7h |
+| width_iso | p35122 GPU2 | D=1024/L=10/139M, wikitext-103 | step=3800/30K | ppl=536, lyap=-0.001, ETA=2.5h |
+| depth_iso | p35122 GPU3 | D=768/L=24/160M, wikitext-103 | step=2700/30K | ppl=687, lyap=-0.0035⚡, ETA=3.7h |
+| scale_300M | p19285 GPU0 | D=1024/L=28/300M, wikitext-103 | step=18600/50K | ppl=136.9, lyap=-0.001, ETA=4.6h |
+| golden_ratio | p19970 GPU0 | D=1024/L=16/193M, 35/25/15/25 mix | step=400/50K 🟢 TRAINING | lyap=-0.019, ETA=4.9h |
+| run10_CDM | p35122 GPU0 | CDM 80/20 mix phase2 distill | Running — DHP slot=8 firing 🔥 | tau*=4.0e6 |
+
+**p35122 disk**: 18GB free (92% used). Watch — save-every=10K for run10.
+
+### Early Observations (08:08Z)
+- **depth_iso lyap=-0.0035** vs width_iso lyap=-0.001 at comparable steps: depth alone showing higher baseline dissipation. Could be early signal that L drives initialization dissipation.
+- **code_corpus reached training** faster than expected — tokenization of codeparrot-clean completed in <30 min.
+- **golden_ratio** also reached training — OpenThoughts-114k tokenization done.
+- **run10 DHP firing** — slot=8 activating, tau* growing toward crystallization. 80/20 mix producing clean DHP signal.
 
 ---
 
