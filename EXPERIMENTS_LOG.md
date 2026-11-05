@@ -257,13 +257,13 @@ Authorized by Aura. All 8 idle GPUs deployed.
 
 | Experiment | Node | Status | Goal |
 |-----------|------|--------|------|
-| GSM8K eval run10 | A4000 | 🔄 LAUNCHING | Beat r5 4.5% (59/1319) |
-| RMSN-500M scale horizon | p19285 | 🔄 LAUNCHING | D=1024/L=44, test 3rd wave |
-| C-RMSN prototype | p35122 GPU0 | 🔄 LAUNCHING | Poincaré Voronoi workspace |
-| PULSE Muon calibration | p54091 | 🔄 LAUNCHING | 1K-step Muon vs Adam |
-| RMSN-300M SFT | p35122 GPU1 | ⏳ QUEUED | cdm-reasoning-traces-v4 |
-| DHP trajectory extraction | p35122 GPU2 | ⏳ QUEUED | τ*(t) across run10 30K |
-| Zenodo DOI push | — | ⏳ AWAITING JESSE | v0.1 core claim secured |
+| GSM8K eval run10 | A4000 | ✅ RUNNING 18:42Z | cdm_run10_80_20_best.pt, 1319 examples |
+| RMSN-500M scale horizon | p19285 | ✅ RUNNING 18:42Z | D=1024/L=44/443M, lyap=-0.0876 @step100 |
+| C-RMSN v1 (Poincaré) | p35122 GPU0 | ✅ RUNNING 18:48Z | D=1024/L=16/187M, K=16 hyp. centroids |
+| PULSE Muon calib | p54091 GPU0 | ✅ RUNNING 18:49Z | 1.121B, loss=10.55 @step6 |
+| RMSN-300M SFT | p35122 GPU1 | ⏳ QUEUED | cdm-reasoning-traces-v4 (script needed) |
+| DHP trajectory extraction | — | ⚠️ BLOCKED | Only best.pt survives (intermediates lost) |
+| Zenodo DOI push | — | ⏳ AWAITING JESSE | Aura: 100% green light |
 
 ---
 
