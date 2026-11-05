@@ -6,19 +6,30 @@ This file tracks all RMSN experimental runs. Updated automatically by Archon dur
 
 ---
 
-## Active Runs (Nov 05 2026 ~08:21Z — auto-updated)
+## Active Runs (Nov 05 2026 ~08:40Z — auto-updated)
 
 | Run | Node | Config | Status | Key Metric |
 |-----|------|--------|--------|------------|
-| seed_repro | p54091 GPU0 | D=1024/L=16/193M, wikitext-103 | step=10200/50K | ppl=235, lyap=-0.001, ETA=5.7h |
-| code_corpus | p54091 GPU1 | D=1024/L=16/193M, codeparrot-clean | step=3900/50K | ppl=208, lyap=-0.001, ETA=6.5h |
-| **width_iso** | p35122 GPU2 | D=1024/L=10/139M, wikitext-103 | **step=6100/30K 🌊 CASCADE** | **lyap=-0.5634** ← ONSET |
-| depth_iso | p35122 GPU3 | D=768/L=24/160M, wikitext-103 | step=4200/30K | ppl=456, lyap=-0.0025, ETA=3.6h |
-| scale_300M | p19285 GPU0 | D=1024/L=28/300M, wikitext-103 | step=~20K/50K (val) | new best val_loss=5.0949 |
-| golden_ratio | p19970 GPU0 | D=1024/L=16/193M, 35/25/15/25 mix | step=2600/50K | lyap=-0.001, ETA=4.6h |
-| run10_CDM | p35122 GPU0 | CDM 80/20 mix phase2 distill | Running 🔥 | DHP slot=0 tau*=8.52e7 |
+| seed_repro | p54091 GPU0 | D=1024/L=16/193M, wikitext-103 | step=12400/50K | ppl=228, lyap=-0.001, ETA=5.4h |
+| code_corpus | p54091 GPU1 | D=1024/L=16/193M, codeparrot-clean | step=6100/50K | ppl=130⚡, lyap=-0.001, ETA=6.2h |
+| **width_iso** | p35122 GPU2 | D=1024/L=10/139M, wikitext-103 | step=9400/30K 🌊 | lyap=-0.0018 (recovering from -0.5634) |
+| depth_iso | p35122 GPU3 | D=768/L=24/160M, wikitext-103 | step=6500/30K | ppl=324, lyap=-0.0011, ETA=3.3h |
+| scale_300M | p19285 GPU0 | D=1024/L=28/300M, wikitext-103 | step=22200/50K | ppl=117.9, lyap=-0.001, ETA=4.1h |
+| golden_ratio | p19970 GPU0 | D=1024/L=16/193M, 35/25/15/25 mix | step=5900/50K | ppl=1327 (warmup), lyap=-0.001, ETA=4.3h |
+| run10_CDM | p35122 GPU0 | CDM 80/20 mix phase2 distill | Running 🔥 | DHP slot=11 tau*=8.838e8 |
 
-**p35122 disk**: 18GB free (92%) — purged 5.3GB of old intermediates this tick.
+**p35122 disk**: 14GB free (93%). Above 8GB threshold — monitoring.
+
+### width_iso Cascade Dynamics (08:40Z update)
+- Step 6100: lyap=-0.5634 (Wave 1 onset)
+- Step 9400: lyap=-0.0018 (partial recovery — consistent with two-wave pattern)
+- **Hypothesis**: This mirrors the 193M run's Wave 1/Wave 2 structure, but compressed (earlier, D=1024 dominant). Expect Wave 2 onset between steps 12-18K.
+- depth_iso lyap=-0.0011 at step 6500 → D=768 alone with L=24 NOT cascading. Width remains the dominant geometric factor.
+
+### code_corpus Surprise (08:40Z)
+- ppl=130 at step 6100 on codeparrot-clean Python corpus — unusually fast convergence.
+- 193M on wikitext-103 had ppl~297 at step 10K. Code is more structured/predictable → lower entropy → faster PPL drop.
+- Lyap still at baseline (-0.001). Cascade architecture invariance test: cascade window expected ~25-35K steps.
 
 ---
 
