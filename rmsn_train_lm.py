@@ -5,7 +5,7 @@ DuoNeural Lab | Archon | 2026-11-04
 
 Real language modeling on wikitext-103. Trains RMSN-Small:
   D=1024, L=16, M_w=64, vocab=49152 (cosmo2)
-  ~260M params. Runs on RTX 4080 Super (p19285).
+  193.4M params (with tied embeddings). Runs on RTX 4080 Super (p19285).
 
 This is NOT the PoC synthetic benchmark — this is actual text learning.
 Target: 5000 steps on real text, tracking perplexity, Lyapunov stability, DHP.

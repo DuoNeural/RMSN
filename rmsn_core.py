@@ -24,11 +24,19 @@ Bugs fixed vs original design doc:
 """
 
 import math
+from dataclasses import dataclass
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-import triton
-import triton.language as tl
+
+try:
+    import triton
+    import triton.language as tl
+    HAS_TRITON = True
+except ImportError:
+    triton = None
+    tl = None
+    HAS_TRITON = False
 
 # ==============================================================================
 # 1. TRITON PARALLEL ASSOCIATIVE SCAN (FORWARD + ANALYTICAL ADJOINT BACKWARD)
@@ -468,6 +476,41 @@ class ResonantMetriplecticSheafLM(nn.Module):
         if return_telemetry:
             return logits, last_telemetry
         return logits
+
+
+# ==============================================================================
+# HUGGINGFACE-COMPATIBLE WRAPPER INTERFACE
+# ==============================================================================
+
+@dataclass
+class RMSNConfig:
+    vocab_size: int = 49152
+    hidden_dim: int = 1024
+    num_layers: int = 16
+    num_workspace_slots: int = 64
+    max_seq_len: int = 2048
+
+
+class RMSNForCausalLM(nn.Module):
+    """
+    Standard causal LM interface wrapping ResonantMetriplecticSheafLM.
+    Defaults to return_telemetry=True to ensure compatibility with real-time monitoring.
+    """
+    def __init__(self, config: RMSNConfig):
+        super().__init__()
+        self.config = config
+        self.model = ResonantMetriplecticSheafLM(
+            vocab_size=config.vocab_size,
+            dim=config.hidden_dim,
+            depth=config.num_layers,
+            num_slots=config.num_workspace_slots,
+        )
+
+    def forward(self, input_ids: torch.Tensor, return_telemetry: bool = True):
+        out = self.model(input_ids, return_telemetry=return_telemetry)
+        if return_telemetry:
+            return out  # (logits, telemetry_dict)
+        return out, {}
 
 
 # ==============================================================================

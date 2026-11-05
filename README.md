@@ -124,13 +124,13 @@ During pretraining of **RMSN-193M** on WikiText-103 (204.8M tokens seen), we tra
 Lyapunov Exponent (λ)
  0.00 ───┬─────────────── Baseline Conservative (λ ≈ -0.001)
          │               
--0.10 ───┼─────────────── Wave 1 Onset (Step 28K: λ → -0.084)
+-0.10 ───┼─────────────── Wave 1 Onset (Step 28K–30K: λ → -0.0843)
          │              \
--0.20 ───┼───────────────\──────────────────── Post-Cascade Settling Floor (Step 50K: λ = -0.157)
+-0.20 ───┼───────────────\──────────────────── Post-Cascade Settling Floor (Step 50K: λ = -0.1571)
          │                \                  /
 -0.40 ───┼                 \                /
          │                  \              /
--0.60 ───┼                   \            /   Wave 2 Onset (Step 35K: λ → -0.671)
+-0.60 ───┼                   \            /   Wave 2 Onset (Step 35K: λ → -0.6715)
          │                    \          /
 -0.80 ───┼                     \        /
 -0.90 ───┼                      ▼──────/      Wave 2 Peak Dissipation (Step 40K: λ = -0.8997)
@@ -138,10 +138,10 @@ Lyapunov Exponent (λ)
 ```
 
 * **Step 0–28K:** The model operates in an iso-energetic near-conservative baseline ($\lambda \approx -0.001$).
-* **Step 28K–32K (Wave 1):** First order-parameter bifurcation. Dissipation increases $84\times$ as local stalk restriction maps contract noise.
+* **Step 28K–32K (Wave 1):** First order-parameter bifurcation. Dissipation increases $84\times$ (val $\lambda = -0.0843$ at step 30K) as local stalk restriction maps contract noise.
 * **Step 33K–45K (Wave 2):** Global topological condensation. Dissipation surges to $-0.8997$ ($900\times$ baseline), driving rapid perplexity drop.
-* **Step 50K:** Settles to an ultra-stable post-cascade equilibrium floor ($\lambda = -0.1571$).
-* **Step 100K Continuation:** Perplexity drops to **50.0** ($-21.0\%$ relative gain) with 100% Lyapunov stability maintained throughout.
+* **Step 50K:** Reaches val PPL **63.3** (63.27) and settles to an ultra-stable post-cascade equilibrium floor ($\lambda = -0.1571$).
+* **Step 100K Continuation:** Perplexity drops to **50.0** ($-21.0\%$ relative gain from step 50K) with 100% Lyapunov stability maintained throughout.
 
 ---
 
@@ -153,6 +153,7 @@ Lyapunov Exponent (λ)
 | Tiny | 44.1M | 512 | 8 | ✗ (Stuck in dissipative noise) | 715.0 |
 | Medium | 99.3M | 768 | 12 | ✗ (Reaches baseline, fails to cascade) | 641.0 |
 | Small | 193.4M | 1024 | 16 | **✓ (Full two-wave cascade)** | **63.3** |
+| Large (active) | 300.7M | 1024 | 28 | *Tracking (Converged to baseline @ 5.5K)* | *In progress* |
 
 *Conclusion:* Cascade dynamics require a critical representational dimension between 100M and 193M ($D \in [768, 1024]$).
 

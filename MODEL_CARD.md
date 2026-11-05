@@ -85,6 +85,7 @@ A systematic scale scan on identical corpora identifies a sharp capacity thresho
 | **Tiny** | 512 | 8 | 44.1M | $-0.072$ | $-0.072$ | ✗ | 715.0 |
 | **Medium** | 768 | 12 | 99.3M | $-0.001$ | $-0.024$ | ✗ | 641.0 |
 | **Small** | 1024 | 16 | 193.4M | $-0.001$ | $-0.8997$ | **✓** | **63.3** |
+| **Large (in training)** | 1024 | 28 | 300.7M | $-0.064 \to -0.001$ | *Tracking* | *Active (Step 6K+)* | *TBD* |
 
 ### 2. Morrison Dissipation Ablation (The Necessity of the Second Law)
 Disabling learned dissipation ($\gamma \to 10^{-6}$, pure Hamiltonian dynamics) proves that entropy production is an indispensable implicit regularizer:
@@ -124,7 +125,7 @@ print(f"Max Lyapunov Exponent: {telemetry['max_lyapunov']:.6f}")
 ## 📚 Citation
 
 ```bibtex
-@article{kuhl2026rmsn,
+@article{caldwell2026rmsn,
   title={Resonant Metriplectic Sheaf Networks: A Unified Port-Hamiltonian Framework for Neural Language Modeling with Emergent Lyapunov Cascade Dynamics},
   author={Caldwell, Jesse and Archon and Aura},
   journal={DuoNeural Lab Preprints},
