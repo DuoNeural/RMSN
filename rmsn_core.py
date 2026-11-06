@@ -585,6 +585,7 @@ class ResonantMetriplecticSheafLM(nn.Module):
         top_k: int = 50,
         top_p: float = 0.9,
         eos_token_id: int = None,
+        repetition_penalty: float = 1.0,
     ) -> torch.Tensor:
         """
         Fast autoregressive generation with constant-time O(1) recurrent updates.
@@ -609,6 +610,14 @@ class ResonantMetriplecticSheafLM(nn.Module):
         for _ in range(max_new_tokens):
             if temperature > 0:
                 scaled_logits = cur_logits / temperature
+                # Penalize tokens already in the context (prompt + generated so far)
+                if repetition_penalty != 1.0 and (len(generated) > 0 or T > 0):
+                    context = torch.cat([input_ids] + generated, dim=1) if generated else input_ids
+                    for token_id in context[0].unique():
+                        if scaled_logits[0, token_id] > 0:
+                            scaled_logits[0, token_id] /= repetition_penalty
+                        else:
+                            scaled_logits[0, token_id] *= repetition_penalty
                 if top_k > 0:
                     val, _ = torch.topk(scaled_logits, min(top_k, scaled_logits.size(-1)))
                     scaled_logits[scaled_logits < val[:, -1:]] = -float('Inf')

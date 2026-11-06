@@ -32,6 +32,7 @@ def parse_args():
     parser.add_argument("--slots", type=int, default=64, help="Workspace slots")
     parser.add_argument("--vocab_size", type=int, default=49152, help="Vocabulary size")
     parser.add_argument("--device", type=str, default=None, help="Device (cuda / cpu)")
+    parser.add_argument("--repetition_penalty", type=float, default=1.0, help="Repetition penalty >1.0 discourages token repeats")
     return parser.parse_args()
 
 
@@ -64,6 +65,8 @@ def main():
         if isinstance(raw, dict):
             if "model" in raw:
                 state_dict = raw["model"]
+            elif "model_state" in raw:
+                state_dict = raw["model_state"]
             elif "state_dict" in raw:
                 state_dict = raw["state_dict"]
             else:
@@ -112,7 +115,7 @@ def main():
     # Encode prompt
     input_ids = tokenizer.encode(args.prompt, return_tensors="pt").to(device)
     print(f"\n[RMSN-Inference] Prompt: \"{args.prompt}\" ({input_ids.shape[1]} tokens)")
-    print(f"[RMSN-Inference] Generating {args.max_new_tokens} tokens (T={args.temperature}, top_k={args.top_k}, top_p={args.top_p})...\n")
+    print(f"[RMSN-Inference] Generating {args.max_new_tokens} tokens (T={args.temperature}, top_k={args.top_k}, top_p={args.top_p}, rep_penalty={args.repetition_penalty})...\n")
 
     # Generate
     with torch.no_grad():
@@ -123,6 +126,7 @@ def main():
             top_k=args.top_k,
             top_p=args.top_p,
             eos_token_id=tokenizer.eos_token_id,
+            repetition_penalty=args.repetition_penalty,
         )
 
     generated_text = tokenizer.decode(out_ids[0].tolist(), skip_special_tokens=True)
