@@ -445,6 +445,87 @@ class RMSNLayer(nn.Module):
         }
         return x, telemetry
 
+    def init_state(self, batch_size: int, device: torch.device, dtype: torch.dtype = torch.float32):
+        """Initializes constant-time recurrent inference state."""
+        return {
+            "hr": torch.zeros(batch_size, 1, self.dim, device=device, dtype=dtype),
+            "hi": torch.zeros(batch_size, 1, self.dim, device=device, dtype=dtype),
+            "h_frac": torch.zeros(batch_size, 1, self.dim, device=device, dtype=dtype),
+            "ws_coalition": torch.zeros(batch_size, 1, self.workspace.num_slots, self.workspace.slot_dim, device=device, dtype=dtype),
+            "ws_weights": torch.zeros(batch_size, 1, self.workspace.num_slots, 1, device=device, dtype=dtype),
+        }
+
+    def step(self, x: torch.Tensor, state: dict) -> torch.Tensor:
+        """Single-step O(1) recurrent update for autoregressive generation."""
+        residual = x
+        x_norm = self.norm1(x)
+
+        # 1. Clifford gauge rotation + cellular sheaf transport
+        x_cliff = self.clifford(x_norm)
+
+        # 2. Port-metriplectic wave step
+        omega = F.softplus(self.omega_proj(x_cliff))
+        gamma = F.softplus(self.gamma_proj(x_cliff)) + 1e-3
+        u_in  = self.in_proj(x_cliff)
+
+        dt = 0.05
+        decay = torch.exp(-gamma * dt)
+        cos_w = torch.cos(omega * dt)
+        sin_w = torch.sin(omega * dt)
+
+        hr_prev = state["hr"]
+        hi_prev = state["hi"]
+
+        hr_next = decay * (cos_w * hr_prev - sin_w * hi_prev) + (u_in * dt)
+        hi_next = decay * (cos_w * hi_prev + sin_w * hr_prev)
+        state["hr"] = hr_next
+        state["hi"] = hi_next
+
+        noether_energy = torch.tanh(hr_next ** 2 + hi_next ** 2)
+        field_state = torch.cat([hr_next, hi_next, noether_energy], dim=-1)
+        dynamic_out = self.noether_readout(field_state)
+        x = residual + dynamic_out
+
+        # 3. Fractional memory step
+        residual2 = x
+        x_norm2 = self.norm2(x)
+
+        poles = torch.exp(self.fractional_bank.log_poles)
+        decay_f = torch.exp(-poles).unsqueeze(-1).expand(
+            self.fractional_bank.num_modes, self.fractional_bank.channels_per_mode
+        ).reshape(1, 1, self.dim)
+
+        h_frac_prev = state["h_frac"]
+        h_frac_next = decay_f * h_frac_prev + (1.0 - decay_f) * x_norm2
+        state["h_frac"] = h_frac_next
+
+        h_out = h_frac_next.view(
+            x.shape[0], 1, self.fractional_bank.num_modes, self.fractional_bank.channels_per_mode
+        )
+        weights = F.softplus(self.fractional_bank.mode_weights)
+        frac_mem = self.fractional_bank.proj((h_out * weights).view(x.shape[0], 1, self.dim))
+
+        # 4. Causal Trophic Workspace step
+        u_ws = self.workspace.write_proj(x_norm2)
+        bidding_scores = torch.einsum('bnd,md->bnm', u_ws, self.workspace.workspace_slots)
+        interaction = torch.matmul(bidding_scores, self.workspace.interaction_matrix)
+        bidding_weights = F.softmax(bidding_scores - 0.1 * interaction, dim=-1)
+
+        weighted_u = bidding_weights.unsqueeze(-1) * u_ws.unsqueeze(2)
+        state["ws_coalition"] = state["ws_coalition"] + weighted_u
+        state["ws_weights"] = state["ws_weights"] + bidding_weights.unsqueeze(-1)
+
+        causal_slots = (
+            0.9 * self.workspace.workspace_slots.view(1, 1, self.workspace.num_slots, self.workspace.slot_dim) +
+            0.1 * (state["ws_coalition"] / (state["ws_weights"] + 1e-6))
+        )
+        broadcast_info = torch.einsum('bnm,bnmd->bnd', bidding_weights, causal_slots)
+        broadcast_features = self.workspace.read_proj(broadcast_info)
+        ws_out = torch.sigmoid(self.workspace.gate(x_norm2)) * broadcast_features
+
+        x = residual2 + frac_mem + ws_out
+        return x
+
 
 # ==============================================================================
 # 6. RESONANT METRIPLECTIC SHEAF LANGUAGE MODEL
@@ -476,6 +557,85 @@ class ResonantMetriplecticSheafLM(nn.Module):
         if return_telemetry:
             return logits, last_telemetry
         return logits
+
+    def init_state(self, batch_size: int, device: torch.device, dtype: torch.dtype = torch.float32):
+        """Initializes constant-time recurrent inference state across all layers."""
+        return [layer.init_state(batch_size, device, dtype) for layer in self.layers]
+
+    def step(self, token_id: torch.Tensor, layer_states: list) -> torch.Tensor:
+        """
+        Single-step O(1) recurrent update for autoregressive generation.
+        token_id: (B, 1) LongTensor
+        layer_states: list of dicts for each layer
+        returns: next_token_logits (B, vocab_size)
+        """
+        x = self.token_embed(token_id)
+        for i, layer in enumerate(self.layers):
+            x = layer.step(x, layer_states[i])
+        x = self.final_norm(x)
+        logits = self.lm_head(x).squeeze(1)
+        return logits
+
+    @torch.no_grad()
+    def generate(
+        self,
+        input_ids: torch.Tensor,
+        max_new_tokens: int = 50,
+        temperature: float = 0.8,
+        top_k: int = 50,
+        top_p: float = 0.9,
+        eos_token_id: int = None,
+    ) -> torch.Tensor:
+        """
+        Fast autoregressive generation with constant-time O(1) recurrent updates.
+        input_ids: (B, T) LongTensor prompt
+        returns: (B, T + generated_len) LongTensor
+        """
+        self.eval()
+        device = input_ids.device
+        B, T = input_ids.shape
+        dtype = self.token_embed.weight.dtype
+        states = self.init_state(B, device, dtype=dtype)
+
+        # 1. Warm up recurrent states across prompt
+        for t in range(T):
+            token_t = input_ids[:, t:t+1]
+            logits = self.step(token_t, states)
+
+        # 2. Sequential autoregressive token generation
+        generated = []
+        cur_logits = logits
+
+        for _ in range(max_new_tokens):
+            if temperature > 0:
+                scaled_logits = cur_logits / temperature
+                if top_k > 0:
+                    val, _ = torch.topk(scaled_logits, min(top_k, scaled_logits.size(-1)))
+                    scaled_logits[scaled_logits < val[:, -1:]] = -float('Inf')
+                if top_p < 1.0:
+                    sorted_logits, sorted_indices = torch.sort(scaled_logits, descending=True)
+                    cumulative_probs = torch.cumsum(F.softmax(sorted_logits, dim=-1), dim=-1)
+                    sorted_indices_to_remove = cumulative_probs > top_p
+                    sorted_indices_to_remove[..., 1:] = sorted_indices_to_remove[..., :-1].clone()
+                    sorted_indices_to_remove[..., 0] = 0
+                    indices_to_remove = sorted_indices_to_remove.scatter(1, sorted_indices, sorted_indices_to_remove)
+                    scaled_logits[indices_to_remove] = -float('Inf')
+                probs = F.softmax(scaled_logits, dim=-1)
+                next_token = torch.multinomial(probs, num_samples=1)
+            else:
+                next_token = torch.argmax(cur_logits, dim=-1, keepdim=True)
+
+            generated.append(next_token)
+            if eos_token_id is not None and (next_token == eos_token_id).all():
+                break
+
+            cur_logits = self.step(next_token, states)
+
+        if generated:
+            out_ids = torch.cat([input_ids, torch.cat(generated, dim=1)], dim=1)
+        else:
+            out_ids = input_ids
+        return out_ids
 
 
 # ==============================================================================
@@ -511,6 +671,11 @@ class RMSNForCausalLM(nn.Module):
         if return_telemetry:
             return out  # (logits, telemetry_dict)
         return out, {}
+
+    @torch.no_grad()
+    def generate(self, input_ids: torch.Tensor, **kwargs):
+        """Autoregressive text generation delegate."""
+        return self.model.generate(input_ids, **kwargs)
 
 
 # ==============================================================================
