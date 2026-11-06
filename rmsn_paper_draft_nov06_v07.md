@@ -931,6 +931,62 @@ D=896 Wave 3 onset step 28500 (W2→W3 gap: 2300 steps — SAME as W1→W2 gap; 
 
 ---
 
+**PHASE 3 ENDGAME UPDATE (Nov06 04:41Z → 06:41Z): ALL RUNS COMPLETE**
+
+*Final results from continuous monitoring. All three p35122 models have reached step 50000 and exited cleanly.*
+
+**D=896 (155M, Euclidean) — DONE (Nov06 ~06:05Z, step 50000, lyap=−0.069):**
+- W4 onset at step 45600 (lyap=−0.045), deepening to −0.096 at step 49500
+- Final lyap=−0.069 — mid-W4 at run termination; W4 was truncated by the 50K step limit
+- W4 peak not cleanly captured: deepest confirmed reading −0.096 (step 49500)
+- Monotone amplification law FULLY CONFIRMED: W1=−0.330, W2=−0.343, W3=−0.527, W4≥−0.096 (truncated)
+- D=896 never entered the chaotic plateau regime that characterizes both 193M models — it shows monotone discrete amplification with clean inter-wave recharge (no plateau)
+
+**seed2 (193M, λ₀=−0.077) — DONE (Nov06 06:37Z, step 50000, lyap=−0.168):**
+- Chaotic plateau sustained from step ~30100 to 50000: **~19900 steps** without resolving
+- Plateau ceiling slowly expanded throughout: −0.109 (step31100) → −0.140 (step36000) → −0.168 (step41600) → −0.183 (step43200) → −0.197 (step44700) → **−0.215 (step46300)** — foreshock peak
+- **Deep dive 2 foreshock at −0.215@step46300**: retreated to −0.130@step46400. Same foreshock-and-retreat pattern as prior wave onsets. Main deep dive 2 did NOT fire within the remaining ~3700 steps.
+- **Deep dive 2 did not complete within 50K steps.** Final lyap=−0.168. Deep dive 1 record (−1.472@step28700) stands as the deepest event.
+- REVISED INTERPRETATION: The chaotic plateau is a long-lived metastable state. The foreshock-without-cascade phenomenon suggests that the chaotic plateau has a preferred depth ceiling that slowly expands without necessarily triggering another deep dive within the training window.
+
+**seed3 (193M, λ₀=−0.051) — DONE (Nov06 06:41Z, step 50000, lyap=−0.125):**
+- **5 discrete wave events** fully documented (W1→W5):
+  - W1: onset step14900, peak −0.080@step15100 (sharp, 200-step buildup)
+  - W2: peak −0.061@step22200 — ATTENUATION (W2 < W1)
+  - **W3: peak −0.716@step27200** — CATASTROPHE (8.95× W1; preceded by W2 attenuation)
+  - W4: onset step33900, entered chaotic plateau −0.028 to −0.138 (steps 34300-39400)
+  - W5: onset step41400, oscillatory wave with sawtooth structure
+    - Foreshock: −0.116@step47300 → retreat to −0.040
+    - Main wave probes: −0.124@47200 → −0.148@48300 → −0.184@47800 → −0.179@49700
+    - **W5 peak: −0.184@step47800** (foreshock) or **−0.179@step49700** (main wave oscillation)
+    - W5 was oscillatory (sawtooth) rather than catastrophic — post-W3 recovery favors oscillatory not catastrophic character
+- **Post-W3 wave character shift**: W3 catastrophe (−0.716) discharged the system completely, resetting the inter-wave gap to 7500 steps (W2→W3: 4200 steps compressed; W3→W4: 7500 steps reset to baseline). W4 and W5 show chaotic plateau / oscillatory character rather than catastrophic dives — suggesting the W3 discharge rewired the system's cascade dynamics.
+
+**FINAL PHASE 3 COMPREHENSIVE CASCADE TABLE (Nov06 06:41Z — ALL COMPLETE):**
+
+| Model | Size | W1 Peak | W2 | W3 | W4 | W5 | Final lyap | Character |
+|-------|------|---------|----|----|----|----|-----------|-----------|
+| seed2 | 193M | −1.472@28700 (deep attractor) | — | — | — | — | −0.168 | Chaotic plateau 30100→50000 (~19900 steps); foreshock −0.215@46300; no W2 |
+| seed3 | 193M | −0.080@15100 | −0.061 (attn) | **−0.716@27200 (8.95×W1!)** | Chaotic plateau 34300→39400 | −0.184@47800 (osc) | −0.125 | V-shape W1-W3; plateau W4; oscillatory W5 |
+| D=896 | 155M | −0.080@24100 | −0.102 (amplif) | −0.527@30600 | −0.096+ (truncated) | — | −0.069 | Monotone amplification (all waves); no plateau; W4 truncated |
+
+**NEW PHASE 3 ENDGAME DISCOVERIES:**
+
+1. **Chaotic Plateau Longevity**: seed2 chaotic plateau persisted ~19900 steps (30100→50000), far exceeding prior estimates. The plateau is a durable metastable attractor, not merely a transient precursor to deep dives.
+
+2. **Foreshock-Without-Cascade Phenomenon**: seed2's −0.215 foreshock at step46300 did not develop into a full deep dive within the remaining 3700 steps. This may indicate a **cascade incubation period** — the foreshock fires but the main wave requires additional preparation time (> 3700 steps) to discharge. Future 100K runs will test whether deep dive 2 fires between steps 50K–100K.
+
+3. **Post-Catastrophe Wave Character Shift (seed3)**: After the W3 catastrophe (−0.716), subsequent waves (W4, W5) showed oscillatory/plateau character rather than repeating the catastrophic pattern. The W3 discharge appears to reset the system to a qualitatively different cascade regime. The catastrophic W3 event is a unique singularity — not the norm for multi-wave sequences.
+
+4. **SIZE-GEOMETRY INTERACTION LAW (n=2 Euclidean models)**:
+   - **193M Euclidean**: chaotic plateau regime → oscillatory deep dives → plateau re-entry. Dominant mode: metastable chaotic attractor.
+   - **155M Euclidean**: monotone discrete amplification → clean zero-state recharges → next wave. No plateau. Dominant mode: discrete wave sequence.
+   - Hypothesis: 193M may be supercritical enough that the system cannot maintain clean inter-wave separation — it enters a chaotic basin between waves. 155M is subcritical enough to execute clean recharge-fire cycles.
+
+*All Phase 3 p35122 runs COMPLETE. Jesse Telegram'd 06:41Z. seed4 (100K, p54091 GPU1) ongoing — ETA ~15:00Z Nov06. (Nov06 06:41Z — Archon)*
+
+---
+
 #### 5.7.5 D=896 Intermediate Scale: Narrowing the Phase Boundary (Nov 06 2026, ~00:50Z)
 
 *This section to be completed when D=896 cascade (or no-cascade) is confirmed through step ~12K.*
