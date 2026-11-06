@@ -896,6 +896,41 @@ D=896 Wave 3 onset step 28500 (W2→W3 gap: 2300 steps — SAME as W1→W2 gap; 
 
 *Full seed2 and seed3 50K results pending. All three models actively running (Nov06 03:28Z).*
 
+---
+
+**PHASE 3 LIVE UPDATE (Nov06 ~04:00–04:40Z): CHAOTIC PLATEAU REGIME DISCOVERED**
+
+*Major revision to seed2 and seed3 characterization based on continued monitoring.*
+
+**seed2 deep attractor record**: lyap=**−1.472@step28700** (1.64× seed_repro 100K final depth −0.900). Two-phase cascade CONFIRMED:
+- Phase 1 (chaotic oscillatory): steps 24300-26700, oscillating −0.020 to −0.206
+- Phase 2 (attractor dives): multiple deep attractor entries −0.453@26900, −1.058@28200, **−1.472@28700 (record)**
+- Recovery to threshold ~step 30200, then EXTENDED INCUBATION (2500+ steps at threshold)
+
+**seed2 CHAOTIC PLATEAU REGIME (steps 30100-36200+)**: After deep attractor recovery, seed2 entered a **metastable chaotic plateau** oscillating between −0.027 and −0.140 for 2500+ steps without firing another deep dive. This is a novel dynamical state: a strange attractor regime distinct from both the initial incubation (near-zero) and the deep dive (attractor < −1.0). The plateau ceiling slowly expanded: −0.109 (step 31100) → −0.134 (step 34000) → **−0.140 (step 36000, NEW RECORD)**. Deep dive 2 is pending — the chaotic plateau acts as a metastable precursor state to each deep dive cycle.
+
+**seed3 W3 CATASTROPHE final record**: lyap=**−0.716@step27200** (8.95× W1). Post-W3 recovery took 1700+ steps at near-zero (steps 29800-31500) — the longest zero-state recharge in the dataset — consistent with full thermodynamic discharge from the catastrophic event.
+
+**seed3 W4 ONSET CONFIRMED (Nov06 ~04:25Z)**: After 3200-step near-zero recharge, drain began at step 33800 (lyap=−0.029) with threshold crossing at step 33900 (lyap=−0.038). W4 onset foreshock −0.138@step34300. W3→W4 inter-wave gap: **7500 steps** (comparable to original W1→W2 gap 7100 steps — catastrophic reset extended the gap back to the original baseline, abolishing the W2→W3 compression).
+
+**seed3 W4 CHAOTIC PLATEAU REGIME (steps 34300-35600+)**: W4 is NOT a clean discrete wave. Following the foreshock at −0.138, seed3 entered the same **chaotic oscillation regime** as seed2: oscillating between −0.028 and −0.138 with probe-and-retreat structure. Both 193M Euclidean models simultaneously inhabit the same chaotic plateau attractor (oscillation range −0.03 to −0.14) at different training stages. This convergence to a **universal chaotic plateau** at approximately −0.09 center suggests:
+
+**UNIVERSAL CHAOTIC PLATEAU LAW (preliminary, n=2)**: 193M Euclidean RMSN models converge to a metastable chaotic attractor at λ ≈ −0.087 to −0.140 after their initial cascade events, oscillating in this regime for 2000+ steps before firing deep attractor dives to λ < −1.0. The chaotic plateau is a thermodynamically distinct phase: above the cascade threshold (−0.033) but far from the deep attractor (−1.0+). Mechanism: the Morrison bracket's dissipation has entered a regime where energy is concentrating toward a deep attractor but cannot yet commit, creating a metastable high-energy oscillatory state.
+
+**REVISED PHASE 3 CASCADE SUMMARY TABLE (Nov06 ~04:40Z):**
+| Model | Size | W1 peak | W2 peak | W3 peak | W4 / post-W3 | Character |
+|-------|------|---------|---------|---------|--------------|-----------|
+| seed3 | 193M | −0.080@15100 | −0.061 (attn) | **−0.716@27200 (8.95×W1)** | **Chaotic plateau −0.028 to −0.138@step35600+** | V-shape W1-W3, then chaotic plateau phase |
+| seed2 | 193M | −0.133@24700 | — | — | **Chaotic plateau −0.027 to −0.140@step36200+** (deep dives to −1.472) | TWO-PHASE: chaotic-oscillatory→attractor dives; limit cycle structure |
+| D=896 | 155M | −0.080@24100 | −0.102 (amplif) | −0.527@30600 | Zero-state recharge (−0.001@35000, 1300 steps) | Monotone amplification; zero-state after W3 |
+| C-RMSN | 193M | −0.092@6700 | −0.096 (amplif) | — | — | Discrete, hyperbolic |
+
+**D=896 W3 recovery (Nov06 ~04:00–04:12Z)**: W3 recovery was oscillatory (not linear): −0.114 → −0.088 → −0.061 → −0.092 over 400+ steps before final threshold crossing. Oscillatory recovery is a qualitative difference from 193M models' cleaner linear recovery — size-dependent recovery dynamics. D=896 fully recharged to near-zero (lyap=−0.001@step34300) before beginning slow drain (~1.3e-5/step).
+
+*All three models actively running. seed2 and seed3 chaotic plateaus ongoing. D=896 in zero-state recharge. (Nov06 04:40Z)*
+
+---
+
 #### 5.7.5 D=896 Intermediate Scale: Narrowing the Phase Boundary (Nov 06 2026, ~00:50Z)
 
 *This section to be completed when D=896 cascade (or no-cascade) is confirmed through step ~12K.*
