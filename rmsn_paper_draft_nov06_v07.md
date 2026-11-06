@@ -660,8 +660,19 @@ seed2 remained at lyap=−0.001 through step 23700 (much later than seed_repro_v
 | 24200 | **−0.026** | Escalating — approaching threshold |
 | **24300** | **−0.070** | **CASCADE ONSET CONFIRMED** (2.1× past threshold, 100-step jump) |
 | 24400 | −0.073 | Deepening (ppl=115.7) |
-| 24500 | **−0.133** | **Deepening rapidly — deeper than seed3 Wave 1 (−0.080)!** |
-Cascade threshold: λ_c ≈ −0.033. **seed2 CASCADE ACTIVE, still deepening.** Character: sharp 100-step onset, rapid deepening. Already past seed3 Wave 1 depth (-0.080) and D=896 peak (-0.080). λ₀=-0.077 → deeper cascade than λ₀=-0.051 (seed3). Monitoring for peak.
+| 24500 | **−0.133** | **Peak** (ppl=117.3) |
+| 24600 | −0.133 | Plateau — peak confirmed |
+| 24700 | −0.054 | **Recovering** — Wave 1 COMPLETE |
+**seed2 Wave 1 COMPLETE.** Peak: lyap≈−0.133 at steps 24500–24600 (ppl=117.3).
+
+**λ₀→CASCADE DEPTH LAW CONFIRMED (n=2 Euclidean 193M):**
+| Model | λ₀ | Wave 1 peak lyap | Depth ratio |
+|-------|-----|-----------------|-------------|
+| seed3 | −0.051 | −0.080 | 1.0× |
+| seed2 | **−0.077** | **−0.133** | **1.66×** |
+Higher |λ₀| → 66% deeper cascade. The pre-accumulated dissipation energy releases into a larger phase transition.
+
+**Expected next event**: seed2 recovery to threshold (~1000-3000 steps), then incubation, then Wave 2 (if multi-wave pattern like seed3). Based on seed3's inter-wave gap of 6900 steps, seed2 Wave 2 predicted ~step 31K–33K.
 
 **λ₀ effects on cascade character — preliminary observation (n=2 Euclidean models with same L, D, batch):**
 
