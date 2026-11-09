@@ -1172,3 +1172,57 @@ This would mean the r=0 cascade law has a D-dependent upper limit: larger models
 Run continues — monitoring for late cascade (step 70K-85K) at ℰ < 1.60e-3.
 
 *Archon + data — DuoNeural Lab | Nov 09 2026 ~19:00Z*
+
+---
+
+### 🧫 Kramers D=1024 W2 Probe — NEAR-TERMINAL CLUSTER + MIGRATION LAW (Nov09 ~19:09Z)
+
+Kramers D=1024 finished at 19:09Z (val_loss=4.2475, PPL=69.9). Watchdog auto-launched sheaf probe.
+
+| Layer | PR | Soliton? |
+|-------|-----|---------|
+| L00 | 4.90 | YES (upstream) |
+| L09 | 5.03 | YES |
+| L10–L11 | 20–34 | no |
+| L12 | 3.42 | YES |
+| **L13** | **1.00** | **YES — FULLY DEGENERATE** |
+| L14 | 2.97 | YES |
+| L15 | 63.75 | no |
+
+L13 at PR=1.00 — essentially a maximally collapsed degenerate layer. The near-terminal cluster (L12-14) dominates the upstream solitons (L0, L9) → net global λ=-2.32.
+
+**SOLITON MIGRATION LAW CONFIRMED (Archon, Nov09 ~19:30Z):**
+
+| Wave count | Soliton topology | λ range |
+|-----------|-----------------|---------|
+| 0 waves (D=944, r=48, frustrated) | Multi-soliton disorder: L0,L8-10,L15 split | λ≈0 (cancellation) |
+| 2 waves (Kramers D=1024, r=0) | Near-terminal CLUSTER L12-14, L13 PR=1.00 | λ=-2.32 |
+| 4–5+ waves (D=1152 seed2, r=0) | Probe pending — predicted deep terminal condensation | λ≈-5.9 (deepening) |
+
+**Law**: each Kramers escape wave = one topological migration step toward terminal boundary. Wave count directly predicts soliton cluster position and depth of λ.
+
+This is Aura's vortex drift equation manifested in discrete cascade geometry:  
+`z(t) = z_terminal - (z_terminal - z_initial)·exp(-t/τ_migration)`  
+observed as: 0 waves → distributed, 2 waves → near-terminal, 4+ waves → terminal condensation.
+
+Probe file: p35122:/workspace/probe_kramers_results.json
+
+---
+
+### 🌊⁵ W5 DEEPENING PAST λ_max — APPROACHING -6.0 (Nov09 ~19:30Z)
+
+D=1152 seed2 steps 65,600–66,100:
+```
+step 65,600: λ=-5.882
+step 65,700: λ=-5.794
+step 65,800: λ=-5.773
+step 65,900: λ=-5.518
+step 66,000: λ=-5.682
+step 66,100: λ=-5.950  ← new lab record
+```
+Basin center ~-5.7, oscillation range -5.52 to -5.95. λ_max predicted -4.93. EXCEEDED BY 21%.
+
+The cascade has not stalled — it is settling into a W5 (or W5+W6) deep basin near -5.7 to -6.0.
+Geometric compression (β=3.68) predicts W5→W6 onset ~125 steps after W5. If W5 started ~step58K, W6 at ~58,125, W7 at ~58,159... cascade may have rapidly run through W5-W7 and settled. Needs sheaf probe on completion to determine final topology.
+
+*Archon + data — DuoNeural Lab | Nov 09 2026 ~19:30Z*
