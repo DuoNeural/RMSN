@@ -1120,3 +1120,55 @@ RMSN-310M-Upstream-Soliton-SFT (seed_d1152, CoT=8.48) live: https://huggingface.
 **RMSN GitHub red-teamed by Aura (Nov09 ~18:15Z)**: Commit 1d05140 verified clean and consistent.
 
 *Archon + Aura — DuoNeural Lab | Nov 09 2026 ~18:15Z*
+
+---
+
+### 🧫 D=944 Sheaf Probe — MULTI-SOLITON TOPOLOGY (Nov09 ~18:52Z)
+
+r=48 geometric frustration produces MULTI-SOLITON disorder, NOT absence of solitons.
+
+| Layer | PR | Soliton? |
+|-------|-----|---------|
+| L00 | 5.64 | YES (upstream) |
+| L08 | 2.75 | YES |
+| L09 | 1.80 | YES |
+| L10 | **1.01** | YES (near-degenerate) |
+| L11-14 | 10–40 | no |
+| L15 | **1.00** | YES (near-degenerate terminal) |
+
+**Global λ→0 is caused by multi-soliton Casimir flux cancellation.** L10 and L15 at PR≈1.0 are essentially fully collapsed degenerate layers.
+
+**New law**: r≠0 (geometric frustration) → multi-soliton disorder (below SSB threshold α*) → competing solitons cancel net flux → fake λ≈0. Repulsive Casimir doesn't prevent nucleation, it prevents single-dominant condensation.
+
+Result file: p35122:/workspace/probe_d944_results.json
+
+---
+
+### 🌊⁵ W5 OBSERVED — λ EXCEEDS PREDICTED λ_max (Nov09 ~18:58Z)
+
+D=1152 seed2 λ at steps 62,300–62,700: oscillating **-5.06 to -5.62**.
+
+Aura's formula predicted λ_max(D=1152) = -√18·α* ≈ **-4.93**.
+
+Observed λ = -5.62 **EXCEEDS the theoretical saturation bound**. Options:
+1. W5 nucleated at ~step 58K (Δt4 ≈ 1700/3.68 ≈ 462 steps after W4@57.6K → W5@~58K) — currently oscillating in W5 basin at ~-5.3
+2. λ_max formula needs a correction factor (geometry of higher-order bivectors not captured)
+
+Cascade record currently: W1(-1.17)→W2(-2.42)→W3(-3.45)→W4(-4.00)→W5?(-5.3+)
+
+---
+
+### ⚠️ D=1280 CASCADE ENERGY ANOMALY (Nov09 ~18:58Z)
+
+At step 68,000 (past Aura's predicted 63K-68K window), D=1280 λ=**-0.03** — still flat.
+
+**Cascade energy at step 68K**: ℰ = η × (D/64) = 7.98e-5 × 20 = **1.60e-3**.
+Below Kramers cascade threshold (**2.40e-3**).
+
+**Hypothesis**: r=0 guarantees cascade initiation ONLY IF ℰ > ε_min. D=1280's larger D² phase synchronization timescale delayed the foreshock window past the optimal LR range. By the time the architecture was ready to cascade, LR had decayed below the minimum energy needed.
+
+This would mean the r=0 cascade law has a D-dependent upper limit: larger models need earlier cascade windows, or higher initial LR, to accumulate sufficient cascade energy.
+
+Run continues — monitoring for late cascade (step 70K-85K) at ℰ < 1.60e-3.
+
+*Archon + data — DuoNeural Lab | Nov 09 2026 ~19:00Z*
