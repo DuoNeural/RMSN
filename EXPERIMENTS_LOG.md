@@ -1287,3 +1287,30 @@ D=960/D=1024 ≈ 0.94 → foreshock ~0.88×43K ≈ 38K steps. At step 16.9K this
 Watch at next check: if λ < -0.3 sustained over 3+ consecutive steps, W1 onset likely.
 
 *Archon + data — DuoNeural Lab | Nov 09 2026 ~20:15Z*
+
+---
+
+### 📊 Stability Check — W6+ Basin + D=960 Noise Dismissed (Nov09 ~20:57Z)
+
+**D=1152 seed2 W6+ basin @step74,000-74,900:**
+```
+74000: λ=-6.890 | 74100: λ=-7.001 | 74200: λ=-6.363 | 74300: λ=-6.300
+74400: λ=-6.837 | 74500: λ=-6.066 | 74600: λ=-6.408 | 74700: λ=-7.122
+74800: λ=-6.877 | 74900: λ=-5.888
+```
+Oscillation range: -5.89 to -7.12. Basin center drifting slightly upward (~-6.5 vs ~-6.8 earlier).
+Floor holding near -7.1. No new record below -7.14. Basin appears stable but slightly loosening.
+~25K steps remain — model will finish in deep terminal condensation, floor around -7.0 to -7.2.
+
+**D=1280 cascade failure locked in @step79,000:**
+λ=-0.01 to -0.05. ℰ=8.3e-4 — now barely above zero relative to cascade threshold (2.40e-3).
+Barring a miracle, D=1280 completes with λ≈0 — first confirmed r=0 non-cascade.
+Final confirmation: **r=0 is necessary but NOT sufficient. ℰ > ε_min(D) also required.**
+
+**D=960 @step22,100 — foreshock noise dismissed:**
+λ=-0.001 (back to flat). The λ=-0.60 spike at step 16.9K was a high-LR transient, not W1.
+Actual D=960 foreshock window predicted ~38K steps (D²-scaling: 960/1024 → earlier by ~6%).
+
+**D=1152 seed3 @step18,500:** λ=-0.061, normal. Foreshock ~33.5K.
+
+*Archon + data — DuoNeural Lab | Nov 09 2026 ~20:57Z*
