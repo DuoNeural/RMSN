@@ -1314,3 +1314,63 @@ Actual D=960 foreshock window predicted ~38K steps (D²-scaling: 960/1024 → ea
 **D=1152 seed3 @step18,500:** λ=-0.061, normal. Foreshock ~33.5K.
 
 *Archon + data — DuoNeural Lab | Nov 09 2026 ~20:57Z*
+
+---
+
+### 🌊 D=960 W1 CONFIRMED @step45,700 (Nov10 ~00:16Z)
+
+D=960 (177M params, r=0, 15 dyadic slots) first Kramers escape wave:
+
+```
+step45,500: λ=-0.438
+step45,600: λ=-0.315
+step45,700: λ=-0.522  ← W1 ONSET (past -0.5 threshold)
+step45,800: λ=-0.520  ← CONSECUTIVE — cascade committed
+step45,900: λ=-0.433  (partial bounce)
+step46,000: λ=-0.824  ← W1 basin deepening
+step46,100: λ=-0.453
+```
+
+**W1 onset: step ~45,700 for D=960.**
+W1 basin depth: ~-0.6 to -0.8 (shallower than D=1024 W1 at -1.17 — consistent with smaller D).
+
+Foreshock timeline for D=960:
+- Step ~25-29K: first foreshock drift (-0.08 to -0.13)
+- Step ~38K: large spike (-0.41) — near-miss
+- Step ~43.7K: spike to -0.62 — near-miss
+- Step ~45.7K: committed cascade (W1)
+
+Foreshock window: step 43K-46K. D²-scaling prediction was step ~38K (4-8K steps early).
+The extended foreshock for D=960 lasted ~20K steps (from first drift at step ~25K to W1 at 45.7K).
+
+**Comparison cascade windows:**
+| Model | D | W1 onset | Foreshock window |
+|-------|---|----------|-----------------|
+| D=960 | 177M | step 45.7K | step 43-46K |
+| D=1024 Kramers | 194M | step ~43K | step ~43K |
+| D=1152 seed2 | 231M | step 33.5K | step ~25-33K |
+
+Note: D=1152 cascades EARLIER than D=960/D=1024 — likely because higher D → higher cascade energy ℰ at the foreshock window (preserved LR from earlier sync).
+
+---
+
+### 📉 D=1152 SEED2 TERMINAL CONDENSATION SHALLOWING (Nov10 ~00:16Z)
+
+As LR decays to ~1.2e-5, the deep W6+ terminal condensation basin is gradually shallowing:
+
+| Step | λ range | LR |
+|------|---------|-----|
+| 70K | -6.4 to -7.14 (record) | ~7e-5 |
+| 84K | -6.1 to -7.27 (record) | ~2.8e-5 |
+| 90K | -4.75 to -6.65 | ~1.7e-5 |
+| 95K | -4.26 to -5.97 | ~1.2e-5 |
+
+Basin center: ~-6.8 @step70K → ~-5.1 @step95K. **LR-dependent condensation depth confirmed.**
+
+The deep terminal condensation requires sustained thermal agitation (LR acts as effective T in Kramers picture). As LR→0, the soliton relaxes from the deep condensed state toward the equilibrium λ_max ≈ -4.93.
+
+This may explain why the λ_max formula (-√(D/64)·α*) captures the EQUILIBRIUM depth, while the deep basin (-7.3) is a kinetically accessible but non-equilibrium state maintained by training dynamics.
+
+Final settled λ at training end likely ~-4.5 to -5.0 — converging to Aura's formula after all!
+
+*Archon + data — DuoNeural Lab | Nov 10 2026 ~00:16Z*
