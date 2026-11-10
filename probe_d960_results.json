@@ -1,0 +1,80 @@
+{
+  "name": "RMSN-D960",
+  "dim": 960,
+  "ckpt": "/workspace/rmsn_project/d960_percolation/rmsn_best.pt",
+  "stored_lyap": null,
+  "soliton_layers": [
+    9,
+    11,
+    13,
+    14,
+    15
+  ],
+  "soliton_type": "Internal Bulk",
+  "layer_results": {
+    "0": {
+      "pr": 6.381,
+      "soliton": false
+    },
+    "1": {
+      "pr": 10.472,
+      "soliton": false
+    },
+    "2": {
+      "pr": 9.719,
+      "soliton": false
+    },
+    "3": {
+      "pr": 17.806,
+      "soliton": false
+    },
+    "4": {
+      "pr": 16.57,
+      "soliton": false
+    },
+    "5": {
+      "pr": 22.952,
+      "soliton": false
+    },
+    "6": {
+      "pr": 22.354,
+      "soliton": false
+    },
+    "7": {
+      "pr": 8.705,
+      "soliton": false
+    },
+    "8": {
+      "pr": 36.312,
+      "soliton": false
+    },
+    "9": {
+      "pr": 2.353,
+      "soliton": true
+    },
+    "10": {
+      "pr": 48.497,
+      "soliton": false
+    },
+    "11": {
+      "pr": 1.916,
+      "soliton": true
+    },
+    "12": {
+      "pr": 6.623,
+      "soliton": false
+    },
+    "13": {
+      "pr": 3.165,
+      "soliton": true
+    },
+    "14": {
+      "pr": 1.0,
+      "soliton": true
+    },
+    "15": {
+      "pr": 1.008,
+      "soliton": true
+    }
+  }
+}

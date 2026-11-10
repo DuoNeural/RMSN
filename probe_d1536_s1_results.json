@@ -1,0 +1,81 @@
+{
+  "name": "RMSN-D1536-S1",
+  "dim": 1536,
+  "ckpt": "/workspace/rmsn_project/d1536_seed1/rmsn_best.pt",
+  "stored_lyap": null,
+  "soliton_layers": [
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "soliton_type": "Internal Bulk",
+  "layer_results": {
+    "0": {
+      "pr": 9.294,
+      "soliton": false
+    },
+    "1": {
+      "pr": 12.321,
+      "soliton": false
+    },
+    "2": {
+      "pr": 14.232,
+      "soliton": false
+    },
+    "3": {
+      "pr": 34.253,
+      "soliton": false
+    },
+    "4": {
+      "pr": 44.439,
+      "soliton": false
+    },
+    "5": {
+      "pr": 13.034,
+      "soliton": false
+    },
+    "6": {
+      "pr": 53.313,
+      "soliton": false
+    },
+    "7": {
+      "pr": 9.03,
+      "soliton": false
+    },
+    "8": {
+      "pr": 10.748,
+      "soliton": false
+    },
+    "9": {
+      "pr": 17.097,
+      "soliton": false
+    },
+    "10": {
+      "pr": 2.639,
+      "soliton": true
+    },
+    "11": {
+      "pr": 4.016,
+      "soliton": true
+    },
+    "12": {
+      "pr": 1.373,
+      "soliton": true
+    },
+    "13": {
+      "pr": 1.962,
+      "soliton": true
+    },
+    "14": {
+      "pr": 1.0,
+      "soliton": true
+    },
+    "15": {
+      "pr": 2.228,
+      "soliton": true
+    }
+  }
+}
