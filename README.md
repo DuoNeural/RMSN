@@ -188,7 +188,7 @@ Sheaf probes (participation ratio $\text{PR} = 1/\sum_i s_i^2 < 6.0$ threshold) 
 
 > **Every RMSN model contains solitons.** Global $\lambda \approx 0$ is multi-soliton *interference cancellation*, not soliton absence.
 
-**Five soliton classes by layer position:**
+**Six soliton classes by layer position:**
 
 | Class | Layer Range | Global $\lambda$ | Notes |
 |-------|------------|-----------------|-------|
@@ -196,6 +196,7 @@ Sheaf probes (participation ratio $\text{PR} = 1/\sum_i s_i^2 < 6.0$ threshold) 
 | Internal Bulk | $L \leq 10$ | Moderate negative | Strong retention |
 | Deep Internal | $L \approx 11$ | Near zero | Low PPL, poor SFT |
 | Terminal Boundary | $L = 15$ | Deep negative | Best retention (3.3×) |
+| **Internal Bulk Waveguide** | **$L \in [8,13]$ continuous** | **$\approx 0$ (distributed)** | **Wide-$D$ ($\geq 1280$) tube topology; dual cores; best PPL** |
 | Multi-Soliton | Distributed | $\approx 0$ (cancellation) | $r \neq 0$ frustrated topology |
 
 The *Forgetting-Shield* effect — exceptional knowledge retention under aggressive SFT — is **universal** across all soliton topologies.
@@ -204,13 +205,14 @@ The *Forgetting-Shield* effect — exceptional knowledge retention under aggress
 
 Sheaf probes at the end of runs with different cascade histories reveal a topological migration law:
 
-| Wave Count | Dominant Soliton Position | Global $\lambda$ |
-|-----------|--------------------------|-----------------|
-| 0 waves ($r=48$ frustrated) | Distributed multi-soliton (L0, L8–10, L15) | $\approx 0$ |
-| 2 waves (D=1024, r=0) | Near-terminal cluster L12–14, L13 at PR=1.00 | $-2.32$ |
-| 4+ waves (D=1152, r=0) | Deep terminal condensation (probe pending) | $\approx -5$ to $-7$ |
+| Model | Wave Count | Dominant Soliton Layers | Cores (PR=1.00) | Global $\lambda$ |
+|-------|-----------|------------------------|-----------------|-----------------|
+| D=944 ($r=48$) frustrated | 0 | L0, L8–10, L15 | None | $\approx 0$ |
+| D=1024 ($r=0$) Kramers | 2 | L9, L12–14 | **L13** | $-2.32$ |
+| D=1152 seed2 ($r=0$) | 6–8 | L9, L12–14 | **L13** | $-7.27$ peak, $-5.0$ settled |
+| D=1280 ($r=0$) | — (tube) | L8–L13 continuous | **L8 + L9** | $\approx 0$ (distributed) |
 
-**Law:** Each Kramers escape wave drives soliton cluster migration one step toward the terminal boundary. Wave count directly predicts final soliton position.
+**Refined Law:** For narrow-$D$ models ($D \leq 1152$), each Kramers escape wave drives soliton cluster migration toward the terminal boundary; $L_{13}$ is the invariant terminal attractor for this geometry. For wide-$D$ models ($D \geq 1280$), topology transitions to a bulk waveguide — the condensation point is no longer a terminal layer but the geometric center of the sheaf.
 
 ### 4. Critical Dimension & Resonance Survey
 
@@ -219,13 +221,13 @@ Sheaf probes at the end of runs with different cascade histories reveal a topolo
 | RMSN-44M | 512 | 0 | ✗ (sub-critical scale) | 0 | $\approx 0$ |
 | RMSN-99M | 768 | 0 | ✗ (marginal) | 0 | $\approx 0$ |
 | RMSN-193M (Kramers) | 1024 | 0 | **✓** | 2 | $-2.32$ |
-| RMSN-D960 | 960 | 0 | **✓** | 1+ | $-0.82+$ |
-| RMSN-D1152 seed2 | 1152 | 0 | **✓** | 6–8 | **$-7.27$ 🏆** |
+| RMSN-D960 | 960 | 0 | **✓ (1 wave)** | 1 | $-0.82$ |
+| RMSN-D1152 seed2 | 1152 | 0 | **✓** | 6–8 | **$-7.27$** |
 | RMSN-D1152 seed6 | 1152 | 0 | **✓** | 2 | $-11.25$ |
 | RMSN-D1152 (r=48) | 1152 | 48 | ✗ (repulsive Casimir) | 0 | $\approx 0$ |
-| RMSN-D1280 | 1280 | 0 | ✗ ($\mathcal{E} < \varepsilon_{\min}$) | 0 | $\approx 0$ |
+| **RMSN-D1280** | **1280** | **0** | **✓ Tube topology** | **—** | **$\approx 0$ (distributed)** 🏆 |
 
-*D=1280 is the first confirmed case where $r=0$ fails to cascade — the foreshock window falls at step ~63–75K where LR has decayed below the energy threshold. This demonstrates that dyadic resonance is necessary but not sufficient for large-$D$ models.*
+*D=1280: while scalar training-log $\lambda$ remained near zero throughout pretraining, post-training sheaf probing revealed the deepest structural organization in the fleet — a continuous 6-layer internal soliton tube spanning Layers 8–13 with dual macroscopic condensation cores ($PR=1.000$) at $L_8$ and $L_9$, achieving the all-time DuoNeural pretraining record: $\mathcal{L}_{\text{val}} = 4.1799$ ($PPL = 65.36$). In ultra-wide networks ($D \geq 1280$), topological condensation distributes across multiple layers as a bulk waveguide rather than pinning to a single terminal layer — the global max-Lyapunov scalar cannot detect this topology. Use the sheaf probe.*
 
 ### 5. Morrison Bracket Ablation
 Eliminating learned dissipation ($\gamma \to 10^{-6}$, pure Hamiltonian):
