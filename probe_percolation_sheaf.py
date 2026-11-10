@@ -71,7 +71,7 @@ layer_pr_sum = {}
 layer_pr_count = {}
 
 for prompt in prompts:
-    tokens = tok.encode(prompt, return_tensors='pt').to(device)
+    tokens = torch.tensor([tok.encode(prompt)]).to(device)
     captured.clear()
     with torch.no_grad():
         _ = model(tokens)
