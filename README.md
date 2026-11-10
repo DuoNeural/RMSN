@@ -227,6 +227,8 @@ Sheaf probes at the end of runs with different cascade histories reveal a topolo
 | RMSN-D944 (r=48) | 944 | 48 | ✗ (Repulsive Casimir Domain Walls) | 0 | $\approx 0$ | 73.44 |
 | **RMSN-283M (D=1280)** | **1280** | **0** | **✓ Continuous 6-Layer Bulk Tube** | **Tube** | **$-0.03$** (Shielded) | **`65.36` 🏆** |
 | RMSN-335M (D=1408) | 1408 | 0 | **✓** Triple-Singularity Harmonic Lattice (`L05, L09, L15`) | Triple Core | $-0.10$ | 94.9 (Tr 63.5) |
+| **RMSN-399M (D=1536 seed2)** | **1536** | **0** | **✓** Dual-Boundary Bulk Conduit (`L05, L07–09, L14–15`) | Dual Singular (`L05, L15`) | **$-4.92$** | **89.7** (Tr 57.4) |
+| **RMSN-399M (D=1536 seed3)** | **1536** | **0** | **✓** Anchored Waveguide (`L05, L08–09, L15`) | Terminal Singularity (`L15`) | $-0.05$ | **89.3** (Tr 54.9) |
 
 *Note on D=1280 Bulk Screening: While boundary scalar dissipation $\lambda$ hovered near zero during training, non-Euclidean sheaf probing proved that D=1280 self-organized a continuous 6-layer cylindrical internal bulk waveguide across Layers 8–13 with dual macroscopic cores at L8 ($PR=1.000$) and L9 ($PR=1.000$), establishing the all-time DuoNeural pretraining record.*
 
