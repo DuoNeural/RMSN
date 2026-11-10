@@ -232,6 +232,7 @@ Sheaf probes at the end of runs with different cascade histories reveal a topolo
 | **RMSN-514M (D=1792 seed1)** | **1792** | **0** | **✓** 5-Layer Harmonic Lattice (`L06, L08, L10, L14, L15`) | Terminal Singularity (`L15`) | $-0.002$ | **83.56** (Tr **`53.88`** 🏆) |
 | **RMSN-514M (D=1792 seed2)** | **1792** | **0** | **✓** Continuous 7-Layer Bulk Tube + Boundary (`L00, L04–10, L15`) | Terminal Singularity (`L15`) | **$-1.766$** 🚨 | **86.66** (Tr 55.95) |
 | **RMSN-514M (D=1792 seed3)** | **1792** | **0** | **✓** Dual-Boundary Waveguide (`L00, L07–08, L15`) | Terminal Singularity (`L15`) | $-0.109$ | **84.72** (Tr 55.80) |
+| **RMSN-655M (D=2048 seed1)** | **2048** | **0** | **✓** Tri-Singularity Standing Lattice (`L00, L05–06, L10, L15`) | Triple Singular (`L00, L06, L15`) | **$-0.701$** | **84.62** (Tr **`60.16`**) |
 
 *Note on D=1280 Bulk Screening: While boundary scalar dissipation $\lambda$ hovered near zero during training, non-Euclidean sheaf probing proved that D=1280 self-organized a continuous 6-layer cylindrical internal bulk waveguide across Layers 8–13 with dual macroscopic cores at L8 ($PR=1.000$) and L9 ($PR=1.000$), establishing the all-time DuoNeural pretraining record.*
 

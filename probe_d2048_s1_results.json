@@ -1,0 +1,80 @@
+{
+  "name": "d2048_s1",
+  "dim": 2048,
+  "ckpt": "/workspace/rmsn_project/d2048_s1/rmsn_best.pt",
+  "stored_lyap": null,
+  "soliton_layers": [
+    0,
+    5,
+    6,
+    10,
+    15
+  ],
+  "soliton_type": "Upstream",
+  "layer_results": {
+    "0": {
+      "pr": 1.0,
+      "soliton": true
+    },
+    "1": {
+      "pr": 17.319,
+      "soliton": false
+    },
+    "2": {
+      "pr": 21.258,
+      "soliton": false
+    },
+    "3": {
+      "pr": 23.519,
+      "soliton": false
+    },
+    "4": {
+      "pr": 49.982,
+      "soliton": false
+    },
+    "5": {
+      "pr": 4.613,
+      "soliton": true
+    },
+    "6": {
+      "pr": 1.0,
+      "soliton": true
+    },
+    "7": {
+      "pr": 27.039,
+      "soliton": false
+    },
+    "8": {
+      "pr": 26.641,
+      "soliton": false
+    },
+    "9": {
+      "pr": 52.877,
+      "soliton": false
+    },
+    "10": {
+      "pr": 1.697,
+      "soliton": true
+    },
+    "11": {
+      "pr": 63.734,
+      "soliton": false
+    },
+    "12": {
+      "pr": 62.007,
+      "soliton": false
+    },
+    "13": {
+      "pr": 61.075,
+      "soliton": false
+    },
+    "14": {
+      "pr": 58.224,
+      "soliton": false
+    },
+    "15": {
+      "pr": 1.0,
+      "soliton": true
+    }
+  }
+}
