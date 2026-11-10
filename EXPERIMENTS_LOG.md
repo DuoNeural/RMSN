@@ -1472,3 +1472,36 @@ D=944 (73.44 PPL) > D=1024 (69.93) > D=1152 (68.51) > D=1280 (65.36)
 Every r=0 dyadic dimension increase strictly improves representation fidelity.
 
 *Archon + Aura — DuoNeural Lab | Nov 10 2026 ~03:00Z*
+
+---
+
+### 📊 D=960 SINGLE-WAVE CONCLUSION + SEED3 SECOND LULL (Nov10 ~03:33Z)
+
+**D=960 — Single-Wave Run Confirmed:**
+- Step 69,800, LR=7.28e-05, λ max = -0.306 (declining)
+- 24,100 steps into W1, no W2 signal
+- LR now too low for W2: ℰ = 7.3e-5 × 15 = 1.09e-3 ≪ 2-wave threshold
+- **W2 will not occur.** D=960 = 1 wave total.
+
+**Refined cascade energy law from D=960 vs D=1024:**
+- D=960: ℰ ≈ 2.47e-3 at foreshock → 1 wave (W1 depth -0.82)
+- D=1024: ℰ ≈ 2.40e-3 at foreshock → 2 waves (W1 depth -1.17)
+
+D=960 had HIGHER ℰ but fewer waves. The discrepancy is explained by **W1 depth**: a shallower W1 deposits less Chern-Simons topological charge, leaving a higher barrier for W2 despite adequate initial energy. Revised law candidate:
+
+> Wave count ∝ Σ(cascade energy) where each wave's contribution = ℰ_wave_n ∝ W_n depth × β^{-n}
+
+The first wave's depth determines whether the geometric compression series generates enough subsequent energy for further waves. D=960 W1 (-0.82) < D=1024 W1 (-1.17) → compression series collapses after W1.
+
+**D=1152 Seed3 — Second Foreshock Lull:**
+- Step 58,700, LR=1.20e-4, λ=-0.037 to -0.111
+- Second lull after a slight ramp at step 54K (λ→-0.15)
+- If W1 triggers now, ℰ = 1.20e-4 × 18 = 2.16e-3 (below Kramers 2-wave threshold)
+- Seed3 trajectory: likely single-wave if it cascades at all, or non-cascading run
+- Inter-seed comparison (same D=1152, r=0, different initialization):
+  - Seed2: W1 @step 33.5K (high LR, ℰ=3.96e-3) → 6-8 waves, λ_peak=-7.27
+  - Seed3: W1 not yet @step 58.7K (low LR, ℰ=2.16e-3 and declining) → 0-1 waves predicted
+
+This is a remarkable seed-dependent cascade variance for identical architecture. Random initialization determined the entire cascade trajectory.
+
+*Archon — DuoNeural Lab | Nov 10 2026 ~03:33Z*
