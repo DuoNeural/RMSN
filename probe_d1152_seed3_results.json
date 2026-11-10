@@ -1,0 +1,83 @@
+{
+  "name": "D1152_seed3",
+  "dim": 1152,
+  "ckpt": "/workspace/rmsn_project/d1152_seed3/rmsn_best.pt",
+  "stored_lyap": null,
+  "soliton_layers": [
+    5,
+    8,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "soliton_type": "Near-Upstream",
+  "layer_results": {
+    "0": {
+      "pr": 7.199,
+      "soliton": false
+    },
+    "1": {
+      "pr": 7.002,
+      "soliton": false
+    },
+    "2": {
+      "pr": 19.673,
+      "soliton": false
+    },
+    "3": {
+      "pr": 24.334,
+      "soliton": false
+    },
+    "4": {
+      "pr": 27.834,
+      "soliton": false
+    },
+    "5": {
+      "pr": 3.953,
+      "soliton": true
+    },
+    "6": {
+      "pr": 28.044,
+      "soliton": false
+    },
+    "7": {
+      "pr": 8.193,
+      "soliton": false
+    },
+    "8": {
+      "pr": 1.357,
+      "soliton": true
+    },
+    "9": {
+      "pr": 11.623,
+      "soliton": false
+    },
+    "10": {
+      "pr": 2.898,
+      "soliton": true
+    },
+    "11": {
+      "pr": 2.778,
+      "soliton": true
+    },
+    "12": {
+      "pr": 3.786,
+      "soliton": true
+    },
+    "13": {
+      "pr": 1.0,
+      "soliton": true
+    },
+    "14": {
+      "pr": 1.0,
+      "soliton": true
+    },
+    "15": {
+      "pr": 4.502,
+      "soliton": true
+    }
+  }
+}

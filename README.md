@@ -223,6 +223,7 @@ Sheaf probes at the end of runs with different cascade histories reveal a topolo
 | RMSN-D960 | 960 | 0 | **✓** Single-Wave Foreshock | 1 | $-0.82$ | 59.5 |
 | RMSN-193M (Kramers) | 1024 | 0 | **✓** 2-Wave Boundary Complex | 2 | $-2.32$ | 69.93 |
 | RMSN-D1152 seed2 | 1152 | 0 | **✓** Multi-Wave Cascade ($W_6+$) | 6–8 | **$-7.27$** | 68.51 |
+| RMSN-D1152 seed3 | 1152 | 0 | **✓** 8-Layer Dual-Cavity Waveguide (`L05, L08, L10–15`) | Dual Core (`L13, L14`) | $-0.05$ | 68.4 |
 | RMSN-D944 (r=48) | 944 | 48 | ✗ (Repulsive Casimir Domain Walls) | 0 | $\approx 0$ | 73.44 |
 | **RMSN-283M (D=1280)** | **1280** | **0** | **✓ Continuous 6-Layer Bulk Tube** | **Tube** | **$-0.03$** (Shielded) | **`65.36` 🏆** |
 
