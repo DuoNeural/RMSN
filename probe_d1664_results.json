@@ -1,0 +1,80 @@
+{
+  "name": "RMSN-D1664-S1",
+  "dim": 1664,
+  "ckpt": "/workspace/rmsn_project/d1664_seed1/rmsn_best.pt",
+  "stored_lyap": null,
+  "soliton_layers": [
+    5,
+    7,
+    8,
+    9,
+    15
+  ],
+  "soliton_type": "Near-Upstream",
+  "layer_results": {
+    "0": {
+      "pr": 18.663,
+      "soliton": false
+    },
+    "1": {
+      "pr": 22.002,
+      "soliton": false
+    },
+    "2": {
+      "pr": 13.198,
+      "soliton": false
+    },
+    "3": {
+      "pr": 34.702,
+      "soliton": false
+    },
+    "4": {
+      "pr": 12.548,
+      "soliton": false
+    },
+    "5": {
+      "pr": 2.104,
+      "soliton": true
+    },
+    "6": {
+      "pr": 33.727,
+      "soliton": false
+    },
+    "7": {
+      "pr": 3.425,
+      "soliton": true
+    },
+    "8": {
+      "pr": 2.944,
+      "soliton": true
+    },
+    "9": {
+      "pr": 1.945,
+      "soliton": true
+    },
+    "10": {
+      "pr": 6.129,
+      "soliton": false
+    },
+    "11": {
+      "pr": 43.455,
+      "soliton": false
+    },
+    "12": {
+      "pr": 58.498,
+      "soliton": false
+    },
+    "13": {
+      "pr": 32.633,
+      "soliton": false
+    },
+    "14": {
+      "pr": 36.381,
+      "soliton": false
+    },
+    "15": {
+      "pr": 1.0,
+      "soliton": true
+    }
+  }
+}

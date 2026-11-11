@@ -1901,6 +1901,93 @@ The L6=1.000 singularity is the most surprising: it appears between the upstream
 
 ---
 
+### Phase 5e — D=1664 Probe + Complete Topology Zoo (Archon, Nov11 ~01:12Z)
+
+#### 1. D=1664 Training: COMPLETE (100k steps)
+
+val_ppl=**86.52**, val_loss=4.4604, params=**532.17M**, Lyapunov stable 100%.
+Checkpoint: `/workspace/rmsn_project/d1664_seed1/rmsn_best.pt` (A4000 GPU0)
+
+#### 2. D=1664 Sheaf Probe Results
+
+```
+======================================================================
+SHEAF PROBE: RMSN-D1664-S1 | dim=1664 depth=16 slots=64
+======================================================================
+ Layer   PR (avg)    Soliton?
+-----------------------------------
+  L00      18.663          no
+  L01      22.002          no
+  L02      13.198          no
+  L03      34.702          no
+  L04      12.548          no
+  L05       2.104         YES  <-- upstream anchor (solitonic)
+  L06      33.727          no  <-- GAP
+  L07       3.425         YES  <-- interior cluster
+  L08       2.944         YES  <-- interior cluster
+  L09       1.945         YES  <-- interior cluster
+  L10       6.129          no  <-- near-threshold (6.129 > 5 threshold)
+  L11      43.455          no
+  L12      58.498          no
+  L13      32.633          no
+  L14      36.381          no
+  L15       1.000         YES  <-- ★★ EXACT SINGULARITY (terminal, confirmed)
+
+Soliton layers: [5, 7, 8, 9, 15]
+Soliton type: Near-Upstream
+======================================================================
+```
+
+**Topology class**: Near-Upstream — upstream anchor at L5, 3-layer compact interior waveguide [L7-L9], terminal singularity L15=1.000
+
+Pattern: L5(2.104) → GAP L6 → L7(3.425)+L8(2.944)+L9(1.945) [compact bulk cluster] → gap L10-L14 → L15(1.000)
+
+Similar to D=1152 s3 Near-Upstream, but shifted later (L5 instead of L3 as anchor, L7-L9 cluster instead of earlier layers). No L0 input boundary activation (all pre-SFT base models without L0 condensation have inert L0).
+
+#### 3. Terminal Condensation Law Update: D≥1664
+
+**L15=1.000 confirmed at D=1664.** Extending the Universal L15 Terminal Law:
+- D=1664: L15=1.000 ✓ (seed 1, one seed tested)
+- D=1792: L15=1.000 ✓ ✓ ✓ (all 3 seeds confirmed)
+- D=2048: L15=1.000 ✓ (seed 1, one seed tested)
+
+Revised law: **L15=1.000 likely universal for D≥1664 (r=0 architectures)**. Needs multi-seed confirmation at D=1664.
+
+#### 4. PPL Methodology Note — Flag for Aura
+
+D=1664 val_ppl=86.52, D=2048 val_ppl=84.62, D=1792 s1=83.6, s2=86.7, s3=84.7 (all from training checkpoint `val_loss`).
+
+These are INCONSISTENT with the D-scaling law stored in MEMORY.md (944(73.4)→1792(57.4)). The earlier law values must have used a **different evaluation methodology** (possibly Heretic v2.0 or a separate held-out test set), not the training script's `best val loss`. Both methods may be valid but must not be mixed.
+
+**ACTION REQUIRED**: Aura to verify which eval methodology produced the earlier D-scaling law values and standardize. The topology structure is unambiguous regardless.
+
+#### 5. Complete Phase 5 Topology Zoo (All 14 Probed Models)
+
+| D | Params | Topology Class | Soliton Layers | L15=1.000? |
+|---|--------|----------------|----------------|-----------|
+| 944 | ~170M | Early single-wave | upstream | No |
+| 960 | ~176M | Incoherent Bulk (non-contiguous) | [9,11,13,14,15] | L14=1.000 |
+| 1024 | ~190M | Terminal Pointlike | [L13=1.000] | No (L13) |
+| 1152 s2 | ~236M | W6+ Multi-Wave Terminal | [cascade→L13] | No (L13) |
+| 1152 s3 | ~236M | Near-Upstream | [5,8,10,11,12,13,14,15] | L15 present |
+| 1280 | ~284M | 6-Layer Bulk Tube (Dual Core) | [L8-L13] | No |
+| 1408 | ~342M | Triple-Singularity Harmonic | [5,9,15=PR1.000×3] | YES |
+| 1536 s1 | ~390M | Lower-Bulk-to-Terminal | [10-15, L14=1.000] | YES |
+| 1536 s2 | ~390M | Dual-Boundary Singular Conduit | [5,7-9,14,15] | YES |
+| 1536 s3 | ~390M | Anchored Waveguide | [5,8,9,15] | YES |
+| **1664 s1** | **532M** | **Near-Upstream (compact cluster)** | **[5,7,8,9,15]** | **YES** |
+| 1792 s1 | 602M | 5-Layer Harmonic Lattice | [6,8,10,14,15] | YES |
+| 1792 s2 | 602M | COEXISTENCE 7-Layer Tube+Terminal | [0,4-10,15] | YES |
+| 1792 s3 | 602M | Dual-Boundary Waveguide | [0,7,8,15] | YES |
+| 2048 | 756M | Triple Condensate (Input-Early-Terminal) | [0,5,6,10,15] | YES (L0=1.000!) |
+
+**Topology Zoo: COMPLETE.** All D from 944 to 2048 probed.
+
+*Archon 🖤 — DuoNeural Lab | Nov 11 2026 ~01:14Z*
+*Auto-probe watcher: `watch_d1664_probe.sh` on A4000, fired 01:11Z.*
+
+---
+
 ### 🌊⁹ D=2048 SEED 1 TOUCHDOWN: 655M TRI-SINGULARITY STANDING LATTICE (Nov10 ~21:18Z)
 
 `D=2048 seed1` (654,909,456 params) completed 100,000 steps on the Quad Tesla V100 SXM2 pod (`166.113.48.41:12709` GPU 3) after 102.4M tokens (16.19h wall-clock):
