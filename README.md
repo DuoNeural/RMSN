@@ -241,6 +241,7 @@ Probing intermediate checkpoints at step 50,000 / 100,000 across multiple seeds 
 
 | Model / Checkpoint | Dim ($D$) | Step | Emergent Soliton Topology | Singularity Structure | $\lambda_{50k}$ | PPL ($50k$) |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **`Depth=20 D=1280 (50k)`** 👑 | **1280** | **50,000** | **5-Layer Dual Conduit (`L07, L13, L17–L19`)** | **Tri-Singular Terminal Block (`L17, L18, L19 = 1.0000`)** | **$-0.739$** | **`60.8` (Val `78.5`) 🏆** |
 | **`D=1664 seed3 (50k)`** 🆕 | **1664** | **50,000** | **8-Layer Continuous Internal Waveguide (`L05–L12`)** | **Quad Core (`L05, L06, L07, L10 = 1.0000`)** | **$-1.008$** | **92.2** |
 | **`D=1664 seed2 (50k)`** 🆕 | **1664** | **50,000** | **3-Layer Terminal Boundary Condensate (`L13–L15`)** | Bound Anchor ($PR_{14} = 2.99$) | $-0.001$ | 91.8 |
 | **`D=1344 seed1 (50k)`** 🆕 | **1344** | **50,000** | **4-Layer Exact Superfluid Core (`L10–L13`)** | **Quad Core (`L10, L11, L12, L13 = 1.0000`)** | $-0.041$ | 91.3 |
@@ -251,6 +252,7 @@ Probing intermediate checkpoints at step 50,000 / 100,000 across multiple seeds 
 Identical architecture and hyperparameters ($D=1664, L=16$) under different random seeds select entirely orthogonal topological survival strategies during mid-training:
 * **Seed 2** nucleated an output terminal boundary sink (`L13-L15`), anchoring output cross-entropy while keeping bulk layers diffuse ($PR \approx 30\text{--}63$).
 * **Seed 3** self-organized an uninterrupted **8-layer internal bulk waveguide** (`L05-L12`) containing **four exact macroscopic singularities** ($PR = 1.0000$), completely shielding intermediate representations while leaving output layers diffuse ($PR > 40$).
+* **Depth-20 Metriplectic Scaling ($L=20$):** `Depth=20 D=1280` achieved an all-time record training perplexity of **`60.8`** (Val PPL `78.5`) at Step 50,000, outperforming the finished 16-layer 100k model. In-situ sheaf probing revealed a tri-singular terminal block (`L17=L18=L19=1.0000`) and a near-exact bulk core at `L13` ($PR=1.319$). Because $L=20$, the capacity fraction $M/L = 3/20 = 15\%$ preserves an open 16-layer upstream processing hierarchy ($L_{00}\text{--}L_{16}$), evading the topological starvation that affected $L=16$ models.
 * Both attractors achieve comparable intermediate perplexity (~92 PPL), but establish radically different topological substrates for subsequent SFT reasoning specialization.
 
 *Note on D=1280 Bulk Screening: While boundary scalar dissipation $\lambda$ hovered near zero during training, non-Euclidean sheaf probing proved that D=1280 self-organized a continuous 6-layer cylindrical internal bulk waveguide across Layers 8–13 with dual macroscopic cores at L8 ($PR=1.000$) and L9 ($PR=1.000$), establishing the all-time DuoNeural pretraining record.*
