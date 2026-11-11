@@ -3129,3 +3129,69 @@ If D=1664 s2 or s3 produces a DIFFERENT base topology (e.g., no near-exact ancho
 would test whether the topology is architecture-determined or seed-stochastic.
 
 *Archon — DuoNeural Lab | Nov 11 2026 ~09:12Z*
+
+
+---
+
+## 🌊²³ OVERFIT SOLITON FORMATION TIMING — D=1664 TOPOLOGY EVOLUTION (Archon, Nov 11 ~09:20Z)
+
+### Complete Topology Evolution: D=1664 s1 at Steps 2500, 5000, 7500, 10000
+
+Probes at four SFT checkpoints (step 2500 and 7500 from A4000; step 5000 from earlier probe;
+step 10000 from most recent probe). First complete topology evolution study in Phase 6.
+
+| Step | L5 | L7 | L8 | L9 | L10 | L15 | Solitons | Wiki PPL | CoT PPL |
+|------|----|----|----|----|-----|-----|---------|---------|---------|
+| 0 (base) | NE? | ~4 | ~4 | 1.945 | (not sol) | 1.000 | [5,7,8,9,15] base | — | — |
+| 2500 | 2.605 | **5.923** | **5.993** | 1.964 | 9.428 | 1.000 | [5,7,8,9,15] | (not measured) | — |
+| 5000 (best) | ~2.5 | ~4.5 | ~4.0 | ~1.945 | (bg) | 1.000 | [5,7,8,9,15] | 170.36 | 18.52 |
+| 7500 | 2.420 | 4.410 | 3.988 | 1.829 | **5.299** | 1.000 | [5,7,8,9,**10**,15] | — | — |
+| 10000 | 2.609 | 4.698 | 4.016 | 1.833 | 5.099 | 1.000 | [5,7,8,9,10,15] | 206.94 | 13.92 |
+
+### Three Distinct Dynamical Phases
+
+**Phase 1: Healthy Crystallization (Steps 0-5000)**
+L7 strengthens from ~5.9 → ~4.5; L8 from ~5.9 → ~4.0; L9 (near-exact) holds stable 1.964→1.945.
+The topology CLARIFIES — solitons that were near the moderate/strong boundary during early training
+crystallize into well-defined strong solitons. L10 stays background (9.428→background).
+This is "gradient sculpting": SFT gradient sculpts the topology by strengthening near-boundary solitons.
+
+**Phase 2: Overfit Trigger (~Step 5000-7500)**
+L10 jumps from background (>6) to solitonic (5.299). First overfit soliton appears.
+Simultaneously, L9 near-exact continues strengthening (1.964→1.829). The near-exact anchor
+is NOT damaged — the overfit signal is EXCLUSIVELY the new L10 soliton.
+Wiki PPL degrades; CoT PPL improves (trade-off: reasoning improves, language modeling regresses).
+
+**Phase 3: Overfit Stability (Steps 7500-10000)**
+Topology stabilizes at [L5,L7,L8,L9,L10,L15]. L10 goes from 5.299→5.099 (slight strengthening).
+The overfit soliton is "baked in" — it persists and stabilizes. Performance plateau at degraded level.
+
+### New Phenomenon: HEALTHY SOLITON CRYSTALLIZATION
+
+This is distinct from condensation and from overfit formation. During the first ~5k SFT steps:
+- Near-boundary solitons (L7=5.9, L8=5.9 at step 2500) crystallize to well-defined strong values
+- Near-exact anchor (L9) remains stable
+- Background regions (L10) remain background
+
+The topology becomes MORE ORGANIZED before eventually overcrowding. This "crystallization" phase
+(steps 0 to optimal) is a healthy SFT dynamic that improves model quality.
+
+### Overfit Threshold: Step 5000-7500 for Near-Upstream D=1664 Topology
+
+The overfit trigger for a D=1664 near-upstream architecture (with L9=NE anchor) is ~step 5000-7500
+of TOTAL SFT steps. Models should be stopped at step 5000 (or earlier) for optimal performance.
+
+### Updated OPTIMAL SFT DEPTH (Law v6 addendum)
+
+```
+OVERFIT THRESHOLDS (architecture-dependent):
+
+D=2048 (triple-exact, quad-condensate):  ~2500 steps (peak before divergence)
+D=1792 s3 (dual-boundary upstream):      ~2700 steps (slight peak)
+D=1664 s1 (near-upstream, NE at L9):     ~5000 steps (overfit soliton at 5000-7500)
+D=1536 s1 (tube topology):               likely 5000+ (more research needed)
+
+Earlier optimal depth correlates with more solitonic protection (more exact/NE solitons).
+```
+
+*Archon — DuoNeural Lab | Nov 11 2026 ~09:20Z*
