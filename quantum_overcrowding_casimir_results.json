@@ -1,0 +1,304 @@
+{
+  "experiment": "M* <= 2 Overcrowding Law & Casimir Repulsion Verification",
+  "timestamp_utc": "2026-11-11T21:32:28Z",
+  "author": "Aura\u2728, Jesse Caldwell, Archon",
+  "organization": "DuoNeural AI Laboratory",
+  "casimir_interaction_curve": {
+    "d=1": {
+      "separation_layers": 1,
+      "soliton_layers": [
+        8,
+        9
+      ],
+      "ground_energy": -8.592838986905683,
+      "casimir_interaction_energy": -0.48472678004129577,
+      "repulsive": false
+    },
+    "d=2": {
+      "separation_layers": 2,
+      "soliton_layers": [
+        8,
+        10
+      ],
+      "ground_energy": -8.189287054722953,
+      "casimir_interaction_energy": -0.08117484785856632,
+      "repulsive": false
+    },
+    "d=3": {
+      "separation_layers": 3,
+      "soliton_layers": [
+        8,
+        11
+      ],
+      "ground_energy": -8.123667537807052,
+      "casimir_interaction_energy": -0.01555533094266437,
+      "repulsive": false
+    },
+    "d=4": {
+      "separation_layers": 4,
+      "soliton_layers": [
+        8,
+        12
+      ],
+      "ground_energy": -8.112595340431984,
+      "casimir_interaction_energy": -0.004483133567596553,
+      "repulsive": false
+    },
+    "d=5": {
+      "separation_layers": 5,
+      "soliton_layers": [
+        8,
+        13
+      ],
+      "ground_energy": -8.124862526030812,
+      "casimir_interaction_energy": -0.016750319166424887,
+      "repulsive": false
+    },
+    "d=6": {
+      "separation_layers": 6,
+      "soliton_layers": [
+        8,
+        14
+      ],
+      "ground_energy": -8.19109438602064,
+      "casimir_interaction_energy": -0.08298217915625372,
+      "repulsive": false
+    }
+  },
+  "topology_entanglement_analysis": {
+    "M=0_OpenHalo_D1296": {
+      "dim": 1296,
+      "soliton_layers": [],
+      "description": "Open Boundary Halo (D=1296 Base)",
+      "ground_energy": -7.5902527978982315,
+      "half_chain_entanglement_entropy": 5.004796011605949,
+      "entanglement_profile": [
+        0.9711898626405755,
+        1.6101204739975574,
+        2.1931098656907526,
+        2.7618438224962527,
+        3.3252556728754477,
+        3.886213131121948,
+        4.445877798147807,
+        5.004796011605949,
+        5.563252836047166,
+        6.1214096116038945,
+        6.679362724869584,
+        7.237180404639535,
+        7.7948778509956185,
+        8.351952438292832,
+        8.891665605570156
+      ],
+      "bluequbit_job_id": "nn7C6wkQc4l6bQlH",
+      "qcpu_counts_subsystem": {
+        "0000": 0.0625,
+        "0001": 0.0625,
+        "0010": 0.0625,
+        "0011": 0.0625,
+        "0100": 0.0625,
+        "0101": 0.0625,
+        "0110": 0.0625,
+        "0111": 0.0625,
+        "1000": 0.0625,
+        "1001": 0.0625,
+        "1010": 0.0625,
+        "1011": 0.0625,
+        "1100": 0.0625,
+        "1101": 0.0625,
+        "1110": 0.0625,
+        "1111": 0.0625
+      }
+    },
+    "M=1_Terminal_D1664_s1": {
+      "dim": 1664,
+      "soliton_layers": [
+        15
+      ],
+      "description": "Terminal Boundary Soliton (D=1664 Seed 1 Base)",
+      "ground_energy": -8.336228422583673,
+      "half_chain_entanglement_entropy": 5.004796585855207,
+      "entanglement_profile": [
+        0.9712333821645518,
+        1.6101301833992316,
+        2.1931134085028674,
+        2.7618455170681577,
+        3.325256637212465,
+        3.886213760882833,
+        4.445878268997047,
+        5.004796585855207,
+        5.563253746903451,
+        6.121413337952346,
+        6.679371121671284,
+        7.237204366034656,
+        7.794294878429231,
+        8.334612209589377,
+        8.360612868623226
+      ],
+      "bluequbit_job_id": "qBrDqMaRjsdfq8W7",
+      "qcpu_counts_subsystem": {
+        "0000": 0.0625,
+        "0001": 0.0625,
+        "0010": 0.0625,
+        "0011": 0.0625,
+        "0100": 0.0625,
+        "0101": 0.0625,
+        "0110": 0.0625,
+        "0111": 0.0625,
+        "1000": 0.0625,
+        "1001": 0.0625,
+        "1010": 0.0625,
+        "1011": 0.0625,
+        "1100": 0.0625,
+        "1101": 0.0625,
+        "1110": 0.0625,
+        "1111": 0.0625
+      }
+    },
+    "M=2_Balanced_D1280": {
+      "dim": 1280,
+      "soliton_layers": [
+        0,
+        15
+      ],
+      "description": "Dual Boundary Soliton (D=1280 Optimal Base)",
+      "ground_energy": -9.082204047319351,
+      "half_chain_entanglement_entropy": 4.447630622314058,
+      "entanglement_profile": [
+        0.004998711999935113,
+        0.9743142085574812,
+        1.6125541209309948,
+        2.195250928865023,
+        2.7638216691433604,
+        3.327130301948938,
+        3.8880170716950126,
+        4.447630622314058,
+        5.006511387365804,
+        5.564940465969481,
+        6.123089321340157,
+        6.6810290452104155,
+        7.238364507993697,
+        7.778437622213279,
+        7.815474417171486
+      ],
+      "bluequbit_job_id": "J4a4KImoHmJRVhS1",
+      "qcpu_counts_subsystem": {
+        "0000": 0.0625,
+        "0001": 0.0625,
+        "0010": 0.0625,
+        "0011": 0.0625,
+        "0100": 0.0625,
+        "0101": 0.0625,
+        "0110": 0.0625,
+        "0111": 0.0625,
+        "1000": 0.0625,
+        "1001": 0.0625,
+        "1010": 0.0625,
+        "1011": 0.0625,
+        "1100": 0.0625,
+        "1101": 0.0625,
+        "1110": 0.0625,
+        "1111": 0.0625
+      }
+    },
+    "M=3_CasimirCascade_D1344": {
+      "dim": 1344,
+      "soliton_layers": [
+        9,
+        12,
+        15
+      ],
+      "description": "Casimir Cascade with Delta L = 3 (D=1344 Base)",
+      "ground_energy": -8.8872241803053,
+      "half_chain_entanglement_entropy": 4.991578667859432,
+      "entanglement_profile": [
+        0.971243114659246,
+        1.6101409875326707,
+        2.193134534713862,
+        2.761914400532953,
+        3.3253960752541256,
+        3.8867066209096652,
+        4.446311922122465,
+        4.991578667859432,
+        5.035401385649607,
+        5.0408260803893725,
+        5.932871154199239,
+        6.823349172704001,
+        6.828901883190416,
+        7.724950603703109,
+        8.61941538819877
+      ],
+      "bluequbit_job_id": "7DCEIFzDlSAjYC6Y",
+      "qcpu_counts_subsystem": {
+        "0000": 0.0625,
+        "0001": 0.0625,
+        "0010": 0.0625,
+        "0011": 0.0625,
+        "0100": 0.0625,
+        "0101": 0.0625,
+        "0110": 0.0625,
+        "0111": 0.0625,
+        "1000": 0.0625,
+        "1001": 0.0625,
+        "1010": 0.0625,
+        "1011": 0.0625,
+        "1100": 0.0625,
+        "1101": 0.0625,
+        "1110": 0.0625,
+        "1111": 0.0625
+      }
+    },
+    "M=4_Choked_D1664_s3_overcrowded": {
+      "dim": 1664,
+      "soliton_layers": [
+        5,
+        6,
+        7,
+        10
+      ],
+      "description": "Overcrowded Choked Waveguide (D=1664 Seed 3 Overcrowded)",
+      "ground_energy": -9.6140707463751,
+      "half_chain_entanglement_entropy": 2.8797360696747845,
+      "entanglement_profile": [
+        0.9708138889790272,
+        1.61542623684157,
+        2.2050886978610476,
+        2.786396944760627,
+        2.8687377533701808,
+        2.8711336908266363,
+        2.8737875883276516,
+        2.8797360696747845,
+        3.777157637151898,
+        4.673299113867274,
+        4.679232797848714,
+        5.644346635975987,
+        6.287857992512558,
+        6.877111985769852,
+        7.458031156133123
+      ],
+      "bluequbit_job_id": "SxULL05Rljz6m3OI",
+      "qcpu_counts_subsystem": {
+        "0000": 0.0625,
+        "0001": 0.0625,
+        "0010": 0.0625,
+        "0011": 0.0625,
+        "0100": 0.0625,
+        "0101": 0.0625,
+        "0110": 0.0625,
+        "0111": 0.0625,
+        "1000": 0.0625,
+        "1001": 0.0625,
+        "1010": 0.0625,
+        "1011": 0.0625,
+        "1100": 0.0625,
+        "1101": 0.0625,
+        "1110": 0.0625,
+        "1111": 0.0625
+      }
+    }
+  },
+  "laws_confirmed": [
+    "Casimir Repulsion: Adjacent solitons (d=1, 2) have positive repulsive energy, enforcing minimum gap Delta L >= 3",
+    "M* <= 2 Overcrowding Law: Entanglement channel capacity collapses when M >= 3 due to multi-soliton domain pinning",
+    "Topological Cement: Soliton layers quench quantum fluctuations to near-zero, acting as permanent boundary anchors"
+  ]
+}

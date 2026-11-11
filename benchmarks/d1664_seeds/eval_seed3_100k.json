@@ -1,0 +1,8 @@
+{
+  "model": "D=1664 Seed 3 Step 100k",
+  "dim": 1664,
+  "wiki_loss": 4.456357502937317,
+  "wiki_ppl": 86.17305165132655,
+  "cot_loss": null,
+  "cot_ppl": null
+}

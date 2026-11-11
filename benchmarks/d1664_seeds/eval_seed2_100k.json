@@ -1,0 +1,8 @@
+{
+  "model": "D=1664 Seed 2 Step 100k",
+  "dim": 1664,
+  "wiki_loss": 4.399065165519715,
+  "wiki_ppl": 81.3747611639916,
+  "cot_loss": null,
+  "cot_ppl": null
+}
