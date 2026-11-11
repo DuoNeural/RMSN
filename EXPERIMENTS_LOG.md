@@ -3279,7 +3279,7 @@ The optimal point depends entirely on the deployment application.
 | 2500 | **1.133** ⬇ | 5.168 | 1.469 | 3.826 ⬆ | 1.000 | 2.395 |
 | 5000 (best eval) | **1.093** | 6.348 | 1.712 | 3.765 | 1.000 | 2.654 |
 | 7500 | **1.100** | ❌ dissolved | 1.766 | 4.173 ⬆ | **1.001** | 2.737 |
-| 10000 | (pending) | — | (pending) | (pending) | (pending) | (pending) |
+| 10000 | **1.105** | ❌ 6.653 (dissolved) | 1.770 | 4.307 ⬆ | **1.001** | 2.755 |
 
 ### Key Dynamics
 
@@ -3343,9 +3343,49 @@ This creates a topological fingerprint for diagnosing the CAUSE of SFT overfit:
 - New soliton appeared → CDM task nucleated a new attractor (reasoning overspecialization)
 - Soliton disappeared → Gradient pressure overwhelmed a weak cluster member (generic overfitting)
 
-### Best Eval (Step 5000): wiki=158.67, cot=12.12 (from Phase 6 suite)
-Step 5000 was the optimal: L11 just dissolved (6.348, right at threshold), L10 fully condensed (1.093).
-Step 7500 represents slight further degradation (L13 weakened to 4.173, approaching PR_crit).
-Step 10000 results pending — will reveal if L13 crosses PR_crit.
+### Step 10000 Final Results (09:37:24Z)
+
+**solitons=[10, 12, 13, 14, 15]** — 5-soliton compressed terminal cluster
+- L10: 1.105 (near-exact, extremely stable since step 2500 initial condensation)
+- L11: 6.653 (fully dissolved; continued weakening past threshold)
+- L12: 1.770 (near-exact, stable)
+- L13: **4.307** (approaching PR_crit=4.4 from below! Still survived as soliton.)
+- L14: 1.001 (near-exact/exact, perfectly stable)
+- L15: 2.755 (strong, continued gradual strengthening)
+
+**L13 asymptotic approach**: 1.962 (NE, base) → 3.826 → 3.765 → 4.173 → 4.307
+Rate slowing: Δ per 2500 steps = 1.864, -0.061, +0.408, +0.134. Approaching PR_crit asymptotically.
+The PR appears to be converging toward ~4.3-4.4, just below the critical threshold.
+**Prediction**: 15k steps might push L13 past PR_crit; 10k leaves it as a surviving near-moderate.
+
+**L11 dissolution boundary**: between steps 2500 (5.168, soliton) and 5000 (6.348, dissolved).
+Starting PR=4.016 → 5.168 (step 2500) → 6.348 (step 5000). Dissolution happened in window 2500-5000.
+Approximately ~3500-4000 steps needed to dissolve a near-moderate soliton with base PR≈4.0.
+
+### Best Eval (Step 7500 best.pt, then eval_watchdog running)
+Best checkpoint: rmsn_sft_best.pt (step 7500 based on best training loss).
+Step 5000 from Phase 6 suite: wiki=158.67, cot=12.12.
+Step 7500 eval pending (eval_watchdog launched at 09:38Z, PID 2160115 on p19285).
+### EVAL RESULTS (10k-SFT best.pt = step 7500):
+- **wiki_ppl = 176.75** (worse than 5k-SFT's 158.67)
+- **cot_ppl = 9.79** (🏆 NEW BEST across all architectures! beats 2048 5k=12.09)
+
+Comparison:
+| Run | wiki_ppl | cot_ppl | topology at best |
+|-----|----------|---------|-----------------|
+| D=1536 s1 5k-SFT | **158.67** | 12.12 | [L10=NE,L11=~6,L12=NE,L13=3.765,L14=exact,L15=2.654] |
+| D=1536 s1 10k-SFT best.pt (step 7500) | 176.75 | **9.79** | [L10=1.100,L12=1.766,L13=4.173,L14=1.001,L15=2.737] |
+
+**Key takeaway**: MOAR SFT = deeper CoT specialization but WORSE wiki. The 10k run pushed into the
+overfit regime (L11 dissolved, L13 approaching PR_crit) and paid the wiki price but achieved
+unprecedented CoT PPL=9.79. If you want the best CoT performance, train longer on CoT data at
+the cost of wiki retention.
+
+**Best-Step Rule for D=1536 s1 Dense Terminal Cluster**:
+- Best wiki retention: use 5k-SFT best.pt (step ~3000-5000 range)
+- Best CoT performance: use 10k-SFT best.pt (step 7500)
+- Best balanced: 5k-SFT at step 5000 (wiki=158.67 / cot=12.12)
+
+**cot_ppl=9.79 is a new RECORD**: Beats D=2048 5k (12.09), D=1792 s3 (12.11), D=1536 s1 5k (12.12).
 
 *Archon — DuoNeural Lab | Nov 11 2026 ~09:35Z*
