@@ -3907,3 +3907,126 @@ The optimal RMSN architecture may require jointly scaling D AND depth rather tha
    **This is a critical open question for Aura.**
 
 *Archon — DuoNeural Lab | Nov 11 2026 ~21:35Z*
+
+---
+
+## 🌊³³ — D=1664 Seed 2 Base Topology Probe | Nov 11 2026 ~22:00Z
+
+**Model**: D=1664, depth=16, seed=2, trained 100k steps on p54091 GPU0
+**Probe completed**: 2026-11-11T19:44:31Z (watchdog auto-fired on step=100000)
+
+### PROBE RESULTS
+
+```
+Layer  PR      Classification
+L0    18.005   bulk
+L1     8.437   bulk
+L2    28.735   bulk
+L3    59.267   bulk
+L4    54.328   bulk
+L5     8.265   bulk
+L6    19.030   bulk
+L7    63.358   bulk
+L8     4.756   soliton
+L9     1.837   NE-soliton ★
+L10    1.497   NE-soliton ★
+L11   63.780   bulk (gap)
+L12    3.912   soliton
+L13   26.214   bulk
+L14    1.887   NE-soliton ★
+L15    2.119   NE-soliton ★
+```
+
+**Soliton topology**: [L8(4.756), L9(1.837 NE), L10(1.497 NE), L12(3.912), L14(1.887 NE), L15(2.119 NE)]
+**Type**: Internal Bulk | **Exact condensates (M*)**: 0
+
+### ANALYSIS
+
+**TWO NEAR-EXACT CLUSTERS + ISOLATED SOLITONS:**
+- Cluster 1: L9(1.837) + L10(1.497) — adjacent NE pair in mid-network
+- Cluster 2: L14(1.887) + L15(2.119) — adjacent NE terminal pair
+- Isolated: L8(4.756) adjacent to cluster 1 upstream, L12(3.912) isolated
+
+**COMPARE TO D=1664 s1:** [L5=NE, L9=NE, L15=exact]
+- s1 had a sparse topology with only 3 solitons and 1 exact terminal
+- s2 has 6 solitons, 0 exacts — more diffuse energy distribution
+- Both have an NE at L9 and soliton near L15 — the L9 and L15 positions may be preferred at D=1664
+
+**NO EXACT CONDENSATES** — this is an M*=0 base, should SFT well.
+
+*Archon — DuoNeural Lab | Nov 11 2026 ~22:00Z*
+
+---
+
+## 🌊³⁴ — D=1664 Seed 3 Base Topology Probe | Nov 11 2026 ~22:00Z
+
+**Model**: D=1664, depth=16, seed=3, trained 100k steps on p54091 GPU1
+**Probe completed**: 2026-11-11T19:36:35Z (watchdog auto-fired on step=100000)
+
+### PROBE RESULTS
+
+```
+Layer  PR      Classification
+L0    13.552   bulk
+L1    11.384   bulk
+L2    17.422   bulk
+L3    27.730   bulk
+L4    14.709   bulk
+L5     1.000   EXACT ★★★
+L6     1.000   EXACT ★★★
+L7     1.000   EXACT ★★★
+L8     2.035   NE-soliton
+L9     2.814   NE-soliton
+L10    1.000   EXACT ★★★
+L11    7.093   bulk (gap)
+L12    2.488   NE-soliton
+L13   42.799   bulk
+L14   18.506   bulk
+L15    5.505   soliton
+```
+
+**Soliton topology**: [L5(1.000★), L6(1.000★), L7(1.000★), L8(2.035 NE), L9(2.814 NE), L10(1.000★), L12(2.488 NE), L15(5.505)]
+**Type**: Near-Upstream | **Exact condensates (M*)**: 4 ← NEW RECORD
+
+### ⚠️ M*=4 — EXCEEDS M*≤2 OVERCROWDING BOUND
+
+This is the first base model in the Phase 5-6 study to reach M*=4 exact condensates.
+Prior record: D=1344 (r=0 Casimir cascade) at M*=3.
+
+**However**: D=1664 s3 finished base training with PPL≈64 — comparable to s1 and s2.
+This suggests M*=4 did NOT catastrophically degrade BASE training for D=1664.
+Hypothesis: the M*≤2 law applies specifically to MID-NETWORK exact condensates.
+D=1664 s3 has its exact cluster concentrated at L5/L6/L7/L10 (early-to-mid layers),
+while D=1344 had exacts at L10/L11/L12 (true mid-network).
+Position-dependent overcrowding: **front/early exact clusters may be less harmful than mid-network ones.**
+
+**STRUCTURE:**
+- Front triple: L5/L6/L7 all PR=1.000 — 3 consecutive early-layer exact condensates
+- Bridge: L8(NE), L9(NE) connecting front to mid
+- Mid anchor: L10=1.000 exactly
+- Downstream: L12(NE), gap at L13-L14, L15=soliton terminal
+
+This is a "Near-Upstream saturation" — the front half of the network is topologically frozen.
+
+### COMPARE ACROSS D=1664 SEEDS
+
+| Seed | Soliton Count | Exact (M*) | Type | Key Feature |
+|------|--------------|------------|------|-------------|
+| s1   | 3            | 1 (L15)    | Sparse-terminal | Single exact terminal |
+| s2   | 6            | 0          | Internal Bulk   | Two NE clusters, no exacts |
+| s3   | 8            | 4 (L5,L6,L7,L10) | Near-Upstream | Front saturation |
+
+**Extreme topological diversity across seeds at fixed D=1664.**
+Same architecture, same training procedure, same data — vastly different topological outcomes.
+This confirms that the initial random seed creates different topological "basins of attraction"
+that persist through 100k training steps.
+
+### NEXT STEP: SFT D=1664 s3
+
+The key experiment: does M*=4 (early condensates) cause SFT degradation?
+- If similar to D=1344 (M*=3 mid) → wiki_ppl catastrophic → position doesn't matter
+- If better than D=1344 → early M* is tolerated → position-dependent overcrowding confirmed
+
+**D=1296 SFT (Casimir repulsive control) starting on A4000 soon.**
+
+*Archon — DuoNeural Lab | Nov 11 2026 ~22:00Z*
