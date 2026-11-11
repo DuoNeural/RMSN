@@ -1,0 +1,79 @@
+{
+  "name": "D=1344 Seed 1 SFT Step 2500",
+  "dim": 1344,
+  "ckpt": "/workspace/rmsn_project/d1344_s1_sft/rmsn_sft_step002500.pt",
+  "stored_lyap": null,
+  "soliton_layers": [
+    8,
+    10,
+    11,
+    12
+  ],
+  "soliton_type": "Internal Bulk",
+  "layer_results": {
+    "0": {
+      "pr": 6.233,
+      "soliton": false
+    },
+    "1": {
+      "pr": 11.568,
+      "soliton": false
+    },
+    "2": {
+      "pr": 18.957,
+      "soliton": false
+    },
+    "3": {
+      "pr": 36.865,
+      "soliton": false
+    },
+    "4": {
+      "pr": 36.147,
+      "soliton": false
+    },
+    "5": {
+      "pr": 9.361,
+      "soliton": false
+    },
+    "6": {
+      "pr": 63.385,
+      "soliton": false
+    },
+    "7": {
+      "pr": 50.679,
+      "soliton": false
+    },
+    "8": {
+      "pr": 3.896,
+      "soliton": true
+    },
+    "9": {
+      "pr": 63.821,
+      "soliton": false
+    },
+    "10": {
+      "pr": 1.0,
+      "soliton": true
+    },
+    "11": {
+      "pr": 1.0,
+      "soliton": true
+    },
+    "12": {
+      "pr": 1.0,
+      "soliton": true
+    },
+    "13": {
+      "pr": 6.115,
+      "soliton": false
+    },
+    "14": {
+      "pr": 63.932,
+      "soliton": false
+    },
+    "15": {
+      "pr": 63.368,
+      "soliton": false
+    }
+  }
+}

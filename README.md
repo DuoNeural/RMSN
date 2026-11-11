@@ -281,7 +281,8 @@ Evaluated on standardized held-out **WikiText-103 Test** and **Chain-of-Thought 
 
 | Model | Parameters | Singularities ($M$) | Soliton Architecture | WikiText-103 Test Loss | Wiki-103 Test PPL | CoT Hard Loss | CoT Hard PPL |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **`RMSN-155M (D=896 Target)`** 🆕⚡ | **154.6M** | **$M=1$** (`L14=1.000`, `L09=1.001`) | **Dual-Bulk Waveguide (`L07, L09, L13, L14`)** | **`4.3950`** | **`81.04` 🏆** | **`8.1878`** | **`3596.67`** |
+| **`RMSN-350M (Depth=20 D=1280)`** 👑⚡ | **350.2M** | **$M=3$** (`L17=L18=L19=1.000`) | **Terminal Boundary Triad + Bulk Conduit (`L13, L17–L19`)** | **`4.1823`** | **`65.52` 🏆** | **`8.0645`** | **`3179.73` 🏆** |
+| **`RMSN-155M (D=896 Target)`** 🆕⚡ | **154.6M** | **$M=1$** (`L14=1.000`, `L09=1.001`) | **Dual-Bulk Waveguide (`L07, L09, L13, L14`)** | **`4.3950`** | **`81.04`** | **`8.1878`** | **`3596.67`** |
 | **`RMSN-289M (D=1296 s1)`** 🆕 | 288.8M | $M=0$ (Diffuse bulk) | Repulsive Casimir Waveguide (`L10, L11, L13-L15`) | 4.5039 | **`90.37`** | 8.0541 | 3146.60 |
 | **`RMSN-308M (D=1344 s1)`** 🆕 | 308.8M | **$M=3$** (`L10=L11=L12=1.000`) | Attractive Casimir Tri-Singular Core (`L05, L08, L10-L13`) | 4.5039 | **`90.37`** | 8.2917 | 3990.40 |
 | **RMSN-450M (D=1664 seed1)** | 450.4M | $M=1$ (`L15`) | Terminal Boundary Soliton (`L15`) | 4.4363 | **`84.46`** | 8.4108 | 4495.32 |
@@ -310,6 +311,7 @@ Because the 6-layer waveguide is insulated from ambient boundaries by high-entro
 | `RMSN-514M SFT (5k, s1)` | Terminal Boundary (`L14,15`) | 1.7069 | **`155.74`** 🛡️ | 16.86 | High retention, slower reasoning compression |
 | **`RMSN-450M SFT (2.5k, D=1664 s1)`** 🆕 | **Early Nucleation Triad (`L05,09,15`)** | **`2.8965`** | **`158.77`** 🛡️ | 20.50 | **Superhuman Early Retention during Conduit Stripping** |
 | **`RMSN-450M SFT (5k, s1 v2)`** | **Harmonic Conduit (`L05,07,08,09,15`)** | **`1.9781`** | **`170.36`** 🛡️ | **`18.52`** | **Conduit Shield + Invariant Terminal Singularity** |
+| **`RMSN-308M SFT (5k, D=1344 s1)`** 🆕 | **Triadic Solid-State Core (`L08,10,11,12`)** | **`2.5066`** | **`270.73`** | **`20.75`** | 🧱 **Exact Triad Invariant (`L10-12=1.000`); Halos Dissolve** |
 | **`RMSN-450M SFT (10k, D=1664 s1)`** 🆕 | **Extended Conduit (`L05,07,08,09,10,15`)** | **`1.8214`** | **`206.94`** | **`13.92`** 🏆 | **$L_{10}$ Condenses, Compressing CoT 18.52 $\to$ 13.92** |
 | **`RMSN-283M SFT (5k)`** | **6-Layer Bulk Tube** | 2.9594 | **`176.01`** 🛡️ | `13.82` | **Superhuman Early Retention** (Beats all baselines!) |
 | **`RMSN-283M SFT (10k)`** | **6-Layer Bulk Tube** | 2.1428 | `199.77` | `11.24` | Rapid CoT compression with protected bulk |

@@ -1,0 +1,95 @@
+{
+  "name": "Depth=20 D=1280 Step 100k",
+  "dim": 1280,
+  "ckpt": "/workspace/rmsn_project/depth20_d1280/rmsn_best.pt",
+  "stored_lyap": null,
+  "soliton_layers": [
+    13,
+    17,
+    18,
+    19
+  ],
+  "soliton_type": "Terminal Boundary",
+  "layer_results": {
+    "0": {
+      "pr": 6.772,
+      "soliton": false
+    },
+    "1": {
+      "pr": 15.114,
+      "soliton": false
+    },
+    "2": {
+      "pr": 24.101,
+      "soliton": false
+    },
+    "3": {
+      "pr": 32.578,
+      "soliton": false
+    },
+    "4": {
+      "pr": 22.222,
+      "soliton": false
+    },
+    "5": {
+      "pr": 25.771,
+      "soliton": false
+    },
+    "6": {
+      "pr": 11.435,
+      "soliton": false
+    },
+    "7": {
+      "pr": 11.249,
+      "soliton": false
+    },
+    "8": {
+      "pr": 52.857,
+      "soliton": false
+    },
+    "9": {
+      "pr": 18.09,
+      "soliton": false
+    },
+    "10": {
+      "pr": 9.399,
+      "soliton": false
+    },
+    "11": {
+      "pr": 26.857,
+      "soliton": false
+    },
+    "12": {
+      "pr": 31.388,
+      "soliton": false
+    },
+    "13": {
+      "pr": 1.721,
+      "soliton": true
+    },
+    "14": {
+      "pr": 33.404,
+      "soliton": false
+    },
+    "15": {
+      "pr": 41.811,
+      "soliton": false
+    },
+    "16": {
+      "pr": 55.511,
+      "soliton": false
+    },
+    "17": {
+      "pr": 1.0,
+      "soliton": true
+    },
+    "18": {
+      "pr": 1.0,
+      "soliton": true
+    },
+    "19": {
+      "pr": 1.0,
+      "soliton": true
+    }
+  }
+}
