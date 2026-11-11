@@ -274,11 +274,15 @@ Because the 6-layer waveguide is insulated from ambient boundaries by high-entro
 
 | Model / Checkpoint | Topology Class | SFT Loss | Wiki-103 Retention PPL | CoT Reasoning PPL | Retention Shield Verdict |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **`RMSN-777M SFT (5k, D=2048 s1)`** 👑 | **Quad-Condensate Spine (`L00,06,10,15`)** | **`2.4711`** | **`151.87`** 🛡️🏆 | **`12.08`** 🏆 | **ALL-TIME LAB RECORD: Retention & CoT Reasoning!** |
+| **`RMSN-390M SFT (10k, D=1536 s1)`** 👑 | **Continuous Bulk Tube (`L10-L15`)** | **`1.7762`** | **`176.75`** 🛡️ | **`9.79`** 🏆🏆🏆 | **ALL-TIME LAB RECORD: FIRST SUB-10 COT REASONING!** |
+| **`RMSN-777M SFT (5k, D=2048 s1)`** 👑 | **Quad-Condensate Spine (`L00,06,10,15`)** | **`2.4711`** | **`151.87`** 🛡️🏆 | **`12.08`** 🏆 | **ALL-TIME LAB RECORD: Retention & Scale Reasoning!** |
 | **`RMSN-514M SFT (5k, s3 WAVEGUIDE)`** | **Dual-Boundary Waveguide (`L00,08,15`)** | **`2.0734`** | **`153.14`** 🛡️ | **`12.11`** 🏆 | **Top-Tier CoT Reasoning + Superb Retention** |
+| **`RMSN-390M SFT (5k, D=1536 s1)`** | Continuous Bulk Tube (`L10-L15`) | 2.1224 | **`158.67`** 🛡️ | **`12.12`** 🏆 | Ideal 6-layer conduit with internal $L_{14}=1.000$ |
 | **`RMSN-514M SFT (5k, s2 COEXISTENCE)`** | **Bulk Tube + Boundary (`L00,05,09,10,15`)** | **`1.8523`** | **`163.16`** 🛡️ | **`13.64`** 🏆 | **Coexistence Record + Conduit Shielding** |
 | `RMSN-514M SFT (5k, s1)` | Terminal Boundary (`L14,15`) | 1.7069 | **`155.74`** 🛡️ | 16.86 | High retention, slower reasoning compression |
+| **`RMSN-450M SFT (2.5k, D=1664 s1)`** 🆕 | **Early Nucleation Triad (`L05,09,15`)** | **`2.8965`** | **`158.77`** 🛡️ | 20.50 | **Superhuman Early Retention during Conduit Stripping** |
 | **`RMSN-450M SFT (5k, s1 v2)`** | **Harmonic Conduit (`L05,07,08,09,15`)** | **`1.9781`** | **`170.36`** 🛡️ | **`18.52`** | **Conduit Shield + Invariant Terminal Singularity** |
+| **`RMSN-450M SFT (10k, D=1664 s1)`** 🆕 | **Extended Conduit (`L05,07,08,09,10,15`)** | **`1.8214`** | **`206.94`** | **`13.92`** 🏆 | **$L_{10}$ Condenses, Compressing CoT 18.52 $\to$ 13.92** |
 | **`RMSN-283M SFT (5k)`** | **6-Layer Bulk Tube** | 2.9594 | **`176.01`** 🛡️ | `13.82` | **Superhuman Early Retention** (Beats all baselines!) |
 | **`RMSN-283M SFT (10k)`** | **6-Layer Bulk Tube** | 2.1428 | `199.77` | `11.24` | Rapid CoT compression with protected bulk |
 | **`RMSN-283M SFT-best (15k)`** | **6-Layer Bulk Tube** | **`1.4798`** 🏆 | **`208.68`** | **`10.77`** | **Superior CoT & Retention vs Terminal Boundary** |
