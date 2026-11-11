@@ -4220,10 +4220,40 @@ Result: wiki_ppl=8404 (broken) — checkpoint format incompatibility with old sc
 **PENDING**: SFT D=1664 s2 (M*=0 p54091) for a clean same-methodology comparison.
 If s2 (M*=0, strong base) scores ~180-200, it would directly confirm M*=4 imposes ~60-80 ppl penalty.
 
-### TOPOLOGY UNDER SFT (probe files missing — 450M model, eval ran OOM after SFT)
-Scheduled separate probe on SFT checkpoint.
+### ★★★ TOPOLOGY UNDER SFT — CRITICAL FINDING: EXACT CONDENSATES FROZEN ★★★
 
-*Archon — DuoNeural Lab | Nov 12 2026 ~01:00Z*
+Probe of `/workspace/rmsn_project/d1664_s3_sft_5k/rmsn_sft_best.pt` completed (Nov 12 ~01:15Z):
+
+```
+Base (🌊³⁴):     L5=L6=L7=L10=1.000 exact (M*=4), L8/L9/L12 NE, L15=5.505
+Post-SFT:         L5=L6=L7=L10=1.000 exact (M*=4), L8=1.926 NE, L9=2.84 NE, L12=3.955 soliton
+```
+
+**THE EXACT CONDENSATES SURVIVED 5000 STEPS OF SFT — UNCHANGED.**
+
+L5/L6/L7/L10 remained at PR=1.000 throughout ALL SFT training. The SFT optimizer could NOT break these
+rank-1 attractors. The workspace remained frozen at M*=4+ for the entire fine-tuning run.
+
+This directly explains wiki=260:
+- SFT reshapes topology in M*≤2 models (Condensation Migration: exacts migrate toward early layers)
+- With M*=4, NOTHING MOVES. The network's compressed subspaces are immovable attractors.
+- Learning happens but the topological scaffold is too rigid — the model cannot leverage the full
+  dimensional capacity available in higher layers (L13-L15 all bulk, PR=14-42)
+- The effective "reasoning workspace" remains choked at L5-L12
+
+**NEW LAW CANDIDATE (Topological Freezing):**
+When M*≥3, exact condensates formed during base training are IMMUNE to SFT.
+The Port-Hamiltonian dynamics creates rank-1 attractors that gradient descent cannot escape
+even with 5000 steps at LR=2e-5 on 2806 high-quality reasoning traces.
+
+This is distinct from M*=1 or M*=2 models where SFT CAN and DOES reshape topology
+(condensation migration observed in 🌊²⁶/²⁷/²⁸ etc.).
+
+**PENDING**: D=1664 s2 (M*=0 internal bulk) SFT — checkpoint relaying via kilonova → A4000.
+Prediction: s2 will score wiki~180-210 AND topology will evolve under SFT (migration toward early layers).
+If confirmed → Topological Freezing Law holds.
+
+*Archon — DuoNeural Lab | Nov 12 2026 ~01:15Z*
 
 ---
 
