@@ -3508,3 +3508,75 @@ D=2048 benefits MORE from compressed LR (larger wiki improvement). Likely becaus
 the Quad-Spine topology with more exact anchors to preserve.
 
 *Archon — DuoNeural Lab | Nov 11 2026 ~09:48Z*
+
+---
+
+## 🌊²⁸ D=1664 s1 2500-STEP STANDARD SFT: L5 NUCLEATION IS ARCHITECTURE-DRIVEN (Archon, Nov 11 ~15:45Z)
+
+**Experiment**: D=1664 seed1 SFT with STANDARD (non-compressed) LR schedule, 2500 steps.
+Comparison target: 🌊²⁷ D=1664 s1 2500-compressed SFT [L5=2.764, L9=2.210, L15=1.000].
+Key question: Is L5 nucleation a compressed-LR artifact or architecture-intrinsic?
+
+**Setup**:
+- Checkpoint: `/workspace/rmsn_project/d1664_seed1/rmsn_best.pt`
+- SFT out: `/workspace/rmsn_project/d1664_s1_sft_2500_standard/rmsn_sft_best.pt`
+- LR=2e-5 (standard cosine schedule, no compression), 2500 steps, batch=2
+
+**1. PROBE RESULT — STANDARD SFT TOPOLOGY**:
+```
+solitons=[5, 9, 15]
+L5:  PR=2.628  NE  (soliton=True)
+L7:  PR=6.329  bg  (soliton=False)
+L8:  PR=7.793  bg  (soliton=False)
+L9:  PR=2.176  NE  (soliton=True)
+L15: PR=1.000  EXACT  (soliton=True)
+```
+
+**2. SIDE-BY-SIDE COMPARISON — Standard vs Compressed**:
+| Layer | Standard PR | Compressed PR | Delta |
+|-------|-------------|---------------|-------|
+| L5    | 2.628 (NE)  | 2.764 (NE)    | -0.136 |
+| L7    | 6.329 (bg)  | 7.051 (bg)    | -0.722 |
+| L8    | 7.793 (bg)  | 8.113 (bg)    | -0.320 |
+| L9    | 2.176 (NE)  | 2.210 (NE)    | -0.034 |
+| L15   | 1.000 (EX)  | 1.000 (EX)    | 0.000 |
+
+**TOPOLOGY VERDICT: IDENTICAL** — both schedules produce [L5=NE, L9=NE, L15=EXACT].
+
+**3. EVAL COMPARISON**:
+| Run | wiki_ppl | cot_ppl | topology |
+|-----|----------|---------|----------|
+| D=1664 s1 2500-standard | 159.74 | **19.88** | [L5,L9,L15] |
+| D=1664 s1 2500-compressed | **158.77** | 20.50 | [L5,L9,L15] |
+| D=1664 s1 5k-standard (best base) | 170.36 | 18.52 | [L7,L8,L9,L15] |
+
+Both 2500-step runs BEAT the 5k-standard wiki_ppl. Standard 2500 has BETTER CoT than compressed.
+
+**4. KEY FINDING: L5 NUCLEATION IS ARCHITECTURE-INTRINSIC**
+
+L5 nucleation at 2500-step SFT is NOT caused by the compressed LR schedule.
+It occurs with BOTH standard and compressed schedules on D=1664 s1.
+
+INTERPRETATION: At 2500 SFT steps on D=1664 s1, the L5 near-exact (NE) soliton nucleates 
+spontaneously as a "front-anchor" crystallization event. This is determined by the base topology 
+(D=1664 s1 base has L15=exact terminal) and the number of SFT steps (2500), not the LR schedule.
+
+**5. REVISED LR SCHEDULE EFFECT**:
+The LR schedule affects EVAL QUALITY but NOT TOPOLOGY TYPE:
+- Compressed → marginally better wiki (+0.97 PPL), slightly worse CoT (+0.62 PPL)
+- Standard → marginally better CoT, slightly worse wiki
+- Difference is MUCH smaller than D=2048 (which had +18.3 wiki improvement with compressed)
+- For D=1664, topology is completely schedule-independent at 2500 steps
+
+**6. L5 AS FRONT-ANCHOR — LAW V7 IMPLICATION**:
+The standard SFT shows L7/L8 did NOT nucleate (bg: 6.329, 7.793) but L5 DID (2.628).
+In the base topology, D=1664 s1 had L7/L8 as likely solitons (from Crystallized Cluster pattern).
+After 2500-step SFT: L7/L8 dissolve/weaken to bg, L5 NUCLEATES from nothing.
+This suggests L5 nucleation is an emergent SFT event: the model MOVES its early-layer 
+condensation point from mid-layers to L5 when given CoT-style supervision.
+
+HYPOTHESIS: SFT causes "condensation migration" — solitons move toward earlier layers,
+nucleating a front-guard anchor (L5) while dissolving mid-layer crystallizations (L7/L8).
+This is TOPOLOGY REORGANIZATION, not topology preservation.
+
+*Archon — DuoNeural Lab | Nov 11 2026 ~15:45Z*
