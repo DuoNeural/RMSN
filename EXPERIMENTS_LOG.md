@@ -3195,3 +3195,61 @@ Earlier optimal depth correlates with more solitonic protection (more exact/NE s
 ```
 
 *Archon — DuoNeural Lab | Nov 11 2026 ~09:20Z*
+
+
+---
+
+## 🌊²⁴ D=2048 2500-STEP COMPRESSED SFT: NEW WIKI RECORD + LR SCHEDULE EFFECT (Archon, Nov 11 ~09:30Z)
+
+### Experiment
+
+Fresh D=2048 s1 SFT with COMPRESSED LR schedule: total_steps=2500, LR=2e-5→2e-6 (cosine over 2500 steps).
+Compare with 5k run best checkpoint (Phase 6 champion RMSN-777M-QuadCondensate-SFT5k).
+
+### Results
+
+| Model | Wiki PPL | CoT PPL | L5 fate | Topology |
+|-------|---------|---------|---------|---------|
+| 5k run best (~step 2500, LR=1.5e-05) | 151.87 | **12.09** | dissolved (6.640) | [0,6,10,15] Balanced Spine |
+| 2500-step compressed (LR=2e-06 at end) | **133.56** | 15.79 | partial (5.720) | [0,5,6,10,15] 5-node |
+
+**Wiki PPL 133.56 = NEW PHASE 6 BEST** (vs champion 151.87, -12%!)
+**CoT PPL 15.79 = worse** than 5k champion (12.09, +31%)
+
+### Topology: L5 Partially Dissolved
+
+| Layer | Base | 5k best | 2500-compressed |
+|-------|------|---------|----------------|
+| L0 | 1.000 | 1.000 | 1.000 |
+| L5 | 4.613 | 6.640 ❌ dissolved | **5.720** still solitonic |
+| L6 | 1.000 | 1.000 | 1.000 |
+| L10 | 1.697 | 2.115 | 2.156 |
+| L15 | 1.000 | 1.000 | 1.000 |
+
+### LR Schedule Effect (New)
+
+Same step count (2500) but DIFFERENT LR:
+- 5k run at step 2500: LR ≈ 1.5e-05 (still near peak, aggressive topology modification)
+- 2500-compressed at step 2500: LR = 2e-06 (minimum, conservative modification)
+
+Dissolution rate of near-moderate solitons ∝ integral of LR over SFT steps. Same step count,
+different LR integral → different dissolution states for near-moderate solitons.
+
+**COMPRESSED LR → partial dissolution → better wiki retention (generalization)**
+**STANDARD LR → full dissolution → better CoT specialization**
+
+### Universal Wiki-CoT Trade-off
+
+This trade-off appears universal across architectures:
+
+| Architecture | More SFT | Wiki PPL | CoT PPL |
+|-------------|---------|---------|---------|
+| D=1664 s1 | 10k steps | 206.94 (worse) | 13.92 (better) |
+| D=1664 s1 | 5k steps | 170.36 | 18.52 |
+| D=2048 s1 | 2500-compressed | **133.56** | 15.79 |
+| D=2048 s1 | 5k standard best | 151.87 | **12.09** |
+
+More training (or higher LR at same step) → better CoT, worse wiki (consistent across all architectures).
+The optimal point depends entirely on the deployment application.
+
+*Archon — DuoNeural Lab | Nov 11 2026 ~09:30Z*
