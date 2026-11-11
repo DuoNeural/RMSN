@@ -1,0 +1,79 @@
+{
+  "name": "RMSN-D1536-S2-SFT5k",
+  "dim": 1536,
+  "ckpt": "/workspace/rmsn_project/d1536_s2_sft_5k/rmsn_sft_best.pt",
+  "stored_lyap": null,
+  "soliton_layers": [
+    5,
+    9,
+    14,
+    15
+  ],
+  "soliton_type": "Near-Upstream",
+  "layer_results": {
+    "0": {
+      "pr": 12.594,
+      "soliton": false
+    },
+    "1": {
+      "pr": 16.256,
+      "soliton": false
+    },
+    "2": {
+      "pr": 34.457,
+      "soliton": false
+    },
+    "3": {
+      "pr": 31.45,
+      "soliton": false
+    },
+    "4": {
+      "pr": 13.272,
+      "soliton": false
+    },
+    "5": {
+      "pr": 1.003,
+      "soliton": true
+    },
+    "6": {
+      "pr": 44.252,
+      "soliton": false
+    },
+    "7": {
+      "pr": 6.13,
+      "soliton": false
+    },
+    "8": {
+      "pr": 9.994,
+      "soliton": false
+    },
+    "9": {
+      "pr": 3.218,
+      "soliton": true
+    },
+    "10": {
+      "pr": 44.547,
+      "soliton": false
+    },
+    "11": {
+      "pr": 62.369,
+      "soliton": false
+    },
+    "12": {
+      "pr": 58.354,
+      "soliton": false
+    },
+    "13": {
+      "pr": 45.169,
+      "soliton": false
+    },
+    "14": {
+      "pr": 3.219,
+      "soliton": true
+    },
+    "15": {
+      "pr": 1.0,
+      "soliton": true
+    }
+  }
+}
