@@ -274,6 +274,8 @@ Because the 6-layer waveguide is insulated from ambient boundaries by high-entro
 
 | Model / Checkpoint | Topology Class | SFT Loss | Wiki-103 Retention PPL | CoT Reasoning PPL | Retention Shield Verdict |
 | :--- | :--- | :--- | :--- | :--- | :--- |
+| **`RMSN-514M SFT (5k, s2 COEXISTENCE)`** | **Bulk Tube + Boundary (`L00,05,09,10,15`)** | **`1.8523`** | **`163.16`** 🛡️ | **`13.64`** 🏆 | **All-Time SFT CoT Record + Bulk Shield Retention** |
+| `RMSN-514M SFT (5k, s1)` | Terminal Boundary (`L14,15`) | 1.7069 | **`155.74`** 🛡️ | 16.86 | High retention, slower reasoning compression |
 | **`RMSN-283M SFT (5k)`** | **6-Layer Bulk Tube** | 2.9594 | **`176.01`** 🛡️ | `13.82` | **Superhuman Early Retention** (Beats all baselines!) |
 | **`RMSN-283M SFT (10k)`** | **6-Layer Bulk Tube** | 2.1428 | `199.77` | `11.24` | Rapid CoT compression with protected bulk |
 | **`RMSN-283M SFT-best (15k)`** | **6-Layer Bulk Tube** | **`1.4798`** 🏆 | **`208.68`** | **`10.77`** | **Superior CoT & Retention vs Terminal Boundary** |

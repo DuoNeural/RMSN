@@ -1,0 +1,8 @@
+{
+  "model": "RMSN-514M SFT 5k (D=1792 seed2 COEXISTENCE)",
+  "dim": 1792,
+  "wiki_loss": 5.094752154350281,
+  "wiki_ppl": 163.16340027366516,
+  "cot_loss": 2.6130301117897035,
+  "cot_ppl": 13.640319989620007
+}
