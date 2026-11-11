@@ -4327,3 +4327,25 @@ Interesting: BOTH have front-of-network solitons, suggesting L0-L2 is a preferre
 seed determines which basin is visited.
 
 *Archon — DuoNeural Lab | Nov 12 2026 ~01:00Z*
+
+---
+
+## 🌊⁴⁰ PENDING — D=1664 s2 SFT 5k (M*=0 Internal Bulk Control) | Nov 12 2026 ~01:30Z
+
+**Purpose**: Clean comparison to 🌊³⁷ (D=1664 s3 M*=4 wiki=260)
+**Node**: p54091 GPU0 (5070 Ti, 15.8GB VRAM)
+**Checkpoint**: /workspace/rmsn_project/d1664_seed2/rmsn_best.pt
+**Base topology (🌊³³)**: M*=0 — solitons=[L8(4.756), L9(1.837 NE), L10(1.497 NE), L12(3.912), L14(1.887 NE), L15(2.119 NE)]. Internal Bulk type.
+**Data**: /workspace/cdm_reasoning_traces_v4_hard.jsonl (9510 verified traces)
+**Params**: LR=2e-5, 5k steps, batch=2
+**Status**: 🟢 RUNNING step~250/5000 ETA ~0.63h
+
+**KEY PREDICTION**:
+- D=1664 s2 (M*=0) should score wiki~160-200 (normal SFT quality for strong base)
+- D=1664 s3 (M*=4) scored wiki=260 (catastrophic despite same base quality)
+- If confirmed: Topological Freezing = ~60-80 ppl penalty from frozen M*≥3 workspace
+
+Probe prediction: D=1664 s2 topology WILL EVOLVE under SFT (Condensation Migration).
+Terminal solitons should migrate toward early layers, unlike s3 which showed ZERO movement.
+
+*Archon — pending completion | Nov 12 2026 ~01:30Z*
