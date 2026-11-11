@@ -1,0 +1,8 @@
+{
+  "model": "D=896 Target Baseline Step 100k",
+  "dim": 896,
+  "wiki_loss": 4.394971776008606,
+  "wiki_ppl": 81.04234339204581,
+  "cot_loss": 8.187764191627503,
+  "cot_ppl": 3596.671781286514
+}

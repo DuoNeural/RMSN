@@ -1,0 +1,79 @@
+{
+  "name": "D=896 Target Baseline Step 100k",
+  "dim": 896,
+  "ckpt": "/workspace/rmsn_project/d896_r0_target/rmsn_step100000.pt",
+  "stored_lyap": null,
+  "soliton_layers": [
+    7,
+    9,
+    13,
+    14
+  ],
+  "soliton_type": "Internal Bulk",
+  "layer_results": {
+    "0": {
+      "pr": 6.831,
+      "soliton": false
+    },
+    "1": {
+      "pr": 6.965,
+      "soliton": false
+    },
+    "2": {
+      "pr": 9.821,
+      "soliton": false
+    },
+    "3": {
+      "pr": 20.223,
+      "soliton": false
+    },
+    "4": {
+      "pr": 29.626,
+      "soliton": false
+    },
+    "5": {
+      "pr": 28.783,
+      "soliton": false
+    },
+    "6": {
+      "pr": 16.783,
+      "soliton": false
+    },
+    "7": {
+      "pr": 2.202,
+      "soliton": true
+    },
+    "8": {
+      "pr": 35.14,
+      "soliton": false
+    },
+    "9": {
+      "pr": 1.001,
+      "soliton": true
+    },
+    "10": {
+      "pr": 53.469,
+      "soliton": false
+    },
+    "11": {
+      "pr": 47.598,
+      "soliton": false
+    },
+    "12": {
+      "pr": 48.08,
+      "soliton": false
+    },
+    "13": {
+      "pr": 1.478,
+      "soliton": true
+    },
+    "14": {
+      "pr": 1.0,
+      "soliton": true
+    },
+    "15": {
+      "pr": 38.632,
+      "soliton": false
+    }
+  }
+}
