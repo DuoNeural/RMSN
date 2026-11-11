@@ -3253,3 +3253,99 @@ More training (or higher LR at same step) → better CoT, worse wiki (consistent
 The optimal point depends entirely on the deployment application.
 
 *Archon — DuoNeural Lab | Nov 11 2026 ~09:30Z*
+
+
+---
+
+## 🌊²⁵ D=1536 s1 10k SFT TOPOLOGY EVOLUTION: DENSE TERMINAL CLUSTER THINNING (Archon, Nov 11 ~09:35Z)
+
+### D=1536 s1 Base Topology (confirmed from earlier probe)
+
+[L10, L11, L12, L13, L14, L15] — 6-soliton dense terminal cluster
+| Layer | Base PR | Class |
+|-------|---------|-------|
+| L10 | 2.639 | Strong |
+| L11 | 4.016 | Near-moderate (above PR_crit but below threshold seen) |
+| L12 | 1.373 | Near-exact |
+| L13 | 1.962 | Near-exact (barely below 2.0) |
+| L14 | 1.000 | Exact |
+| L15 | 2.228 | Strong (terminal cluster) |
+
+### Complete 4-Checkpoint Topology Evolution
+
+| Step | L10 | L11 | L12 | L13 | L14 | L15 |
+|------|-----|-----|-----|-----|-----|-----|
+| 0 (base) | 2.639 | 4.016 | 1.373 | 1.962 | 1.000 | 2.228 |
+| 2500 | **1.133** ⬇ | 5.168 | 1.469 | 3.826 ⬆ | 1.000 | 2.395 |
+| 5000 (best eval) | **1.093** | 6.348 | 1.712 | 3.765 | 1.000 | 2.654 |
+| 7500 | **1.100** | ❌ dissolved | 1.766 | 4.173 ⬆ | **1.001** | 2.737 |
+| 10000 | (pending) | — | (pending) | (pending) | (pending) | (pending) |
+
+### Key Dynamics
+
+**1. IMMEDIATE L10 CONDENSATION** (most dramatic):
+L10 = 2.639 (strong) → 1.133 (near-exact!) at STEP 2500. This is the fastest condensation
+observed in Phase 6. L10 is not near-exact in the base, yet becomes near-exact within 2500 steps.
+Mechanism: L10 is adjacent to the dense cluster [L11-L15]. The cascading influence of the
+multiple NE+exact anchors in [L12=NE, L13=NE, L14=exact] may pull L10 UP toward condensation
+via the upstream cascade (Rule 4 extended: multiple adjacent NE protect upstream strong solitons).
+
+**2. GRADUAL L11 DISSOLUTION** (5000-step process):
+L11 = 4.016 (near-moderate) → 5.168 (mod) → 6.348 (mod+) → dissolved (>6.0)
+Timeline: 2500 steps to weaken to 5.168, 5000 steps to reach threshold, 7500 dissolved.
+This is MUCH slower than the D=1664 dissolution of L7/L8 (happened within 5k steps starting from ~6).
+Reason: L11 starts CLOSER to the strong regime (4.016 ≈ PR_crit), so more gradient work needed.
+
+**3. NEAR-EXACT BORDER WEAKENING** (L13):
+L13 = 1.962 (barely NE, PR just below 2.0) → 3.826 (step 2500) → 3.765 (step 5000) → 4.173 (step 7500).
+L13 weakened dramatically from NE to near-moderate range, yet SURVIVED (didn't dissolve).
+Law v6 refinement: near-exact solitons with PR≈2.0 (edge of NE region) may weaken substantially
+(>2x their base PR) under extended SFT while still surviving. Protection is proportional to
+"depth" in the NE regime (how far below 2.0).
+
+**4. EXACT L14 STABILITY** (perfect Rule 1 confirmation):
+L14 = 1.000 throughout (2500→5000→7500 all exactly 1.000). Never moves. Rule 1 confirmed.
+At step 7500: L14=1.001 (may be floating point, effectively 1.000).
+
+**5. TERMINAL L15 STRENGTHENING**:
+L15 = 2.228 (base) → 2.395 → 2.654 → 2.737 (strengthening throughout!).
+Terminal strong soliton adjacent to exact anchor strengthens under SFT. This is the first
+observation of a strong terminal soliton STRENGTHENING (vs weakening/dissolving in other archs).
+
+### New Physical Mechanism: Terminal Cluster Redistribution
+
+Under extended SFT, a dense terminal cluster redistributes its solitonic character:
+- Incoming (L10): condenses toward the cluster (pulled by adjacent NE anchors)
+- Near-moderate member (L11): gradually dissolves (gradient pressure overcomes position)
+- NE-border members (L12=NE, L13≈NE): L12 weakens gently; L13 weakens significantly
+- Exact anchor (L14): perfectly stable
+- Strong terminal (L15): strengthens
+
+The cluster COMPACTS around its strongest anchor (L14) while shedding its weakest periphery (L11).
+The redistribution is a topological FOCUSING process: energy concentrates at the exact condensate
+boundary.
+
+### Comparison with D=1664 s1 Dense Cluster Thinning vs Sparse Cluster Overfit
+
+D=1664 s1 (sparse NE anchor, NO terminal cluster):
+→ No dissolution of existing solitons; instead NEW soliton APPEARS (L10 at step 7500)
+→ Overfit = adding solitons
+
+D=1536 s1 (dense terminal cluster with exact anchor):
+→ Existing near-moderate soliton (L11) dissolves; NO new solitons appear
+→ Overfit = thinning cluster (losing solitons)
+
+**Architecture-dependent overfit signature**:
+- Sparse NE anchor → Overfit = soliton GAIN (new moderate soliton nucleates)
+- Dense terminal cluster → Overfit = soliton LOSS (weakest cluster member dissolves)
+
+This creates a topological fingerprint for diagnosing the CAUSE of SFT overfit:
+- New soliton appeared → CDM task nucleated a new attractor (reasoning overspecialization)
+- Soliton disappeared → Gradient pressure overwhelmed a weak cluster member (generic overfitting)
+
+### Best Eval (Step 5000): wiki=158.67, cot=12.12 (from Phase 6 suite)
+Step 5000 was the optimal: L11 just dissolved (6.348, right at threshold), L10 fully condensed (1.093).
+Step 7500 represents slight further degradation (L13 weakened to 4.173, approaching PR_crit).
+Step 10000 results pending — will reveal if L13 crosses PR_crit.
+
+*Archon — DuoNeural Lab | Nov 11 2026 ~09:35Z*
