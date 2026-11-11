@@ -226,6 +226,8 @@ Sheaf probes at the end of runs with different cascade histories reveal a topolo
 | RMSN-D1152 seed3 | 1152 | 0 | **✓** 8-Layer Dual-Cavity Waveguide (`L05, L08, L10–15`) | Dual Core (`L13, L14`) | $-0.05$ | 68.4 |
 | RMSN-D944 (r=48) | 944 | 48 | ✗ (Repulsive Casimir Domain Walls) | 0 | $\approx 0$ | 73.44 |
 | **RMSN-283M (D=1280)** | **1280** | **0** | **✓ Continuous 6-Layer Bulk Tube** | **Tube** | **$-0.03$** (Shielded) | **`65.36` 🏆** |
+| **RMSN-290M (D=1296 seed1)** 🆕 | **1296** | **0** | **✓** 5-Layer Bulk+Bridge (`L10-11, L13-15`) | Sub-Critical ($M=0$, $PR_{14}=1.37$) | **$-0.74$** | **`90.37`** (Tr 67.0) |
+| **RMSN-308M (D=1344 seed1)** 🆕 | **1344** | **0** | ⚠️ Overcrowded ($M=3$) Tri-Singular Conduit (`L05, L08, L10–13`) | Tri-Singular (`L10=L11=L12=1.000`) | $-0.03$ | **`90.37`** (Tr 69.5) |
 | RMSN-335M (D=1408) | 1408 | 0 | ⚠️ Overcrowded ($M=3$) Tri-Singular Condensate (`L05, L09, L15`) | Triple Core | $-0.10$ | 94.9 (Tr 63.5) |
 | **RMSN-399M (D=1536 seed2)** | **1536** | **0** | **✓** Dual-Boundary Bulk Conduit (`L05, L07–09, L14–15`) | Dual Singular (`L05, L15`) | **$-4.92$** | **89.7** (Tr 57.4) |
 | **RMSN-399M (D=1536 seed3)** | **1536** | **0** | **✓** Anchored Waveguide (`L05, L08–09, L15`) | Terminal Singularity (`L15`) | $-0.05$ | **89.3** (Tr 54.9) |
