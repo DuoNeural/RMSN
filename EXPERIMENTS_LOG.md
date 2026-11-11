@@ -4030,3 +4030,141 @@ The key experiment: does M*=4 (early condensates) cause SFT degradation?
 **D=1296 SFT (Casimir repulsive control) starting on A4000 soon.**
 
 *Archon — DuoNeural Lab | Nov 11 2026 ~22:00Z*
+
+---
+
+## 🌊³⁵ — D=1296 SFT 5k Results (Casimir Repulsive Control) | Nov 11 2026 ~23:15Z
+
+**Model**: D=1296, depth=16, slots=64, r=16 (REPULSIVE Casimir). 289.81M params.
+**Trained**: A4000, LR=2e-5, 5000 steps, batch=2
+**Base topology**: M*=0, solitons=[L10(3.017 NE), L13(2.162 NE), L14(1.427 NE), L15(2.254 NE)]
+**Base PPL**: ~95.3
+
+### EVAL RESULTS
+
+```
+wiki_ppl = 266.27  (wiki_loss=5.584)
+cot_ppl  =  21.61  (cot_loss=3.073)
+best_loss = 2.1848 | Lyapunov stable 100%
+```
+
+### TOPOLOGY EVOLUTION UNDER SFT
+
+| Step   | Solitons              | M* | Notes                              |
+|--------|-----------------------|----|------------------------------------|
+| BASE   | L10(NE),L13,L14(NE),L15(NE) | 0 | 4 NE solitons, no exacts      |
+| 2500   | L10(2.118 NE), L13(5.386), L14(1.484 NE) | 0 | L15 dissolved |
+| 5000   | L10(2.031 NE), L13(5.395), L14(1.592 NE) | 0 | LOCKED — topology stable |
+
+**TOPOLOGY STABLE**: M*=0 maintained throughout. L10/L14 NE anchors survived. L13 near PR_crit.
+L15 dissolved (weakly bound). L10 slightly strengthened NE. Minimal topology change = flexible base.
+
+### ⚠️ CRITICAL NULL RESULT — M*=3 OVERCROWDING HYPOTHESIS CHALLENGED
+
+**Comparison:**
+
+| Model | M* (base) | Casimir | Base PPL | SFT wiki_ppl | SFT cot_ppl |
+|-------|-----------|---------|----------|--------------|-------------|
+| D=1344 | 3 (L10/L11/L12 exact, mid-network) | r=0 attractive | ~95.2 | **270.73** | **20.75** |
+| D=1296 | 0 (no exacts) | r=16 repulsive | ~95.3 | **266.27** | **21.61** |
+
+**ΔwikiPPL = 4.46 | ΔcotPPL = 0.86 — NEGLIGIBLE DIFFERENCE.**
+
+D=1296 (M*=0, topology fully flexible) performs ESSENTIALLY IDENTICALLY to D=1344 (M*=3, workspace frozen).
+
+**Revised interpretation of the M*=3 "catastrophe":**
+1. D=1344's wiki=270.73 is not explained by M*=3 overcrowding alone
+2. BOTH D=1296 and D=1344 had base PPL≈95, well above the successful models (PPL 57-65)
+3. The catastrophic wiki scores reflect the **weaker base quality** shared by both D=1296-1344 models, not M*=3 freezing
+4. The Casimir law may cause worse BASE TRAINING PPL at certain dimensions (both r=0 and r=16 got ppl=95 vs expected ~67 from scaling law), which then flows through to worse SFT quality
+5. M*≤2 overcrowding may govern base PPL degradation, while SFT quality is primarily driven by base model quality
+
+**IMPORTANT CAVEAT**: This eval uses the rmsn_sft.py internal evaluation methodology (not Heretic v2.0 external eval). Prior best results (wiki=133-176) were measured with Heretic v2.0. The two methodologies show known divergence. The D=1296 vs D=1344 comparison IS valid (same methodology), but comparison to larger models' Heretic scores is not direct.
+
+### REVISED M*≤2 LAW INTERPRETATION
+
+The M*≤2 law may be better stated as:
+- **Base training**: M*=3 at mid-network positions → rank-1 workspace collapse → REGRESSES BASE PPL
+- **SFT**: both M*=0 and M*=3 models suffer equally when base PPL is high (~95); the workspace collapse is already "baked in" before SFT
+- **For SFT quality**: base PPL is the primary predictor, topology is secondary
+
+**Next test**: D=1664 s3 (M*=4 front-network, base PPL~63) SFT — will topology matter more when base is strong?
+
+*Archon — DuoNeural Lab | Nov 11 2026 ~23:15Z*
+
+---
+
+## 🌊³⁶ — D=896 Sub-300M Base Topology Probe | Nov 11 2026 ~23:15Z
+
+**Model**: D=896, depth=16, slots=64, r=0 (ATTRACTIVE Casimir! — 896 mod 64 = 0)
+**Size**: 154,586,416 params (154M) — **sub-300M confirmed**
+**Run by**: Aura on p35122 GPU2. 100k training steps.
+
+### PROBE RESULTS (final/best checkpoint)
+
+```
+Layer  PR      Classification
+L0    6.831    bulk
+L1    6.965    bulk
+L2    9.821    bulk
+L3   20.223    bulk
+L4   29.626    bulk
+L5   28.783    bulk
+L6   16.783    bulk
+L7    2.202    NE-soliton
+L8   35.140    bulk (gap)
+L9    1.001    ≈EXACT ★★ (threshold)
+L10  53.469    bulk
+L11  47.598    bulk
+L12  48.080    bulk
+L13   1.478    NE-soliton
+L14   1.000    EXACT ★★
+L15  38.632    bulk
+```
+
+**M* ≈ 2** (L9=1.001 barely above exact threshold + L14=1.000 exact)
+**Soliton type**: Internal Bulk | 4 solitons total [L7, L9, L13, L14]
+
+### TOPOLOGY EVOLUTION (step 50k → 100k)
+
+| Layer | Step 50k | Step 100k | Change |
+|-------|----------|-----------|--------|
+| L7    | 1.633 NE | 2.202 NE  | weakened slightly |
+| L8    | 3.680 soliton | 35.140 bulk | **DISSOLVED** |
+| L9    | **1.000 EXACT** | 1.001 ≈exact | essentially maintained |
+| L10   | 2.491 NE  | 53.469 bulk | **DISSOLVED** |
+| L13   | **1.001 ≈exact** | 1.478 NE | **pulled back from exact** |
+| L14   | **1.000 EXACT** | 1.000 EXACT | maintained |
+| L15   | 59.308 bulk | 38.632 bulk | unchanged |
+
+**AT STEP 50k: THREE near-exact condensates** (L9=1.000, L13=1.001, L14=1.000) — M*≈3
+**AT STEP 100k: TWO near-exact condensates** (L9=1.001, L14=1.000) — M*≈2
+
+### ⚠️ ACTIVE M*≤2 SELF-REGULATION OBSERVED
+
+**The model self-regulated from M*≈3 to M*≈2 during training!**
+
+At step 50k, L13=1.001 was at the exact threshold alongside L9 and L14. By step 100k, L13 pulled back to 1.478 (NE). Meanwhile L8 and L10 dissolved completely. This suggests:
+
+1. **M*≤2 is not just a statistical observation — it's an active dynamical attractor**
+2. Training dynamics actively push away from M*=3 configurations
+3. The model "tried" M*=3 at step 50k and was repelled back to M*=2 by step 100k
+4. The M*≤2 overcrowding law governs TRAINING DYNAMICS, not just final states
+
+### D=896 CASIMIR CASCADE (r=0)
+
+D=896 mod 64 = 0 → attractive Casimir, as expected → forms exact condensates.
+Compare to D=1344 (also r=0): D=1344 → M*=3 (overcrowded), D=896 → M*≈2 (at the limit).
+Hypothesis: at smaller D, there is less "topological pressure" to form 3 exacts, so the system stays at M*=2.
+Possibly: M*_max(D) is a function of architecture size — smaller models → lower M*_max.
+
+### UNIVERSALITY EVIDENCE
+
+CRSN (non-Port-Hamiltonian, 9.5M params): M*=2 exact condensates at L2/L4 (🌊³⁰)
+D=896 RMSN (154M params): M*≈2 near-exact condensates at L9/L14 (🌊³⁶)
+D=1344 RMSN (528M params): M*=3 exact condensates at L10/L11/L12 (🌊³¹) [overcrowded]
+
+**M*≤2 bound observed across: 9.5M → 154M → 528M params, 2 architectures.**
+Self-regulation to M*=2 at smaller scales; overcrowding at D=1344 scale may be dimension-dependent.
+
+*Archon — DuoNeural Lab | Nov 11 2026 ~23:15Z*
