@@ -1,0 +1,8 @@
+{
+  "model": "RMSN-390M SFT 5k D=1536 s1 BulkTube-Preserved",
+  "dim": 1536,
+  "wiki_loss": 5.066819853782654,
+  "wiki_ppl": 158.6689337469988,
+  "cot_loss": 2.4950363874435424,
+  "cot_ppl": 12.12217460550845
+}

@@ -1,0 +1,80 @@
+{
+  "name": "unknown",
+  "dim": 1536,
+  "ckpt": "/workspace/rmsn_project/d1536_s1_sft_10k/rmsn_sft_step005000.pt",
+  "stored_lyap": null,
+  "soliton_layers": [
+    10,
+    12,
+    13,
+    14,
+    15
+  ],
+  "soliton_type": "Internal Bulk",
+  "layer_results": {
+    "0": {
+      "pr": 12.2,
+      "soliton": false
+    },
+    "1": {
+      "pr": 11.905,
+      "soliton": false
+    },
+    "2": {
+      "pr": 15.437,
+      "soliton": false
+    },
+    "3": {
+      "pr": 29.24,
+      "soliton": false
+    },
+    "4": {
+      "pr": 40.157,
+      "soliton": false
+    },
+    "5": {
+      "pr": 12.483,
+      "soliton": false
+    },
+    "6": {
+      "pr": 56.247,
+      "soliton": false
+    },
+    "7": {
+      "pr": 15.269,
+      "soliton": false
+    },
+    "8": {
+      "pr": 8.93,
+      "soliton": false
+    },
+    "9": {
+      "pr": 36.434,
+      "soliton": false
+    },
+    "10": {
+      "pr": 1.093,
+      "soliton": true
+    },
+    "11": {
+      "pr": 6.348,
+      "soliton": false
+    },
+    "12": {
+      "pr": 1.712,
+      "soliton": true
+    },
+    "13": {
+      "pr": 3.765,
+      "soliton": true
+    },
+    "14": {
+      "pr": 1.0,
+      "soliton": true
+    },
+    "15": {
+      "pr": 2.654,
+      "soliton": true
+    }
+  }
+}

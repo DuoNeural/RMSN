@@ -1,0 +1,78 @@
+{
+  "name": "D=1664 Seed 2 Step 50k",
+  "dim": 1664,
+  "ckpt": "/workspace/rmsn_project/d1664_seed2/rmsn_step050000.pt",
+  "stored_lyap": null,
+  "soliton_layers": [
+    13,
+    14,
+    15
+  ],
+  "soliton_type": "Terminal Boundary",
+  "layer_results": {
+    "0": {
+      "pr": 26.666,
+      "soliton": false
+    },
+    "1": {
+      "pr": 8.967,
+      "soliton": false
+    },
+    "2": {
+      "pr": 53.501,
+      "soliton": false
+    },
+    "3": {
+      "pr": 63.91,
+      "soliton": false
+    },
+    "4": {
+      "pr": 58.946,
+      "soliton": false
+    },
+    "5": {
+      "pr": 30.327,
+      "soliton": false
+    },
+    "6": {
+      "pr": 31.052,
+      "soliton": false
+    },
+    "7": {
+      "pr": 59.516,
+      "soliton": false
+    },
+    "8": {
+      "pr": 52.616,
+      "soliton": false
+    },
+    "9": {
+      "pr": 39.423,
+      "soliton": false
+    },
+    "10": {
+      "pr": 37.618,
+      "soliton": false
+    },
+    "11": {
+      "pr": 63.872,
+      "soliton": false
+    },
+    "12": {
+      "pr": 44.569,
+      "soliton": false
+    },
+    "13": {
+      "pr": 4.705,
+      "soliton": true
+    },
+    "14": {
+      "pr": 2.99,
+      "soliton": true
+    },
+    "15": {
+      "pr": 4.476,
+      "soliton": true
+    }
+  }
+}

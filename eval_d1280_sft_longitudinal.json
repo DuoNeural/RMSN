@@ -1,0 +1,20 @@
+[
+  {
+    "label": "D1280-SFT-5k",
+    "wiki_ppl": 176.007254385458,
+    "cot_ppl": 13.82315312547363,
+    "ckpt": "/workspace/rmsn_project/d1280_sft/rmsn_sft_step005000.pt"
+  },
+  {
+    "label": "D1280-SFT-10k",
+    "wiki_ppl": 199.7715889738406,
+    "cot_ppl": 11.243212978850401,
+    "ckpt": "/workspace/rmsn_project/d1280_sft/rmsn_sft_step010000.pt"
+  },
+  {
+    "label": "D1280-SFT-best",
+    "wiki_ppl": 208.67950046962181,
+    "cot_ppl": 10.7700409884225,
+    "ckpt": "/workspace/rmsn_project/d1280_sft/rmsn_sft_best.pt"
+  }
+]

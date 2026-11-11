@@ -1,0 +1,8 @@
+{
+  "model": "RMSN-532M SFT 5k D=1664 s1 NearUpstream-Preserved",
+  "dim": 1664,
+  "wiki_loss": 5.1379363489151,
+  "wiki_ppl": 170.363833800742,
+  "cot_loss": 2.918929821252823,
+  "cot_ppl": 18.52145558168212
+}

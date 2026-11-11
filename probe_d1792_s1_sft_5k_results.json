@@ -1,0 +1,77 @@
+{
+  "name": "d1792_s1_sft_5k",
+  "dim": 1792,
+  "ckpt": "/workspace/rmsn_project/d1792_s1_sft_5k/rmsn_sft_best.pt",
+  "stored_lyap": null,
+  "soliton_layers": [
+    14,
+    15
+  ],
+  "soliton_type": "Terminal Boundary",
+  "layer_results": {
+    "0": {
+      "pr": 16.306,
+      "soliton": false
+    },
+    "1": {
+      "pr": 12.029,
+      "soliton": false
+    },
+    "2": {
+      "pr": 35.547,
+      "soliton": false
+    },
+    "3": {
+      "pr": 45.893,
+      "soliton": false
+    },
+    "4": {
+      "pr": 59.711,
+      "soliton": false
+    },
+    "5": {
+      "pr": 18.233,
+      "soliton": false
+    },
+    "6": {
+      "pr": 9.518,
+      "soliton": false
+    },
+    "7": {
+      "pr": 25.363,
+      "soliton": false
+    },
+    "8": {
+      "pr": 7.132,
+      "soliton": false
+    },
+    "9": {
+      "pr": 20.668,
+      "soliton": false
+    },
+    "10": {
+      "pr": 6.929,
+      "soliton": false
+    },
+    "11": {
+      "pr": 27.254,
+      "soliton": false
+    },
+    "12": {
+      "pr": 34.948,
+      "soliton": false
+    },
+    "13": {
+      "pr": 15.081,
+      "soliton": false
+    },
+    "14": {
+      "pr": 5.826,
+      "soliton": true
+    },
+    "15": {
+      "pr": 1.0,
+      "soliton": true
+    }
+  }
+}
