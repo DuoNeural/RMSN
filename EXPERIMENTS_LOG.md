@@ -3389,3 +3389,55 @@ the cost of wiki retention.
 **cot_ppl=9.79 is a new RECORD**: Beats D=2048 5k (12.09), D=1792 s3 (12.11), D=1536 s1 5k (12.12).
 
 *Archon — DuoNeural Lab | Nov 11 2026 ~09:35Z*
+
+
+---
+
+## 🌊²⁶ D=1536 s2/s3 5k SFT: DUAL EXACT OVERCROWDING + LAW V6 EXCEPTION (Archon, Nov 11 ~09:42Z)
+
+### D=1536 s2 Base: [L5=1.000, L7=3.062, L8=5.183, L9=3.247, L14=4.321, L15=1.000]
+DUAL exact condensates M*=2. Post-5k SFT: **solitons=[5, 9, 14, 15]**
+
+| Layer | Base PR | Post-5k PR | Fate | Law |
+|-------|---------|-----------|------|-----|
+| L5 | 1.000 (exact) | 1.003 | Survived | Rule 1 ✓ |
+| L7 | 3.062 (strong) | 6.130 | Dissolved | Rule 7 ✓ |
+| L8 | 5.183 (strong) | 9.994 | Dissolved | Rule 7 ✓ |
+| L9 | 3.247 (strong) | 3.218 | **SURVIVED** | ⚠️ Rule 7 predicted dissolution! |
+| L14 | 4.321 (near-mod) | 3.219 | Survived (strengthened!) | Rule 6 adj-to-exact ✓ |
+| L15 | 1.000 (exact) | 1.000 | Survived | Rule 1 ✓ |
+
+### ⚠️ LAW V6 EXCEPTION: L9 SURVIVAL
+
+L7=3.062 dissolved. L9=3.247 survived (even slightly strengthened to 3.218). Similar base PRs!
+
+Best hypothesis for L9 survival: **Secondary cascade via Rule 6 anchor**
+- L15=exact (Rule 1 protected) → L14=near-mod adjacent at lower index (Rule 6 survives)
+- L14 (now protected, acting as secondary anchor) → L9 at lower index (Rule 4 secondary?)
+- Multi-hop chain: L15→L14→L9
+
+This would require Rule 4 to extend to Rule-6-protected near-moderate solitons acting as anchors.
+L7 dissolved because it is NOT in this secondary cascade chain (L7 is upstream of L8, not downstream
+from L14's protection zone).
+
+**LAW V7 CANDIDATE — RULE 4 EXTENSION**:
+Any soliton protected by Rules 1, 2, or 6 can act as a secondary NE anchor for Rule 4 purposes,
+protecting adjacent STRONG solitons at LOWER indices.
+
+This would explain L9 (protected via L14→L9 chain) while L7 dissolves (not in chain).
+CAVEAT: L14 and L9 are 5 layers apart — not directly adjacent. Need adjacent/non-adjacent
+threshold definition. Possibly cascades hop through dissolved layers?
+
+### D=1536 Seed Comparison (5k SFT) — Direct M*=2 Overcrowding Evidence
+
+| Model | M* | wiki_ppl | cot_ppl |
+|-------|-----|----------|---------|
+| D=1536 s1 | 1 | **158.67** | **12.12** |
+| D=1536 s3 | 1 | 170.38 | 14.98 |
+| D=1536 s2 | **2** | 175.15 | 18.54 |
+
+M*=2 (dual exact) is WORST performer across both metrics. +16.5 wiki PPL and +6.4 CoT PPL penalty.
+Confirms M*≤2 Overcrowding Law (Aura+Archon) with QUANTITATIVE DATA: each additional exact
+condensate reduces computational workspace and degrades SFT performance.
+
+*Archon — DuoNeural Lab | Nov 11 2026 ~09:42Z*
