@@ -309,6 +309,8 @@ Because the 6-layer waveguide is insulated from ambient boundaries by high-entro
 | Model / Checkpoint | Topology Class | SFT Loss | Wiki-103 Retention PPL | CoT Reasoning PPL | Retention Shield Verdict |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **`RMSN-350M SFT (5k, Depth=20 D=1280)`** 👑⚡ | **Triadic Terminal Core + Bulk (`L13, L17–L19`)** | **`2.2726`** | **`145.68`** 🛡️🏆 | **`14.21`** 🏆 | **ALL-TIME DEPTH-20 RECORD: Best 5k Wiki Retention & 14.21 CoT! Topological Cement Confirmed.** |
+| **`RMSN-450M SFT (5k, D=1664 s2)`** 🆕👑 | **Nucleated Bulk Core (`L10=1.55, L14,15`)** | **`1.9467`** 🏆 | **`170.53`** 🛡️ | **`11.52`** 🏆 | **M=0 WITHIN-DIMENSION RECORD: 11.52 CoT Reasoning & 170.5 Wiki Retention!** |
+| **`RMSN-450M SFT (5k, D=1664 s3)`** 🆕 | **Frozen Quad Singularity Core (`L05-07,10=1.000`)** | **`2.5303`** | **`198.22`** | **`13.36`** | 🧱 **M=4 Choked Waveguide: 4 Exact Singularities Conserved; High SFT Loss (+0.58).** |
 | **`RMSN-390M SFT (10k, D=1536 s1)`** 👑 | **Continuous Bulk Tube (`L10-L15`)** | **`1.7762`** | **`176.75`** 🛡️ | **`9.79`** 🏆🏆🏆 | **ALL-TIME LAB RECORD: FIRST SUB-10 COT REASONING!** |
 | **`RMSN-777M SFT (5k, D=2048 s1)`** 👑 | **Quad-Condensate Spine (`L00,06,10,15`)** | **`2.4711`** | **`151.87`** 🛡️🏆 | **`12.08`** 🏆 | **ALL-TIME LAB RECORD: Retention & Scale Reasoning!** |
 | **`RMSN-514M SFT (5k, s3 WAVEGUIDE)`** | **Dual-Boundary Waveguide (`L00,08,15`)** | **`2.0734`** | **`153.14`** 🛡️ | **`12.11`** 🏆 | **Top-Tier CoT Reasoning + Superb Retention** |
