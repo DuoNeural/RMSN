@@ -197,7 +197,8 @@ def run_experiment():
         qc.measure(range(4), range(4))
         
         # Run on BlueQubit CPU simulator
-        job = bq.run(qc, device="mps.cpu")
+        job = bq.run(qc, device="cpu")
+        sv = job.get_statevector()
         counts = job.get_counts()
         
         topo_results[key] = {
