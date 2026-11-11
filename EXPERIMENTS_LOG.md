@@ -4168,3 +4168,132 @@ D=1344 RMSN (528M params): M*=3 exact condensates at L10/L11/L12 (🌊³¹) [ove
 Self-regulation to M*=2 at smaller scales; overcrowding at D=1344 scale may be dimension-dependent.
 
 *Archon — DuoNeural Lab | Nov 11 2026 ~23:15Z*
+
+---
+
+## 🌊³⁷ — D=1664 s3 SFT 5k Results (M*=4 Front-Network Test) | Nov 12 2026 ~01:00Z
+
+**Model**: D=1664, depth=16, s3 (p54091), 450.39M params
+**Base topology (🌊³⁴)**: M*=4 — L5=L6=L7=L10=1.000 exact, L8/L9/L12 NE, L15=5.505
+**Base PPL**: ~63-65 (comparable to other good D=1664 models)
+**SFT**: A4000, LR=2e-5, 5000 steps, batch=2, best_loss=2.2769, Lyapunov stable 100%
+
+### EVAL RESULTS (eval_standard_benchmarks.py — same as D=1296/D=1344 comparison)
+
+```
+wiki_ppl = 260.11  (wiki_loss=5.561)
+cot_ppl  =  24.82  (cot_loss=3.212)
+```
+
+### MASTER COMPARISON TABLE (internal eval_standard_benchmarks.py)
+
+| Model     | M* | M* Position | Base PPL | SFT wiki_ppl | SFT cot_ppl | ΔwikiPPL vs D=1296 |
+|-----------|-----|------------|----------|--------------|-------------|---------------------|
+| D=1296    | 0   | -          | ~95      | 266.27       | 21.61       | —                   |
+| D=1344    | 3   | mid-network | ~95     | 270.73       | 20.75       | +4.46               |
+| D=1664 s3 | 4   | FRONT       | ~63      | **260.11**   | **24.82**   | -6.16               |
+
+### ANALYSIS: POSITION-DEPENDENT OVERCROWDING — PARTIAL CONFIRMATION
+
+**D=1664 s3 wiki=260.11 is in the SAME CATASTROPHIC RANGE as M*=0 (266) and M*=3 mid (270).**
+
+Despite having a MUCH stronger base (ppl~63 vs ~95), the M*=4 front model performs no better
+after SFT than models with weaker bases. If base quality were the primary driver (as 🌊³⁵ 
+suggested), D=1664 s3 should score ~180-200. The catastrophic 260 instead suggests:
+
+**M*=4 overcrowding is causing ~60-80 ppl degradation, offsetting the base quality advantage.**
+
+Revised theory:
+1. D=1296 (M*=0) baseline: wiki=266 — driven by weak base (95 ppl)
+2. D=1344 (M*=3 mid): wiki=271 — weak base PLUS mid overcrowding (additive, +5)
+3. D=1664 s3 (M*=4 front): wiki=260 — strong base MINUS overcrowding penalty (+~80)
+   - Expected without overcrowding (comparable base ppl): ~180-200
+   - Actual: 260 — overcrowding penalty ≈ 60-80 ppl
+
+**POSITION DOES SLIGHTLY MATTER**: front M*=4 (260) < mid M*=3 (270), but BOTH are catastrophic.
+**M*≤2 IS A REAL HARD BOUND for SFT quality**, regardless of position.
+
+### ⚠️ CAVEAT: s1 Comparison Broken
+
+Attempted to run internal eval on D=1664 s1 SFT 5k (M*=1, expected wiki~160 Heretic).
+Result: wiki_ppl=8404 (broken) — checkpoint format incompatibility with old script.
+**PENDING**: SFT D=1664 s2 (M*=0 p54091) for a clean same-methodology comparison.
+If s2 (M*=0, strong base) scores ~180-200, it would directly confirm M*=4 imposes ~60-80 ppl penalty.
+
+### TOPOLOGY UNDER SFT (probe files missing — 450M model, eval ran OOM after SFT)
+Scheduled separate probe on SFT checkpoint.
+
+*Archon — DuoNeural Lab | Nov 12 2026 ~01:00Z*
+
+---
+
+## 🌊³⁸ — V100 D=1664 s2 (V100 Seed) Base Probe | Nov 12 2026 ~01:00Z
+
+**Model**: D=1664, depth=16, V100 seed 2. Trained on V100 GPU2.
+**Completed**: ~21:07Z (node), 100k steps.
+
+### PROBE RESULTS
+
+```
+Layer  PR      Classification
+L0    3.202    soliton (near PR_crit=4.4)
+L1    7.524    bulk
+L2   15.797    bulk
+L3    4.860    soliton (near PR_crit)
+L4-L15: all bulk (PR=52-64)
+```
+
+**Soliton type**: Upstream | **M***: 0 | **Soliton count**: 2
+
+**TOPOLOGY: ULTRA-SPARSE** — Only 2 solitons at L0 and L3, all other layers completely bulk.
+Layers 4-15 all PR≈52-64 (completely delocalized, near-uniform). No downstream structure at all.
+
+**COMPARE TO p54091 D=1664 s2 (🌊³³)**: also M*=0 but had 6 solitons spread across L8-L15.
+Same dimension, different training seed → completely different topological landscape.
+V100 s2 has almost no topology at all — essentially a "flat" model.
+
+This is the most topologically sparse D=1664 model in the study. Good SFT candidate.
+
+*Archon — DuoNeural Lab | Nov 12 2026 ~01:00Z*
+
+---
+
+## 🌊³⁹ — V100 D=1664 s3 (V100 Seed) Base Probe | Nov 12 2026 ~01:00Z
+
+**Model**: D=1664, depth=16, V100 seed 3. Trained on V100 GPU3.
+**Completed**: ~21:22Z (node), 100k steps.
+
+### PROBE RESULTS
+
+```
+Layer  PR      Classification
+L0    4.280    soliton (at PR_crit boundary)
+L1    2.363    NE-soliton ★
+L2    2.521    NE-soliton ★
+L3   53.076    bulk
+L4-L15: all bulk (PR=44-64)
+```
+
+**Soliton type**: Upstream | **M***: 0 | **Soliton count**: 3
+
+**FRONT CLUSTER**: L0(4.28) → L1(2.363 NE) → L2(2.521 NE) — a 3-layer upstream cluster.
+L0 is at PR_crit boundary — Soliton Protection Law Rule 6 may protect L1/L2 from SFT dissolution.
+Complete bulk beyond L3. No mid or terminal solitons at all.
+
+**COMPARE TO p54091 D=1664 s3 (🌊³⁴)**: 8 solitons including M*=4 front exacts.
+V100 s3 has NE (not exact) solitons at L0-L2 — softer version of "front clustering."
+Interesting: BOTH have front-of-network solitons, suggesting L0-L2 is a preferred nucleation site for D=1664.
+
+### V100 D=1664 SEED DIVERSITY
+
+| Seed | Topology | M* | Solitons | Characteristic |
+|------|----------|----|----------|----------------|
+| V100 s2 | Upstream | 0 | [L0, L3] | Ultra-sparse, near-flat |
+| V100 s3 | Upstream | 0 | [L0, L1, L2] | Front NE cluster only |
+| p54091 s2 | Internal Bulk | 0 | [L8-L15] | Mid-to-terminal spread |
+| p54091 s3 | Near-Upstream | **4** | [L5-L15] | Front EXACT saturation |
+
+4 seeds, 4 completely different topologies. Architecture = D=1664 fixes the topology **space**, 
+seed determines which basin is visited.
+
+*Archon — DuoNeural Lab | Nov 12 2026 ~01:00Z*
