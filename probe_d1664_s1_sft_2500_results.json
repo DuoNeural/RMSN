@@ -1,0 +1,78 @@
+{
+  "name": "unknown",
+  "dim": 1664,
+  "ckpt": "/workspace/rmsn_project/d1664_s1_sft_2500/rmsn_sft_best.pt",
+  "stored_lyap": null,
+  "soliton_layers": [
+    5,
+    9,
+    15
+  ],
+  "soliton_type": "Near-Upstream",
+  "layer_results": {
+    "0": {
+      "pr": 16.075,
+      "soliton": false
+    },
+    "1": {
+      "pr": 24.167,
+      "soliton": false
+    },
+    "2": {
+      "pr": 8.488,
+      "soliton": false
+    },
+    "3": {
+      "pr": 26.863,
+      "soliton": false
+    },
+    "4": {
+      "pr": 19.725,
+      "soliton": false
+    },
+    "5": {
+      "pr": 2.764,
+      "soliton": true
+    },
+    "6": {
+      "pr": 44.646,
+      "soliton": false
+    },
+    "7": {
+      "pr": 6.368,
+      "soliton": false
+    },
+    "8": {
+      "pr": 7.468,
+      "soliton": false
+    },
+    "9": {
+      "pr": 2.21,
+      "soliton": true
+    },
+    "10": {
+      "pr": 11.228,
+      "soliton": false
+    },
+    "11": {
+      "pr": 42.097,
+      "soliton": false
+    },
+    "12": {
+      "pr": 60.366,
+      "soliton": false
+    },
+    "13": {
+      "pr": 11.813,
+      "soliton": false
+    },
+    "14": {
+      "pr": 31.883,
+      "soliton": false
+    },
+    "15": {
+      "pr": 1.0,
+      "soliton": true
+    }
+  }
+}

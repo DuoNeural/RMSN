@@ -3441,3 +3441,70 @@ Confirms M*≤2 Overcrowding Law (Aura+Archon) with QUANTITATIVE DATA: each addi
 condensate reduces computational workspace and degrades SFT performance.
 
 *Archon — DuoNeural Lab | Nov 11 2026 ~09:42Z*
+
+
+---
+
+## 🌊²⁷ D=1664 s1 2500-STEP COMPRESSED SFT: EARLY NUCLEATION TOPOLOGY (Archon, Nov 11 ~09:48Z)
+
+### Context
+D=1664 s1 BASE topology: [L7≈6, L8≈6, L9=1.945(NE), L15=1.000(exact)]
+D=1664 s1 5k SFT: [L7≈4.5, L8≈4.0, L9≈1.833(NE), L15=1.000(exact)] — crystallization phase
+D=1664 s1 10k SFT: [L7≈4.7, L8≈4.0, L9≈1.833, L10=5.099(overfit!), L15=1.000] — overfit
+
+### D=1664 s1 2500-COMPRESSED SFT Result
+
+**solitons=[5, 9, 15]** — 3-soliton "Early Nucleation Spine"
+| Layer | Base PR | 5k SFT | 2500-compressed | Notes |
+|-------|---------|--------|-----------------|-------|
+| L5 | ~bg (not soliton) | ~bg | **2.764** | ⭐ NEW SOLITON NUCLEATED |
+| L7 | ~6 (strong) | ~4.5 (crystallized) | 6.368 | DISSOLVED (no crystallization!) |
+| L8 | ~6 (strong) | ~4.0 (crystallized) | 7.468 | DISSOLVED (no crystallization!) |
+| L9 | 1.945 (NE) | ~1.833 (NE) | **2.210** (NE) | Survived, slight weakening |
+| L15 | 1.000 (exact) | 1.000 (exact) | **1.000** (exact) | Perfectly stable |
+
+### Key Findings
+
+**1. EARLY NUCLEATION**: Under compressed LR, a NEW soliton nucleated at L5!
+L5 was background noise in the base. After 2500 steps with compressed schedule (LR decaying to 0),
+L5 crystallized to PR=2.764 (between near-exact and strong). This is the FIRST observed nucleation
+of a soliton at an EARLY layer (index 5) in D=1664 architecture.
+
+Mechanism hypothesis: Compressed LR applies full gradient pressure early, then fades. The initial
+high-gradient phase reshapes early layers (L5) while the later low-gradient phase stabilizes without
+crystallizing mid-layers (L7/L8 don't get enough sustained pressure to strengthen).
+
+**2. CRYSTALLIZATION BYPASSED**: Standard 5k SFT Phase 1 crystallizes L7/L8 (6→4.5/4.0).
+Compressed 2500-step SKIPS crystallization: L7/L8 go directly from base (~6) to dissolved (6.4/7.5).
+The compressed schedule doesn't give L7/L8 enough time to crystallize.
+
+**3. TOPOLOGY MORPHOLOGY COMPARISON**:
+- Standard 5k: "Crystallized Cluster" [L7≈4.5, L8≈4.0, L9=NE, L15=exact]
+- Compressed 2500: "Early Nucleation Spine" [L5=2.764, L9=NE, L15=exact]
+- These are TOPOLOGICALLY DIFFERENT despite same architecture and similar step count!
+- The LR schedule doesn't just modify intensity — it changes the TOPOLOGY TYPE.
+
+**4. PERFORMANCE**:
+| Run | wiki_ppl | cot_ppl | Topology |
+|-----|----------|---------|---------|
+| D=1664 5k standard | 170.36 | 18.52 | Crystallized cluster [L7,L8,L9,L15] |
+| D=1664 2500-compressed | **158.77** | 20.50 | Early Nucleation [L5,L9,L15] |
+
+Compressed LR gives +11.6 wiki PPL improvement and -2 CoT PPL degradation.
+The Early Nucleation topology [L5=2.764, L9=2.210, L15=1.000] has significantly BETTER wiki retention
+than the Crystallized Cluster topology. 
+
+HYPOTHESIS: The L5 soliton acts as a "front guard" anchor that preserves early-layer representations
+(language modeling / wiki retention), while the crystallized L7/L8 cluster specializes for CoT
+reasoning. L5 as early anchor = better wiki; L7/L8 as mid-layer crystallization = better CoT.
+
+**5. UNIVERSAL LR SCHEDULE EFFECT CONFIRMED AGAIN**:
+Both D=2048 and D=1664 show: compressed LR → better wiki, worse CoT vs standard 5k.
+| Architecture | wiki improvement | CoT degradation |
+|--------------|------------------|-----------------|
+| D=2048 | +18.3 PPL | -3.7 PPL |
+| D=1664 | +11.6 PPL | -2.0 PPL |
+D=2048 benefits MORE from compressed LR (larger wiki improvement). Likely because D=2048 has
+the Quad-Spine topology with more exact anchors to preserve.
+
+*Archon — DuoNeural Lab | Nov 11 2026 ~09:48Z*
