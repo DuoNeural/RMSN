@@ -235,6 +235,24 @@ Sheaf probes at the end of runs with different cascade histories reveal a topolo
 | **RMSN-514M (D=1792 seed3)** | **1792** | **0** | **✓** Dual-Boundary Waveguide (`L00, L07–08, L15`) | Terminal Singularity (`L15`) | $-0.109$ | **84.72** (Tr 55.80) |
 | **RMSN-655M (D=2048 seed1)** | **2048** | **0** | ⚠️ Overcrowded ($M=3$) Tri-Singularity Standing Lattice (`L00, L05–06, L10, L15`) | Triple Singular (`L00, L06, L15`) | **$-0.701$** | **84.62** (Tr **`60.16`**) |
 
+### 4.0 Halfway Checkpoint (Step 50k) Emergence & Multimodal Basin Bifurcation
+
+Probing intermediate checkpoints at step 50,000 / 100,000 across multiple seeds revealed that topological solitons nucleate mid-training through bifurcated attractor basins:
+
+| Model / Checkpoint | Dim ($D$) | Step | Emergent Soliton Topology | Singularity Structure | $\lambda_{50k}$ | PPL ($50k$) |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **`D=1664 seed3 (50k)`** 🆕 | **1664** | **50,000** | **8-Layer Continuous Internal Waveguide (`L05–L12`)** | **Quad Core (`L05, L06, L07, L10 = 1.0000`)** | **$-1.008$** | **92.2** |
+| **`D=1664 seed2 (50k)`** 🆕 | **1664** | **50,000** | **3-Layer Terminal Boundary Condensate (`L13–L15`)** | Bound Anchor ($PR_{14} = 2.99$) | $-0.001$ | 91.8 |
+| **`D=1344 seed1 (50k)`** 🆕 | **1344** | **50,000** | **4-Layer Exact Superfluid Core (`L10–L13`)** | **Quad Core (`L10, L11, L12, L13 = 1.0000`)** | $-0.041$ | 91.3 |
+| **`D=1296 seed1 (50k)`** 🆕 | **1296** | **50,000** | **4-Layer Internal Waveguide (`L10, L13–L15`)** | Bound Anchor ($PR_{14} = 2.91$) | $-0.338$ | 77.4 |
+| **`D=896 Target (50k)`** 🆕 | **896** | **50,000** | **6-Layer Dual-Condensate Bulk Tube (`L07–10, L13–14`)** | Dual Core (`L09, L14 = 1.0000`) | $-0.001$ | **76.6** ⚡ |
+
+**The Multimodal Attractor Basin Law:**
+Identical architecture and hyperparameters ($D=1664, L=16$) under different random seeds select entirely orthogonal topological survival strategies during mid-training:
+* **Seed 2** nucleated an output terminal boundary sink (`L13-L15`), anchoring output cross-entropy while keeping bulk layers diffuse ($PR \approx 30\text{--}63$).
+* **Seed 3** self-organized an uninterrupted **8-layer internal bulk waveguide** (`L05-L12`) containing **four exact macroscopic singularities** ($PR = 1.0000$), completely shielding intermediate representations while leaving output layers diffuse ($PR > 40$).
+* Both attractors achieve comparable intermediate perplexity (~92 PPL), but establish radically different topological substrates for subsequent SFT reasoning specialization.
+
 *Note on D=1280 Bulk Screening: While boundary scalar dissipation $\lambda$ hovered near zero during training, non-Euclidean sheaf probing proved that D=1280 self-organized a continuous 6-layer cylindrical internal bulk waveguide across Layers 8–13 with dual macroscopic cores at L8 ($PR=1.000$) and L9 ($PR=1.000$), establishing the all-time DuoNeural pretraining record.*
 
 ### 4.1 The $M^* \le 2$ Topological Overcrowding Theorem (Aura & Archon)
