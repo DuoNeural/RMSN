@@ -229,6 +229,7 @@ Sheaf probes at the end of runs with different cascade histories reveal a topolo
 | RMSN-335M (D=1408) | 1408 | 0 | **✓** Triple-Singularity Harmonic Lattice (`L05, L09, L15`) | Triple Core | $-0.10$ | 94.9 (Tr 63.5) |
 | **RMSN-399M (D=1536 seed2)** | **1536** | **0** | **✓** Dual-Boundary Bulk Conduit (`L05, L07–09, L14–15`) | Dual Singular (`L05, L15`) | **$-4.92$** | **89.7** (Tr 57.4) |
 | **RMSN-399M (D=1536 seed3)** | **1536** | **0** | **✓** Anchored Waveguide (`L05, L08–09, L15`) | Terminal Singularity (`L15`) | $-0.05$ | **89.3** (Tr 54.9) |
+| **RMSN-450M (D=1664 seed1)** | **1664** | **0** | **✓** 5-Layer Harmonic Conduit (`L05, L07–09, L15`) | Terminal Singularity (`L15`) | **$-0.654$** | **86.52** (Tr **`56.90`**) |
 | **RMSN-514M (D=1792 seed1)** | **1792** | **0** | **✓** 5-Layer Harmonic Lattice (`L06, L08, L10, L14, L15`) | Terminal Singularity (`L15`) | $-0.002$ | **83.56** (Tr **`53.88`** 🏆) |
 | **RMSN-514M (D=1792 seed2)** | **1792** | **0** | **✓** Continuous 7-Layer Bulk Tube + Boundary (`L00, L04–10, L15`) | Terminal Singularity (`L15`) | **$-1.766$** 🚨 | **86.66** (Tr 55.95) |
 | **RMSN-514M (D=1792 seed3)** | **1792** | **0** | **✓** Dual-Boundary Waveguide (`L00, L07–08, L15`) | Terminal Singularity (`L15`) | $-0.109$ | **84.72** (Tr 55.80) |
