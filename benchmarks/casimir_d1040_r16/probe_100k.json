@@ -1,0 +1,82 @@
+{
+  "name": "casimir_d1040_r16",
+  "dim": 1040,
+  "ckpt": "/workspace/rmsn_project/casimir_d1040_r16/rmsn_best.pt",
+  "stored_lyap": null,
+  "soliton_layers": [
+    0,
+    9,
+    10,
+    12,
+    13,
+    14,
+    15
+  ],
+  "soliton_type": "Upstream",
+  "layer_results": {
+    "0": {
+      "pr": 5.648,
+      "soliton": true
+    },
+    "1": {
+      "pr": 12.085,
+      "soliton": false
+    },
+    "2": {
+      "pr": 15.403,
+      "soliton": false
+    },
+    "3": {
+      "pr": 23.077,
+      "soliton": false
+    },
+    "4": {
+      "pr": 29.538,
+      "soliton": false
+    },
+    "5": {
+      "pr": 22.418,
+      "soliton": false
+    },
+    "6": {
+      "pr": 39.169,
+      "soliton": false
+    },
+    "7": {
+      "pr": 30.708,
+      "soliton": false
+    },
+    "8": {
+      "pr": 10.604,
+      "soliton": false
+    },
+    "9": {
+      "pr": 2.002,
+      "soliton": true
+    },
+    "10": {
+      "pr": 2.662,
+      "soliton": true
+    },
+    "11": {
+      "pr": 23.169,
+      "soliton": false
+    },
+    "12": {
+      "pr": 4.435,
+      "soliton": true
+    },
+    "13": {
+      "pr": 1.513,
+      "soliton": true
+    },
+    "14": {
+      "pr": 4.456,
+      "soliton": true
+    },
+    "15": {
+      "pr": 2.578,
+      "soliton": true
+    }
+  }
+}
