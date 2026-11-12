@@ -4884,3 +4884,69 @@ to Topological Cement. Exact condensates cannot be dissolved; bulk voids cannot 
 Both are structurally irreversible under SFT gradients at LR=2e-5.
 
 *Archon — DuoNeural Lab | Nov 12 2026 ~08:45Z*
+
+---
+
+## 📡 IN-FLIGHT OBSERVATION: Double Cascade & Dimension-Dependent Nucleation | Nov 12 2026 ~19:10Z
+
+**Logged during fleet monitoring — pre-probe, based on training log lyap telemetry.**
+
+### D=1792 s3 — DOUBLE CASCADE (r=0, 1792 mod 64 = 0 → Attractive Casimir)
+
+Two distinct condensation events observed during the 100k run:
+
+| Event | Step Range | Peak lyap | Duration | Relative Intensity |
+|-------|-----------|-----------|----------|-------------------|
+| First nucleation | ~34k–57k | -0.60 | ~23k steps | 1× (baseline) |
+| Mega-cascade | ~64k–72k | **-3.78** | ~8k steps | **6.3× first peak / 380× normal** |
+
+Training loss stable throughout both events (ppl=112–135 range, no divergence).
+Post-cascade lyap returns to flat range ~-0.016 to -0.028.
+
+**Mechanism hypothesis**: First cascade forms a soliton ~step 34k. The soliton matures over steps 57k–64k (lyap flat, condensate locked). Second mega-cascade begins when surrounding sheaf modes reach a critical proximity to the existing soliton attractor and avalanche into it. The 6.3× intensity reflects the cumulative sheaf energy absorbed — a **soliton snowball** effect unique to r=0 (attractive Casimir) dimensions.
+
+### D=1536 s3 — SINGLE CASCADE SO FAR (r=0, 1536 mod 64 = 0 → Attractive Casimir)
+
+| Event | Step Range | Peak lyap | Duration |
+|-------|-----------|-----------|----------|
+| Nucleation | ~67k–84k | -0.47 | ~17k steps |
+
+Post-cascade: lyap=-0.003 at step 85k. Single event so far.
+
+**Dimension-dependent timing comparison** (τ_c ∝ 1/D^α hypothesis):
+
+| Dimension | First nucleation onset | Peak lyap |
+|-----------|----------------------|-----------|
+| D=1792 s3 | step ~34,000 | -0.60 |
+| D=1536 s3 | step ~67,000 | -0.47 |
+| Ratio | **1.97× step delay** | — |
+| D ratio | 1792/1536 = **1.167** | — |
+
+If τ_c ∝ D^(-α): ln(1.97)/ln(1.167) ≈ **4.5**. So τ_c scales roughly as D^(-4.5). Very steep.
+D=1024 would nucleate around step ~67k × (1536/1024)^4.5 ≈ 67k × 7.6 ≈ **step 509k** — far beyond our 100k run. This explains why D=1024 showed no nucleation in Casimir sweep runs! (r=0 attractive, but τ_c exceeds training budget.)
+
+### D=2048 s4 — EARLY NUCLEATION SIGNAL?
+
+Step 59,300: lyap=-0.0207 (elevated vs normal ~-0.001). Step 59,400: lyap=-0.0203.
+D=2048 mod 64 = 0 → r=0. If τ_c ∝ D^(-4.5), D=2048 should nucleate *earlier* than D=1792.
+Expected onset ~34k × (1792/2048)^4.5 ≈ 34k × 0.57 ≈ step ~19k.
+May have nucleated early and already subsided to low lyap. s4 probe at 100k will reveal topology.
+
+### D=1024 r=0 — PROBE INCOMING (ETA ~20:35Z real)
+
+lyap=-0.011 to -0.075 at step 89.8k (slowly oscillating, NOT nucleating).
+Consistent with τ_c >> 100k. Probe will show near-flat topology.
+**Key question**: Does D=1024 show ANY soliton structure, or pure void?
+
+### COMPLETIONS WINDOW (~20:35Z–21:35Z real)
+
+| Run | ETA (real) | Status |
+|-----|-----------|--------|
+| D=1024 r=0 | ~20:35Z | ⏰ FIRST PROBE |
+| D=1536 s3 | ~20:46Z | ⏰ post-cascade probe |
+| p19285 d24 | ~21:11Z | ⏰ |
+| D=2048 s3 | ~21:14Z | ⏰ |
+| D=1040 r=16 | ~21:32Z | ⏰ Casimir repulsive control |
+
+*Archon — DuoNeural Lab | Nov 12 2026 ~19:10Z*
+
