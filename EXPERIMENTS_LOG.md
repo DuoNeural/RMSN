@@ -4950,3 +4950,74 @@ Consistent with τ_c >> 100k. Probe will show near-flat topology.
 
 *Archon — DuoNeural Lab | Nov 12 2026 ~19:10Z*
 
+
+---
+
+## 🌊⁴⁸ — D=1024 r=0 BASE Probe: Silent Condensation Pathway Discovered | Nov 12 2026 ~20:40Z
+
+**Run**: D=1024, L=16, M_w=64, r=0 (1024 mod 64 = 0 → ATTRACTIVE Casimir). 193.4M params. 100k steps.
+**Node**: p54091 GPU0. **Training time**: 14.26h. **best_val_ppl**: 71.53 (training metric). **lyap_stable_pct**: 100%.
+**Final step stats**: ppl=56.6, lyap=-0.0079. Lyap was **FLAT THROUGHOUT** (-0.01 to -0.08 range, NO cascade).
+
+### 🔥 TOPOLOGY — UNEXPECTED RICH STRUCTURE
+
+| Layer | PR | Type |
+|-------|----|------|
+| L0 | **5.187** | Soliton ✓ (upstream anchor) |
+| L1 | 9.188 | soft |
+| L2 | 16.151 | void |
+| L3 | 28.414 | void |
+| L4 | 24.364 | void |
+| L5 | **5.061** | Soliton ✓ |
+| L6 | 40.511 | void |
+| L7 | **3.091** | Soliton ✓ (NE) |
+| L8 | 30.876 | void |
+| L9 | **2.809** | Soliton ✓ (NE) |
+| **L10** | **1.000** | **EXACT CONDENSATE 🔴 M*=1** |
+| L11 | **1.430** | NE soliton |
+| L12 | **5.975** | Soliton ✓ |
+| L13 | **5.579** | Soliton ✓ |
+| L14 | **3.223** | Soliton ✓ (NE) |
+| L15 | 58.391 | **VOID** ← Terminal Condensation Law: D<1792 → L15 not exact ✓ |
+
+**M* = 1** (L10 exact). **9 soliton/NE layers**. Distribution: upstream anchor (L0) + mid-scattered (L5,L7) + deep spine (L9-L14).
+
+### 🔥🔥 SILENT CONDENSATION PATHWAY — NEW DISCOVERY
+
+**The paradox**: Training showed completely flat Lyapunov exponent (-0.01 range) for all 100k steps.
+No cascade, no nucleation spike. Yet the probe reveals RICH topology: 9 soliton layers, M*=1 exact at L10.
+
+**Two condensation pathways now confirmed:**
+
+| Pathway | Dims observed | Lyap signature | Soliton formation | Casimir |
+|---------|--------------|---------------|-------------------|---------|
+| **CASCADE** | D=1536, D=1792 | Dramatic spike (lyap -0.47 to -3.78) | Sudden, step-localized | r=0 attractive |
+| **SILENT** | D=1024 | Flat throughout (-0.01 to -0.08) | Gradual gradient compression, no spike | r=0 attractive |
+
+Both are r=0 (attractive Casimir) dimensions. What determines CASCADE vs SILENT?
+Hypothesis: **D-dependent energy scale relative to gradient noise**. At D=1792/D=1536, the soliton attractor basin is deep enough that the port-Hamiltonian dynamics dominate → Lyapunov cascade. At D=1024, the basin is shallower → gradient descent compresses slowly without triggering the symplectic cascade mechanism.
+
+**τ_c HYPOTHESIS MUST BE REVISED:**
+The τ_c ∝ D^(-4.5) formula measured CASCADE onset only. D=1024 condensed silently — τ_c for cascade is irrelevant; soliton formation occurred via gradient compression over the full 100k steps instead. The Lyapunov metric only detects CASCADE condensation; silent condensation is invisible to lyap monitoring.
+
+### Terminal Condensation Law — CONFIRMED FOR D<1792
+
+L15 = PR=58.391 (void). The law states D≥1792 → L15 exact for ALL seeds. D=1024 < 1792 → L15 NOT exact. ✓
+Instead, D=1024 found its own deepest condensate at L10 (the network's "natural" terminal point at this dimension).
+
+### TSQ Assessment
+
+Distribution: upstream anchor + deep spine (L9-L14) with mid-gap (L1-L4, L6, L8 void).
+Closest reference: intermediate between internal bulk (L8-L15, wiki=170) and distributed spine (wiki=133).
+Predicted SFT wiki_ppl: **~200-300 range** (deep spine present but mid-gap limits retention).
+NOTE: If soliton_type="Upstream" classification is misleading here — the dominant spine is DEEP, not upstream.
+
+### Casimir Context
+
+**D=1024 r=0** (this wave) vs **D=1040 r=16** (pending, ~21:35Z real):
+D=1024: r=0 attractive → silent condensation → 9 solitons, M*=1 at L10.
+D=1040: r=16 repulsive → ??? → pending probe.
+KEY QUESTION: Does r=16 repulsive Casimir suppress silent condensation? If yes → Casimir governs both CASCADE and SILENT pathways. If no (similar topology) → Casimir only affects CASCADE pathway speed.
+
+*Archon — DuoNeural Lab | Nov 12 2026 ~20:40Z*
+
