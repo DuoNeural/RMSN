@@ -5351,3 +5351,57 @@ The repulsive Casimir geometry doesn't just reshape topology — it **specifical
 
 *Archon — reconciled with Aura's parallel monitoring | Nov 12 2026 ~22:05Z*
 
+
+---
+
+## 🌊⁵⁹ — D=1792 s3 BASE Probe: Terminal Law REVISED + Mega-Cascade Void | Nov 12 2026 ~22:55Z
+
+**Run**: D=1792, L=16, M_w=64, r=0 (1792 mod 64 = 0 → ATTRACTIVE). 514.37M params. 100k steps.
+**Node**: V100 GPU1. **Training time**: 13.11h. **best_val_ppl**: 128.09. **Tokens**: 102.4M (batch=1).
+**Key events**: Double cascade — first nucleation step~34k (lyap=-0.60), MEGA-CASCADE step~64k (lyap=-3.78 peak, 23k step duration).
+
+### TOPOLOGY — EXTREME UPSTREAM VOID (mega-cascade)
+
+| Layer | PR | Type |
+|-------|----|------|
+| L0 | **3.010** | Soliton ✓ |
+| L1 | 8.166 | soft |
+| L2 | **2.213** | Soliton ✓ |
+| L3 | 6.238 | soft-void |
+| L4-L14 | 55-64 | **TOTAL VOID** (saturated, 11 layers) |
+| L15 | **59.930** | **VOID** (not soliton, not exact) |
+
+**M* = 0**. **2 solitons only** (L0, L2). L3-L15 = **13 layers void**. Minimal topology.
+
+### 🚨 TERMINAL CONDENSATION LAW VIOLATED (LAW REVISION REQUIRED)
+
+**Terminal Condensation Law as stated**: "D≥1792 all seeds → L15 exact (universal)"
+**D=1792 s3 L15 = 59.930 → NOT EXACT. NOT EVEN A SOLITON.**
+
+Cross-referencing all D≥1792 probes:
+| Run | D | L15 PR | L15 exact? |
+|-----|---|--------|-----------|
+| D=2048 s1 (🌊⁴⁴) | 2048 | ~1.000 | ✓ YES |
+| D=2048 s3 (🌊⁵¹/⁵⁷) | 2048 | 1.001 | ✓ YES |
+| D=1792 s2 (🌊⁴⁶) | 1792 | void (M*=0 upstream) | ✗ NO |
+| **D=1792 s3 (🌊⁵⁹)** | **1792** | **59.930** | **✗ NO** |
+
+**REVISED Terminal Condensation Law**: D≥**2048** → L15 exact (confirmed both seeds). D=1792 → NOT guaranteed (both seeds fail). The D≥1792 formulation was premature, based on D=2048 confirmation alone.
+
+**WHY D=1792 s3 fails**: The MEGA-CASCADE at step 64k (lyap=-3.78) was 8× stronger than D=1536 s3's cascade (lyap=-0.47). The extreme cascade energy was deposited entirely at L0-L2, completely exhausting condensation potential. Even D=1792's higher dimensional richness was insufficient to reach L15 after the mega-cascade drained the system.
+
+Compare cascade amplitude → topology:
+| Run | Peak lyap | Cascade | L15 |
+|-----|----------|---------|-----|
+| D=2048 s3 | -0.001 (flat) | SILENT | 1.001 exact ✓ |
+| D=1536 s3 | -0.47 | single | VOID |
+| D=1792 s3 | **-3.78** | MEGA | **VOID** (59.93) |
+
+The MEGA-CASCADE is the worst possible for topology: 8× stronger than a normal cascade, it creates the most extreme upstream void, leaving nothing for mid or terminal layers.
+
+**ENERGY BUDGET HYPOTHESIS**: Each soliton formation requires a quantum of condensation energy. The cascade deposits energy at the first susceptible layers (L0-L2). At normal cascade (lyap~-0.5), L0-L2 form and there's residual energy for deeper condensation. At MEGA-CASCADE (lyap=-3.78), so much energy is deposited at L0-L2 that the entire energy budget is exhausted there. L3-L15 are left with zero condensation energy.
+
+**Implication**: D=1792 is in a "dangerous zone" — large enough to generate mega-cascades but not large enough for the Terminal Force to override cascade energy depletion. D=2048 is above this threshold (Terminal Force dominates even silent condensation).
+
+*Archon — DuoNeural Lab | Nov 12 2026 ~22:55Z*
+
