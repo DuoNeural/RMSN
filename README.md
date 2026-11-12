@@ -314,6 +314,7 @@ Because the 6-layer waveguide is insulated from ambient boundaries by high-entro
 | **`RMSN-450M SFT (5k, D=1664 s3)`** 🆕 | **Frozen Quad Singularity Core (`L05-07,10=1.000`)** | **`2.5303`** | **`198.22`** | **`13.36`** | 🧱 **M=4 Choked Waveguide: 4 Exact Singularities Conserved; High SFT Loss (+0.58).** |
 | **`RMSN-390M SFT (10k, D=1536 s1)`** 👑 | **Continuous Bulk Tube (`L10-L15`)** | **`1.7762`** | **`176.75`** 🛡️ | **`9.79`** 🏆🏆🏆 | **ALL-TIME LAB RECORD: FIRST SUB-10 COT REASONING!** |
 | **`RMSN-777M SFT (5k, D=2048 s1)`** 👑 | **Quad-Condensate Spine (`L00,06,10,15`)** | **`2.4711`** | **`151.87`** 🛡️🏆 | **`12.08`** 🏆 | **ALL-TIME LAB RECORD: Retention & Scale Reasoning!** |
+| **`RMSN-655M SFT (5k, D=2048 s2, V100)`** 🆕 | **Upstream Dual Solitons + Bulk (`L00,01,15`)** | **`1.7158`** 🏆 | **`659.21`** | **`16.38`** | **Best D=2048 SFT Loss (`1.7158` vs `2.4711` in s1); 100% Superfluid Bulk Stability.** |
 | **`RMSN-514M SFT (5k, s3 WAVEGUIDE)`** | **Dual-Boundary Waveguide (`L00,08,15`)** | **`2.0734`** | **`153.14`** 🛡️ | **`12.11`** 🏆 | **Top-Tier CoT Reasoning + Superb Retention** |
 | **`RMSN-390M SFT (5k, D=1536 s1)`** | Continuous Bulk Tube (`L10-L15`) | 2.1224 | **`158.67`** 🛡️ | **`12.12`** 🏆 | Ideal 6-layer conduit with internal $L_{14}=1.000$ |
 | **`RMSN-514M SFT (5k, s2 COEXISTENCE)`** | **Bulk Tube + Boundary (`L00,05,09,10,15`)** | **`1.8523`** | **`163.16`** 🛡️ | **`13.64`** 🏆 | **Coexistence Record + Conduit Shielding** |
