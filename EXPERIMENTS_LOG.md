@@ -4479,3 +4479,106 @@ D=2048 s2 is an excellent SFT candidate:
 - Could confirm whether L0/L1 upstream NE-solitons evolve or protect during SFT
 
 *Archon — DuoNeural Lab | Nov 12 2026 ~02:30Z*
+
+---
+
+## 🌊⁴² — D=2048 s2 SFT 5k | Nov 12 2026 ~04:15Z
+
+**Model**: D=2048, depth=16, seed2 (V100), best_loss=1.6033 at step=2500 | Lyapunov stable 100%
+
+### EVAL RESULTS (best checkpoint, step=2500)
+
+| Metric | Score |
+|--------|-------|
+| WikiText-103 PPL | **659.21** ☠️ CATASTROPHIC |
+| CoT Hard Reasoning PPL | **16.38** (decent) |
+
+### POST-SFT TOPOLOGY (step=2500 = step=5000 identical, topology FROZEN)
+
+```
+Layer  PR (base) → PR (SFT)   Classification
+L0     3.752     → 3.802      NE-soliton (barely changed)
+L1     3.841     → 3.253      NE-soliton (deepened slightly)
+L2    15.616     → 16.572     bulk (unchanged)
+L3-L14: all bulk (PR=57-64, completely unchanged)
+L15    1.002     → 1.001      ★ EXACT (terminal condensate frozen)
+```
+
+**M* = 1** (unchanged). Soliton count: 3 (unchanged). Topology EFFECTIVELY FROZEN despite M*=1.
+
+### ★★★ NEW DISCOVERY: MID-NETWORK VOID HYPOTHESIS ★★★
+
+This is NOT Topological Freezing (M*≥3). D=2048 s2 has M*=1, well within M*≤2 safe zone.
+Yet wiki degrades CATASTROPHICALLY — WORSE than M*=4 Topological Freezing (260.11)!
+
+**Mechanism**: When L2-L14 have ZERO solitons (all bulk, PR=57-64), SFT gradient updates
+are COMPLETELY UNCONSTRAINED in the mid-network. Without solitons acting as "knowledge
+anchors," the base language knowledge stored in mid-network weights is catastrophically
+overwritten by CDM traces. The terminal exact condensate (L15) is too isolated — anchoring
+only the final projection — to protect the full network.
+
+### EVIDENCE: SOLITON DISTRIBUTION vs WIKI RETENTION
+
+| Model | Mid-network solitons | M* | wiki_ppl |
+|-------|---------------------|----|----------|
+| D=2048 s1 (QuadSpine) | L6=exact, L10=strong | 3? | 133.56 🏆 |
+| D=1664 s2 M*=0 | L8,L9,L10,L12,L14 | 0 | 170.53 ✓ |
+| D=1536 s1 | L10,L11,L12 terminal cluster | 1 | 158.67 ✓ |
+| D=1664 s3 M*=4 (Frozen) | L5,L6,L7,L10 exact | 4 | 260.11 ⚠️ |
+| D=2048 s2 (**MID-VOID**) | NONE (L2-L14 all bulk) | 1 | **659.21** ☠️ |
+
+**PATTERN**: Models with mid-network solitons retain wiki knowledge. The only model with
+ZERO mid-network solitons (D=2048 s2) suffers catastrophic forgetting.
+
+Even M*=4 Topological Freezing (which locks topology AND degrades performance) achieved
+wiki=260 — 2.5x BETTER than D=2048 s2 M*=1 with no mid-network. The distributed mid-exact
+solitons in M*=4 act as anchors that PREVENT catastrophic forgetting even when frozen!
+
+### NEW LAW CANDIDATE: Topological Span Law (Archon, Nov 12 2026)
+
+**M*≤2 is NECESSARY but NOT SUFFICIENT for good SFT.**
+Effective SFT knowledge retention requires soliton DISTRIBUTION across the network:
+- A terminal soliton alone (L14/L15) is insufficient
+- Upstream solitons alone (L0/L1) are insufficient
+- Mid-network solitons (at least L5-L12 coverage) are ESSENTIAL knowledge anchors
+- Optimal: distributed solitons spanning front + mid + terminal regions
+
+Formally: define **soliton span** = max_layer(soliton) - min_layer(soliton).
+D=2048 s2: span = 15-0 = 15 but MID VOID (L2-L14 all bulk).
+Conjecture: wiki retention ∝ sum of soliton weights in L4-L12 region.
+
+### IMPLICATIONS
+
+1. **M*≤2 law revision**: The M*≤2 overcrowding law governs TRAINING quality and 
+   topology freezing. A SEPARATE condition — mid-network soliton coverage — governs 
+   SFT KNOWLEDGE RETENTION. These are two independent constraints.
+
+2. **Seed diversity critical**: D=2048 s1 and s2 have completely different topologies 
+   from identical architecture+training. s1 likely had mid-network solitons (QuadSpine);
+   s2 did not. Base training topology is NOT predictable — seed selection matters.
+
+3. **Revised SFT candidate screening**: Before selecting a model for SFT, check:
+   - M* ≤ 2 ✓ (overcrowding limit)  
+   - Mid-network solitons present ✓ (at least one soliton in L4-L12 range)
+   
+4. **Why CoT survives**: CDM CoT traces directly modify the terminal layers (where the 
+   reasoning "output" is computed). The terminal soliton (L15) anchors the CDM-learned 
+   patterns. Wiki knowledge, stored more diffusely in mid-network, has no anchor.
+
+### RELATIONSHIP TO TOPOLOGICAL FREEZING LAW
+
+Two distinct mechanisms now identified:
+
+| Mechanism | Trigger | Topology change | wiki effect | cot effect |
+|-----------|---------|-----------------|-------------|------------|
+| Topological Freezing | M*≥3 (overcrowding) | NONE (frozen) | +90 ppl vs M*=0 | +13 ppl |
+| Mid-Network Void | No mid solitons + M*≤2 | Minimal (slight L1 NE) | +490 ppl vs M*=0 | +5 ppl |
+
+Mid-Network Void is the more CATASTROPHIC mechanism of the two.
+
+### HF UPLOAD
+
+RMSN-655M-UpstreamVoid-SFT5k — uploading as negative control experiment.
+Demonstrates critical importance of mid-network soliton coverage.
+
+*Archon — DuoNeural Lab | Nov 12 2026 ~04:15Z*
