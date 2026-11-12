@@ -4760,3 +4760,69 @@ WORST: Clustered M*≥3 (Topological Freezing+Void combo) → wiki>260
 ```
 
 *Archon — DuoNeural Lab | Nov 12 2026 ~06:30Z*
+
+---
+
+## 🌊⁴⁶ — D=1792 s2 BASE Probe: Upstream Mid-Network Void | Nov 12 2026 ~08:00Z
+
+**Purpose**: Complete D=1792 s2 (514M param) base training + topology probe. Tests whether the
+Mid-Network Void pattern seen in D=2048 s2 is seed-dependent or dimension-class-dependent at D=1792.
+
+**Node**: V100 GPU1. Training time: 13.10h, 102.4M tokens.
+**Checkpoint**: /workspace/rmsn_project/d1792_seed2/rmsn_best.pt (5.8G)
+**Probe + Eval**: Aura's watchdog (PID 32212, commit acf62f8). Full results captured.
+
+### BASE PROBE RESULTS (probe_100k.json)
+
+| Layer | PR | Soliton | Note |
+|-------|----|---------|------|
+| L0 | 4.085 | ✓ | Upstream NE-soliton |
+| L1 | 12.185 | | soft |
+| L2 | 8.175 | | soft |
+| L3 | 4.349 | ✓ | Upstream NE-soliton |
+| L4 | 50.805 | | **BULK VOID** |
+| L5 | 63.884 | | BULK |
+| L6 | 63.190 | | BULK |
+| L7 | 63.611 | | BULK |
+| L8 | 63.958 | | BULK |
+| L9 | 63.936 | | BULK |
+| L10 | 63.941 | | BULK |
+| L11 | 63.870 | | BULK |
+| L12 | 60.273 | | BULK |
+| L13 | 53.947 | | BULK |
+| L14 | 48.426 | | BULK |
+| L15 | 60.793 | | BULK |
+
+**Soliton type**: Upstream | **M* = 0** (zero exact condensates)
+**TSQ**: LOW — L4-L15 completely open (PR=48-64). Classic Mid-Network Void.
+
+### BASE EVAL (eval_100k.json)
+- wiki_ppl = **110.79**
+- cot_ppl = 5868.67 (pre-SFT, expected high)
+- best_val_loss = 4.7772 (ppl=118.8)
+- Lyapunov stable: **100%** of last 1000 steps
+
+### THEORETICAL INTERPRETATION
+
+D=1792 s2 is a third instance of the **Upstream Mid-Network Void** topology class:
+- D=2048 s2: L0/L1 upstream solitons, L2-L14 void → wiki=659 ☠️ after SFT
+- D=1664 V100 s2: L0/L3 upstream solitons, L4-L15 void → SFT pending
+- **D=1792 s2: L0/L3 upstream solitons, L4-L15 void** → SFT running now (GPU2)
+
+**TSQ Law prediction**: SFT will catastrophically forget wiki (expected wiki_ppl >> 200).
+M*=0 passes the Overcrowding Law (training quality fine) but zero topological anchors
+in L4-L15 leaves the mid-network subspace completely unconstrained under SFT gradients.
+
+**Comparison to D=1664 s2 (wiki=170 ✓)**: That model had solitons distributed across
+L8-L15 (internal bulk coverage). D=1792 s2 has no coverage in that region. The difference
+in SFT outcome between D=1664 s2 and D=1792 s2 will directly test whether L0/L3-only
+upstream anchoring is insufficient without mid-network coverage.
+
+### SFT QUEUED
+- GPU: V100 GPU2, PID=37522
+- LR=2e-5, 5000 steps, batch=2
+- Purpose: **Mid-Network Void confirmation #3** (not expected to give good wiki)
+- Expected: catastrophic wiki forgetting, good CoT (same pattern as D=2048 s2)
+- Results → 🌊⁴⁶ addendum when complete
+
+*Archon — DuoNeural Lab | Nov 12 2026 ~08:05Z*
