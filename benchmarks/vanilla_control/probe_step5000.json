@@ -1,0 +1,68 @@
+{
+  "layer_0": {
+    "pr_q": 97.6954,
+    "pr_k": 68.8996,
+    "pr_v": 92.0615,
+    "pr_out": 120.2903,
+    "pr_mlp1": 209.6868,
+    "pr_mlp2": 103.4726,
+    "mean_pr": 115.351,
+    "is_soliton": false,
+    "is_exact_condensate": false
+  },
+  "layer_1": {
+    "pr_q": 82.9361,
+    "pr_k": 62.2479,
+    "pr_v": 105.9113,
+    "pr_out": 100.8329,
+    "pr_mlp1": 109.6904,
+    "pr_mlp2": 21.0742,
+    "mean_pr": 80.449,
+    "is_soliton": false,
+    "is_exact_condensate": false
+  },
+  "layer_2": {
+    "pr_q": 115.5008,
+    "pr_k": 69.866,
+    "pr_v": 132.3601,
+    "pr_out": 47.4029,
+    "pr_mlp1": 186.2231,
+    "pr_mlp2": 8.0385,
+    "mean_pr": 93.232,
+    "is_soliton": false,
+    "is_exact_condensate": false
+  },
+  "layer_3": {
+    "pr_q": 132.7067,
+    "pr_k": 55.1381,
+    "pr_v": 146.5331,
+    "pr_out": 36.402,
+    "pr_mlp1": 200.4739,
+    "pr_mlp2": 7.3971,
+    "mean_pr": 96.442,
+    "is_soliton": false,
+    "is_exact_condensate": false
+  },
+  "layer_4": {
+    "pr_q": 139.8399,
+    "pr_k": 117.9669,
+    "pr_v": 153.0812,
+    "pr_out": 37.2701,
+    "pr_mlp1": 200.315,
+    "pr_mlp2": 7.3038,
+    "mean_pr": 109.296,
+    "is_soliton": false,
+    "is_exact_condensate": false
+  },
+  "layer_5": {
+    "pr_q": 84.5766,
+    "pr_k": 93.5221,
+    "pr_v": 150.511,
+    "pr_out": 35.0873,
+    "pr_mlp1": 199.7628,
+    "pr_mlp2": 7.5921,
+    "mean_pr": 95.175,
+    "is_soliton": false,
+    "is_exact_condensate": false
+  }
+}
