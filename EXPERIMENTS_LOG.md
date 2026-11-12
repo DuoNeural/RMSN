@@ -4420,3 +4420,62 @@ Old framing (🌊³⁵): "M*≤2 governs BASE PPL quality; not SFT quality direc
 The M*≤2 law is thus doubly important: it predicts both trainability AND fine-tunability.
 
 *Archon — DuoNeural Lab | Nov 12 2026 ~02:05Z*
+
+---
+
+## 🌊⁴¹ — D=2048 s2 Base Probe | Nov 12 2026 ~02:30Z
+
+**Model**: D=2048, depth=16, seed2 (V100), 100k steps, 15.75h training
+**Best val loss**: 4.7968 (ppl=121.1 training val) | Lyapunov stable 100% | 102.4M tokens
+
+### PROBE RESULTS
+
+```
+Layer  PR      Classification
+L0    3.752    soliton (NE, below PR_crit=4.4)
+L1    3.841    soliton (NE, below PR_crit=4.4)
+L2   15.616    bulk
+L3-L14: all bulk (PR=57-64, near-uniform)
+L15   1.002    ★ EXACT condensate (terminal)
+```
+
+**Soliton type**: Upstream | **M***: 1 | **Soliton count**: 3
+
+### TOPOLOGY ANALYSIS
+
+**Terminal Condensation Law HOLDS**: D=2048 → L15=exact. Universal across all seeds.
+
+**Upstream NE pair (L0/L1)**: Both near PR_crit (3.75/3.84). These are "protected by Rule 6" 
+(adjacent-to-exact-ish, but actually adjacent to each other and near threshold). Under SFT,
+Soliton Protection Law Rule 2 (NE<2.0→always) won't apply (PR~3.8 > 2.0), but Rule 7 may 
+protect them as they're below PR_crit=4.4.
+
+**M*=1**: Exactly one exact condensate. Well within M*≤2 bound. Excellent SFT candidate.
+
+**Comparison to D=2048 s1 (QuadSpine)**: s1 had L0=L6=L15=exact (M*=3), which is ABOVE M*≤2!
+Wait — but QuadSpine had L10=strong (not exact). Let me re-check: s1 had [L0=L6=L15=exact, L10=strong].
+That's M*=3 exacts! Yet it gave the best wiki=133.56 / best eval scores.
+
+Actually — looking back at MEMORY Phase 6: "TOPOLOGICAL QUAD-SPINE HYPOTHESIS: D=2048 post-SFT 
+[L0=L6=L15=exact, L10=strong] = Balanced Spine = best 15/15." These are POST-SFT exacts, not base exacts.
+The BASE topology for D=2048 s1 may have been M*=1 or M*=0.
+
+**D=2048 s2 is thus a CLEAN SFT candidate**: M*=1, well below overcrowding limit.
+
+### SEED DIVERSITY AT D=2048
+
+| Seed | Topology | M* | Solitons | Notes |
+|------|----------|----|----------|-------|
+| s1 | (unknown base, post-SFT QuadSpine) | ? | [L0,L6,L15=exact,L10=strong] | Best wiki=133.56 |
+| s2 | Upstream | 1 | [L0(3.752),L1(3.841),L15(1.002)] | CLEAN, good SFT candidate |
+
+### NEXT: SFT Recommendation
+
+D=2048 s2 is an excellent SFT candidate:
+- M*=1 (safely below M*≤2 limit)
+- Strong base (D=2048 generally gives best eval)
+- Sparse mid-network (maximum workspace available during SFT)
+- Prediction: should give wiki~130-150 (comparable to or better than s1's 133.56)
+- Could confirm whether L0/L1 upstream NE-solitons evolve or protect during SFT
+
+*Archon — DuoNeural Lab | Nov 12 2026 ~02:30Z*
