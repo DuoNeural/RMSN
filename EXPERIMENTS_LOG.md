@@ -5405,3 +5405,65 @@ The MEGA-CASCADE is the worst possible for topology: 8× stronger than a normal 
 
 *Archon — DuoNeural Lab | Nov 12 2026 ~22:55Z*
 
+
+---
+
+## 🌊⁶⁰ — D=896 s2 BASE Probe: Early Cluster + Deep Anchor | Nov 12-13 2026 ~23:15Z
+
+**Run**: D=896, L=16, M_w=64, r=0 (896 mod 64 = 0 → ATTRACTIVE). ~150M params (1.8GB). 100k steps.
+**Node**: p35122 GPU3. **Training time**: ~15h. **best_val_ppl**: 140.1. **Lyap**: FLAT -0.025 to -0.033 (SILENT pathway).
+
+### TOPOLOGY — EARLY CLUSTER + DEEP ANCHOR
+
+| Layer | PR | Type |
+|-------|----|------|
+| L0 | **1.662** | Soliton ✓ (NEAR-EXACT NE! PR<2) |
+| L1 | 21.419 | void (gap) |
+| L2 | **2.231** | Soliton ✓ |
+| L3 | **3.151** | Soliton ✓ |
+| L4 | **2.570** | Soliton ✓ |
+| L5 | **4.452** | Soliton ✓ |
+| L6 | 57.981 | VOID |
+| L7 | 52.275 | VOID |
+| L8 | 7.018 | soft (sub-threshold) |
+| L9 | 46.762 | VOID |
+| L10 | 39.426 | VOID |
+| L11 | 52.182 | VOID |
+| L12 | 63.238 | VOID (saturated) |
+| L13 | **2.434** | Soliton ✓ (deep isolated anchor) |
+| L14 | 31.105 | VOID |
+| L15 | 47.146 | VOID (not exact → D<1792 Terminal Law ✓) |
+
+**M* = 0** (no PR=1.000 exact). **6 solitons**: L0 (near-exact anchor) + L2-L5 (early cluster) + L13 (deep isolated). L6-L12 VOID (7 layers).
+
+**Terminal Law confirmed**: D=896 < 1792 (revised boundary 2048) → L15 NOT exact. L15=47.1. ✓
+
+### 🔬 DIMENSION SWEEP COMPLETE — Silent Pathway Optimum Identified
+
+This completes the D sweep: 896 → 1024 → 1280/1536/1792/2048.
+
+| D | Pathway | Solitons | M* | val_ppl | Topology |
+|---|---------|----------|-----|---------|---------|
+| **896 s2** | SILENT | 6 (L0+L2-5+L13) | 0 | 140.1 | Early Cluster + Deep Anchor |
+| **1024 r=0** | SILENT | 9 (distributed) | 1 | 71.53 🏆 | **Deep Spine** |
+| **1040 r=16** | DUAL CASCADE | 7 (L0+L9-15) | 0 | 69.69 🏆 | Deep Tail |
+| 1280 d24 | upstream | 2 | 0 | 63.68 🏆 | Upstream Void |
+| 1536 s3 | CASCADE | 3 | 0 | 143.78 | Upstream Void |
+| 1792 s3 | MEGA-CASCADE | 2 | 0 | 128.09 | Extreme Void |
+| 2048 s3 | SILENT sparse | 3 | 1 | 118.67 | Bookend |
+
+**SILENT PATHWAY OPTIMUM**: D=1024 produces the RICHEST silent topology:
+- D=896: 6 solitons, clustered (L0-L5 + isolated L13)
+- D=1024: 9 solitons, DISTRIBUTED across depth ← optimal ← M*=1
+- D=2048: 3 solitons, sparse bookend
+
+The silent pathway has a DIM-DEPENDENT TOPOLOGY RICHNESS peaking at D~1024. Below D=1024: energy density too low to reach deep layers → early cluster forms but deep network stays void. Above D=1024: energy diluted across too many parameters → sparse bookend. At D~1024: Goldilocks zone where gradient compression energy distributes optimally across all 16 layers.
+
+### L0 Near-Exact at D=896
+
+L0=PR=1.662 is the strongest near-exact (NE) L0 anchor seen across this sweep. At D=1024, L0=PR=5.648 (soliton but not NE). At D=896, L0=1.662 is almost exact. The reduced dimensionality concentrates the condensation energy at L0 more intensely — the initial layer "captures" more of the available energy when the phase space is smaller.
+
+This suggests: smaller D → more concentrated first-layer condensation (near-exact L0); larger D → more distributed but weaker first-layer condensation.
+
+*Archon — DuoNeural Lab | Nov 12-13 2026 ~23:15Z — DIMENSION SWEEP COMPLETE*
+
