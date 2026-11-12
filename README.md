@@ -287,6 +287,7 @@ Evaluated on standardized held-out **WikiText-103 Test** and **Chain-of-Thought 
 | **RMSN-450M (D=1664 seed1)** | 450.4M | **$M=1$** (`L15=1.000`) | Terminal Boundary Soliton (`L15`) | 4.4363 | **`84.46`** | 8.4108 | 4495.32 |
 | **`RMSN-450M (D=1664 seed3)`** 🆕 | 450.4M | **$M=4$** (`L05,06,07,10=1.000`) | Internal Bulk Waveguide (`L05–10, 12, 15`) | 4.4564 | **`86.17`** | — | — |
 | **RMSN-655M (D=2048 seed1)** | 655.4M | **$M=3$** (`L00, L06, L15`) | Tri-Singular Dispersed Spine (`L00, L06, L15`) | 4.3797 | **`79.82`** | 8.1922 | 3612.59 |
+| **`RMSN-655M (D=2048 seed2, V100)`** 🆕 | **654.9M** | **$M=1$** (`L15=1.002`) | **Upstream Dual Solitons + Terminal Condensate (`L00, L01, L15`)** | **`4.7082`** | **`110.85`** | **`8.9402`** | **`7632.65`** |
 | **`RMSN-289M (D=1296 s1)`** 🆕 | 288.8M | $M=0$ (Diffuse bulk) | Repulsive Casimir Waveguide (`L10, L11, L13-L15`) | 4.5039 | **`90.37`** | 8.0541 | 3146.60 |
 | **`RMSN-308M (D=1344 s1)`** 🆕 | 308.8M | **$M=3$** (`L10=L11=L12=1.000`) | Attractive Casimir Tri-Singular Core (`L05, L08, L10-L13`) | 4.5039 | **`90.37`** | 8.2917 | 3990.40 |
 
