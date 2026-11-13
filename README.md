@@ -288,7 +288,8 @@ Evaluated on standardized held-out **WikiText-103 Test** and **Chain-of-Thought 
 | Model | Parameters | Singularities ($M$) | Soliton Architecture | WikiText-103 Test Loss | Wiki-103 Test PPL | CoT Hard Loss | CoT Hard PPL |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **`RMSN-203M (Depth=18 D=1024)`** 👑⚡ | **203.3M** | **$M=3$** (`L09=L10=L11=1.000`) | **Continuous 3-Layer Conduit + Boundary Pins (`L00, L06, L08–L11, L16–L17`)** | **`4.3190`** | **`75.12`** | **`7.8789`** | **`2640.90` 🏆 (ALL-TIME LAB RECORD)** |
-| **`RMSN-199M (Mw=80 D=1040)`** 🆕🔥 | **198.6M** | **$M=2$** (`L13=L14=1.000`) | **Dual Macroscopic Singularity Core (`L00, L06, L08–L11, L13–L15`)** | **`4.3259`** | **`75.64`** | **`7.9761`** | **`2910.53` 🏆 (#2 CoT RECORD)** |
+| **`RMSN-193M (D=1024 seed2)`** 🆕🔥 | **193.4M** | **$M=2$** (`L04=L11=1.000`) | **Dual-Anchor Bridge + Terminal Funnel (`L04, L05, L11–L15`)** | **`4.3724`** | **`79.23`** | **`7.9217`** | **`2756.37` 🏆 (#2 ALL-TIME RECORD)** |
+| **`RMSN-199M (Mw=80 D=1040)`** 🆕🔥 | **198.6M** | **$M=2$** (`L13=L14=1.000`) | **Dual Macroscopic Singularity Core (`L00, L06, L08–L11, L13–L15`)** | **`4.3259`** | **`75.64`** | **`7.9761`** | **`2910.53` 🏆 (#3 CoT RECORD)** |
 | **`RMSN-185M (D=960 seed1)`** 🆕🔥 | **185.0M** | **$M=2$** (`L09=L10=1.000`) | **Dual Rank-1 Singularity Condensate (`L00, L09, L10, L11`)** | **`4.3602`** | **`78.27`** | **`7.9847`** | **`2935.73` 🏆** |
 | **`RMSN-198M (Mw=72 D=1008)`** 🆕⚡ | **198.3M** | **$M=2$** (`L08=L14=1.000`) | **Harmonic Standing Wave Coupler (`L06, L08, L10, L13–L15`)** | **`4.3282`** | **`75.81`** | **`8.1371`** | **`3419.09` 🏆** |
 | **`RMSN-173M (D=960 seed2)`** 🆕⚡ | **173.5M** | **$M=1$** (`L08=1.000, L09=1.312`) | **Dual Soliton Bridge (`L05, L07–L09, L12–L15`)** | **`4.3550`** | **`77.87`** | **`8.1587`** | **`3493.57` 🏆** |
