@@ -1,0 +1,77 @@
+{
+  "name": "T-RMSN D=1024 D16 Step 50k",
+  "dim": 1024,
+  "depth": 16,
+  "slots": 64,
+  "soliton_layers": [
+    1,
+    11
+  ],
+  "soliton_type": "Upstream",
+  "layer_results": {
+    "0": {
+      "pr": 10.414,
+      "soliton": false
+    },
+    "1": {
+      "pr": 5.188,
+      "soliton": true
+    },
+    "2": {
+      "pr": 26.123,
+      "soliton": false
+    },
+    "3": {
+      "pr": 22.924,
+      "soliton": false
+    },
+    "4": {
+      "pr": 42.925,
+      "soliton": false
+    },
+    "5": {
+      "pr": 59.054,
+      "soliton": false
+    },
+    "6": {
+      "pr": 57.969,
+      "soliton": false
+    },
+    "7": {
+      "pr": 49.75,
+      "soliton": false
+    },
+    "8": {
+      "pr": 50.81,
+      "soliton": false
+    },
+    "9": {
+      "pr": 19.321,
+      "soliton": false
+    },
+    "10": {
+      "pr": 63.029,
+      "soliton": false
+    },
+    "11": {
+      "pr": 1.774,
+      "soliton": true
+    },
+    "12": {
+      "pr": 17.828,
+      "soliton": false
+    },
+    "13": {
+      "pr": 58.009,
+      "soliton": false
+    },
+    "14": {
+      "pr": 30.317,
+      "soliton": false
+    },
+    "15": {
+      "pr": 38.208,
+      "soliton": false
+    }
+  }
+}
