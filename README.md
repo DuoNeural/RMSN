@@ -287,9 +287,13 @@ Evaluated on standardized held-out **WikiText-103 Test** and **Chain-of-Thought 
 
 | Model | Parameters | Singularities ($M$) | Soliton Architecture | WikiText-103 Test Loss | Wiki-103 Test PPL | CoT Hard Loss | CoT Hard PPL |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **`RMSN-229M (Depth=20 D=1024)`** 👑⚡ | **229.2M** | **$M=1$** (`L11=1.000`) | **Internal Bulk Core + Terminal Anchor (`L07, L08, L11, L13, L19`)** | **`4.2886`** | **`72.87` 🏆 (ALL-TIME RECORD)** | **`8.1274`** | **`3385.83` 🏆** |
+| **`RMSN-203M (Depth=18 D=1024)`** 👑⚡ | **203.3M** | **$M=3$** (`L09=L10=L11=1.000`) | **Continuous 3-Layer Conduit + Boundary Pins (`L00, L06, L08–L11, L16–L17`)** | **`4.3190`** | **`75.12`** | **`7.8789`** | **`2640.90` 🏆 (ALL-TIME LAB RECORD)** |
+| **`RMSN-199M (Mw=80 D=1040)`** 🆕🔥 | **198.6M** | **$M=2$** (`L13=L14=1.000`) | **Dual Macroscopic Singularity Core (`L00, L06, L08–L11, L13–L15`)** | **`4.3259`** | **`75.64`** | **`7.9761`** | **`2910.53` 🏆 (#2 CoT RECORD)** |
+| **`RMSN-185M (D=960 seed1)`** 🆕🔥 | **185.0M** | **$M=2$** (`L09=L10=1.000`) | **Dual Rank-1 Singularity Condensate (`L00, L09, L10, L11`)** | **`4.3602`** | **`78.27`** | **`7.9847`** | **`2935.73` 🏆** |
+| **`RMSN-198M (Mw=72 D=1008)`** 🆕⚡ | **198.3M** | **$M=2$** (`L08=L14=1.000`) | **Harmonic Standing Wave Coupler (`L06, L08, L10, L13–L15`)** | **`4.3282`** | **`75.81`** | **`8.1371`** | **`3419.09` 🏆** |
+| **`RMSN-173M (D=960 seed2)`** 🆕⚡ | **173.5M** | **$M=1$** (`L08=1.000, L09=1.312`) | **Dual Soliton Bridge (`L05, L07–L09, L12–L15`)** | **`4.3550`** | **`77.87`** | **`8.1587`** | **`3493.57` 🏆** |
+| **`RMSN-229M (Depth=20 D=1024)`** 👑⚡ | **229.2M** | **$M=1$** (`L11=1.000`) | **Internal Bulk Core + Terminal Anchor (`L07, L08, L11, L13, L19`)** | **`4.2886`** | **`72.87` 🏆 (RETENTION RECORD)** | **`8.1274`** | **`3385.83` 🏆** |
 | **`Casimir-204M (D=1056 r=32)`** 🆕⚡ | **203.8M** | **$M=2$** (`L08=L09=1.000`) | **Tri-Singularity Bridge (`L00, L05, L07–L10, L14–L15`)** | **`4.3110`** | **`74.52` 🏆 (CASIMIR RECORD)** | **`8.1834`** | **`3581.14` 🏆** |
-| **`RMSN-185M (D=960 seed1)`** 🆕🔥 | **185.0M** | **$M=2$** (`L09=L10=1.000`) | **Dual Rank-1 Singularity Condensate (`L00, L09, L10, L11`)** | **`4.3602`** | **`78.27`** | **`7.9847`** | **`2935.73` 🏆 (ALL-TIME RECORD)** |
 | **`T-RMSN-193M (D=1024 50k)`** 🆕🌡️ | **193.3M** | **$M=0$** (Isothermal $Q\to 0$) | **Thermodynamic Dual-Resonator Bridge (`L01, L11`)** | **`4.3536`** | **`77.75` ⚡ (50k Steps!)** | **`9.2565`** | **`10472.11`** |
 | **`RMSN-350M (Depth=20 D=1280)`** 👑 | 350.2M | **$M=3$** (`L17=L18=L19=1.000`) | Terminal Boundary Triad + Bulk Conduit (`L13, L17–L19`) | **`4.1823`** | **`65.52`** | **`8.0645`** | **`3179.73`** |
 | **`RMSN-155M (D=896 Target)`** 🆕⚡ | 154.6M | **$M=1$** (`L14=1.000`, `L09=1.001`) | Dual-Bulk Waveguide (`L07, L09, L13, L14`) | 4.3950 | 81.04 | 8.1878 | 3596.67 |
