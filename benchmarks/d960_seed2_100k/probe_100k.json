@@ -1,0 +1,83 @@
+{
+  "name": "RMSN D=960 Seed 2 Step 100k",
+  "dim": 960,
+  "ckpt": "/workspace/rmsn_project/d960_seed2/rmsn_step100000.pt",
+  "stored_lyap": null,
+  "soliton_layers": [
+    5,
+    7,
+    8,
+    9,
+    12,
+    13,
+    14,
+    15
+  ],
+  "soliton_type": "Near-Upstream",
+  "layer_results": {
+    "0": {
+      "pr": 6.77,
+      "soliton": false
+    },
+    "1": {
+      "pr": 12.602,
+      "soliton": false
+    },
+    "2": {
+      "pr": 7.035,
+      "soliton": false
+    },
+    "3": {
+      "pr": 24.178,
+      "soliton": false
+    },
+    "4": {
+      "pr": 25.128,
+      "soliton": false
+    },
+    "5": {
+      "pr": 5.027,
+      "soliton": true
+    },
+    "6": {
+      "pr": 7.449,
+      "soliton": false
+    },
+    "7": {
+      "pr": 3.984,
+      "soliton": true
+    },
+    "8": {
+      "pr": 1.0,
+      "soliton": true
+    },
+    "9": {
+      "pr": 1.312,
+      "soliton": true
+    },
+    "10": {
+      "pr": 48.792,
+      "soliton": false
+    },
+    "11": {
+      "pr": 18.243,
+      "soliton": false
+    },
+    "12": {
+      "pr": 2.907,
+      "soliton": true
+    },
+    "13": {
+      "pr": 4.582,
+      "soliton": true
+    },
+    "14": {
+      "pr": 3.756,
+      "soliton": true
+    },
+    "15": {
+      "pr": 1.461,
+      "soliton": true
+    }
+  }
+}
