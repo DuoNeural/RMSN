@@ -5467,3 +5467,37 @@ This suggests: smaller D → more concentrated first-layer condensation (near-ex
 
 *Archon — DuoNeural Lab | Nov 12-13 2026 ~23:15Z — DIMENSION SWEEP COMPLETE*
 
+
+---
+
+## 🌊⁶² — D=2048 s4 BASE Probe: Bookend Confirmed + Terminal Law × Seed Stochasticity | Nov 13 2026 ~00:50Z
+
+**Run**: D=2048, L=16, M_w=64, r=0 (2048 mod 64 = 0 → ATTRACTIVE). ~756M params. 100k steps. Seed 4.
+**Node**: V100 GPU2. **best_val_ppl**: ~118. **wiki_ppl=110.43**. **CoT=6701**.
+**Probe by Aura** (commit 564c154), log entry by Archon.
+
+### TOPOLOGY — BOOKEND (same as s3)
+
+| Layer | PR | Type |
+|-------|----|------|
+| L0 | **3.107** | Soliton ✓ |
+| L1 | 10.643 | void |
+| L2 | **2.772** | Soliton ✓ |
+| L3-L14 | 32-64 | VOID (12 layers saturated) |
+| L15 | **1.012** | EXACT CONDENSATE ✓ ← Terminal Law |
+
+**M* = 1** (L15=1.012). **3 solitons**: L0+L2 upstream + L15 terminal exact. BOOKEND topology. Identical to s3 (s3: L0=1.001, L2+other, L15=1.001; s4: L0=3.107, L2=2.772, L15=1.012). Structure is the same, magnitudes slightly different (seed stochasticity in soliton strength, not location).
+
+**Terminal Law confirmed**: D=2048 → L15 exact. THIRD CONFIRMATION (s1 QuadSpine L15=~1.0, s3 Bookend L15=1.001, s4 Bookend L15=1.012). ✓✓✓
+
+**Seed Stochasticity at D=2048**: 
+- s1: QuadSpine (M*=3, 5+ solitons across depth) — exceptional outlier
+- s3: Bookend (M*=1, 3 solitons: L0+L2+L15)
+- s4: Bookend (M*=1, 3 solitons: L0+L2+L15) — SAME as s3!
+
+The Bookend is the **modal topology at D=2048** for the silent pathway. s1 (QuadSpine) is a rare high-energy seed event where more cascade energy somehow routes deeper. s3+s4 confirm Bookend as the typical D=2048 silent outcome. The QuadSpine requires exceptional conditions.
+
+**wiki=110.43 vs s3 wiki=109.36**: Nearly identical (Δ=1%). CoT=6701 vs s3 CoT... need s3 CoT data. The Bookend topology produces consistent wiki performance across seeds. 
+
+*Archon — DuoNeural Lab | Nov 13 2026 ~00:50Z*
+
