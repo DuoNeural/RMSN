@@ -5745,5 +5745,72 @@ This tri-singularity topology establishes that $r=32$ is the optimal Casimir bou
 
 *Aura✨ — DuoNeural Lab | Nov 13 2026 ~16:12Z*
 
+---
+
+## 🌊⁷⁵ TOUCHDOWN & ALL-TIME LANGUAGE MODELING RECORD: RMSN D=1024 Depth=20 Sets Lab Record (Wiki PPL 72.87, Val PPL 68.82, CoT PPL 3385, Exact L11 Singularity)
+
+**Model:** `d1024_depth20_s1` ($D=1024, L=20, M_w=64$, 100,000 steps, 204.8M tokens seen)  
+**Host Node:** `p54091` (2x RTX 5070 Ti, GPU 0)  
+**Completed:** Nov 13 2026 18:05:44 UTC  
+**Benchmark Artifacts:** `benchmarks/d1024_depth20_100k/` (`eval_100k.json`, `probe_100k.json`, `summary_100k.json`)
+
+### Key Results:
+- **Final Validation Loss:** `4.2315` | **Validation PPL:** **`68.82`** 🏆  
+  The lowest validation perplexity in DuoNeural RMSN pretraining history!
+- **WikiText-103 Test Retention:** `wiki_loss = 4.2886` | **`wiki_ppl = 72.87`** 🏆  
+  **ALL-TIME DUONEURAL LAB RECORD** — beats $L=16$ ($75.3$), beats Casimir $r=32$ ($74.52$), and beats all $D=1280$ depths ($L=24$ at $75.1$, $L=26$ at $88.3$, $L=28$ at $87.3$)!
+- **CoT Hard Reasoning (cdm_reasoning_traces_v4_hard):** `cot_loss = 8.1274` | **`cot_ppl = 3385.83`** 🏆  
+  Sub-3400 CoT reasoning perplexity out of pretraining, outperforming $L=16$ (4190 PPL) by over 800 perplexity points!
+- **Lyapunov Stability:** 100.0% of steps stable ($\lambda = -0.8092$).
+
+### Sheaf SVD Probe Discovery: Internal Bulk Soliton + Exact L11 Singularity
+```json
+{
+  "name": "RMSN D=1024 Depth=20 Step 100k",
+  "dim": 1024,
+  "depth": 20,
+  "slots": 64,
+  "soliton_layers": [7, 8, 11, 13, 19],
+  "soliton_type": "Internal Bulk",
+  "layer_results": {
+    "0":  {"pr": 13.982, "soliton": false},
+    "1":  {"pr": 27.506, "soliton": false},
+    "2":  {"pr": 13.166, "soliton": false},
+    "3":  {"pr": 29.090, "soliton": false},
+    "4":  {"pr": 23.517, "soliton": false},
+    "5":  {"pr": 24.428, "soliton": false},
+    "6":  {"pr":  9.022, "soliton": false},
+    "7":  {"pr":  1.668, "soliton": true},
+    "8":  {"pr":  2.864, "soliton": true},
+    "9":  {"pr": 12.938, "soliton": false},
+    "10": {"pr":  6.162, "soliton": false},
+    "11": {"pr":  1.000, "soliton": true},
+    "12": {"pr": 63.728, "soliton": false},
+    "13": {"pr":  4.575, "soliton": true},
+    "14": {"pr": 62.523, "soliton": false},
+    "15": {"pr": 63.853, "soliton": false},
+    "16": {"pr": 63.952, "soliton": false},
+    "17": {"pr": 62.908, "soliton": false},
+    "18": {"pr": 13.797, "soliton": false},
+    "19": {"pr":  5.033, "soliton": true}
+  }
+}
+```
+
+### Depth Sweep Comparison ($D=1024, M_w=64$):
+| Depth $L$ | Solitons | Soliton Topology | Val PPL | Wiki PPL | CoT PPL |
+|:---:|:---:|---|:---:|:---:|:---:|
+| **16** | 9 | Deep Spine ($L_7-L_{15}, M^*=1$) | 70.8 | 75.3 | 4190.0 |
+| **17** | Active | In training on Quad V100 GPU 0 (~37k steps) | — | — | — |
+| **18** | Active | In training on Quad V100 GPU 1 (~80k steps) | — | — | — |
+| **19** | Active | In training on `p54091` GPU 1 (~8k steps) | — | — | — |
+| **20** | **5** | **Internal Bulk ($L_7, L_8, L_{11}=1.0, L_{13}, L_{19}$)** | **`68.82` 🏆** | **`72.87` 🏆** | **`3385.83` 🏆** |
+
+### Theoretical Implication: The Depth-Cascade Condensation Window
+Increasing depth from $L=16$ to $L=20$ concentrates condensation into a razor-sharp macroscopic rank-1 singularity at $L_{11} = 1.000$ (Participation Ratio = $1.000$), while pinning the terminal outflow via an anchor soliton at $L_{19} = 5.033$. Layers $L_{14}-L_{17}$ remain completely diffuse ($PR \approx 62.5 - 63.9$), functioning as a high-capacity semantic transport bus. This balances extreme inductive compression ($L_{11}$) with expansive representation volume, resulting in the most expressive pretrained neural representation in lab history.
+
+*Aura✨ — DuoNeural Lab | Nov 13 2026 ~18:07Z*
+
+
 
 
