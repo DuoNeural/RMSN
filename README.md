@@ -299,6 +299,78 @@ Evaluated on standardized held-out **WikiText-103 Test** and **Chain-of-Thought 
 * Because $D=896$ possesses only a single exact macroscopic singularity ($M=1$ at $L_{14}$, with quasi-core $L_{09}=1.001$), it satisfies $M^* \le 2$, preserving the volume of the continuous Riemannian manifold across intermediate layers and preventing the topological choking observed in $M=3$ architectures.
 * In contrast, all $M \ge 3$ models in the laboratory cluster in the 84–95 PPL range ($D=1664\text{ s3}$ at 86.17, $D=1344$ at 90.37, $D=1408$ at 94.90, $D=2048$ at 84.62 base), regardless of parameter scale, proving that macroscopic singular count $M$ acts as a hard thermodynamic limiter on representational flow.
 
+### 4.3 Phase 5b: Casimir Boundary Convergence & Condensation Pathway Laws (Nov 12–13, 2026)
+
+A systematic sweep over D ∈ {896, 960, 1024, 1040, 1280, 1536, 1664, 1792, 2048} with r=0 and r≠0 Casimir conditions revealed six new fundamental laws governing RMSN topology formation.
+
+#### Two Condensation Pathways
+
+| Pathway | Dimension Range | Lyapunov | Mechanism | Topology |
+|---------|----------------|----------|-----------|---------|
+| **SILENT** | D ≤ 1024, depth=16 | Flat (−0.001 to −0.030) | Gradient compression, no event | Distributed deep spine |
+| **CASCADE** | D ≥ 1536 OR depth > ~16 at D=1024 | Sharp spike (lyap ≪ −0.1) | Phase transition, energy dump | Upstream void |
+
+Both pathways share r=0 (attractive Casimir). Dimensionality AND depth jointly modulate cascade threshold.
+
+#### Casimir Boundary Convergence Law *(Archon + Aura, Nov 12 2026)*
+
+The resonance parameter `r = D mod M_w` determines Casimir boundary conditions and fundamentally redirects condensation topology:
+
+| r | Casimir Type | Lyapunov Pathway | Topology | Best For |
+|---|-------------|-----------------|---------|---------|
+| **r=0** | Attractive | SILENT (D≤1024) | 9 deep spine solitons, M*=1 interior exact | SFT knowledge retention |
+| **r=16** | Repulsive | DUAL CASCADE (steps 97k/99k) | 7 deep tail solitons, L15 terminal pin | CoT reasoning (3321 ppl 🏆) |
+
+The two models achieve statistically identical wiki_ppl (75.27 vs 75.66) — the Casimir condition **routes, not suppresses** condensation. Same energy, completely different topology, different downstream strengths.
+
+**New models on HuggingFace:**
+- 🔗 [`DuoNeural/RMSN-199M-DeepSpine-Casimir-r0-Base`](https://huggingface.co/DuoNeural/RMSN-199M-DeepSpine-Casimir-r0-Base) — wiki=75.27, CoT=3761
+- 🔗 [`DuoNeural/RMSN-199M-DeepTail-Casimir-r16-Base`](https://huggingface.co/DuoNeural/RMSN-199M-DeepTail-Casimir-r16-Base) — wiki=75.66, CoT=3321 🏆
+
+#### Silent Pathway Optimum at D=1024
+
+For 16-layer RMSN, D=1024 is the topological Goldilocks dimension:
+
+| D | Pathway | Solitons | M* | Topology |
+|---|---------|----------|----|---------|
+| 896 | SILENT | 6 (early cluster + L13) | 0 | Early Cluster + Deep Anchor |
+| **1024** | **SILENT** | **9 (distributed full depth)** | **1** | **Deep Spine 🏆** |
+| 2048 | SILENT sparse | 3 (L0+L2+L15) | 1 | Bookend |
+
+D=1024 hits the perfect energy density for distributing condensation across all 16 layers. Too small → early concentration. Too large → energy dilution.
+
+#### Terminal Condensation Law — Revised Boundary
+
+*Revised Nov 12 2026 (from D≥1792, now D≥2048):*
+
+D=1792 s3 mega-cascade (lyap=−3.78) exhausted all condensation energy at L0–L2, leaving L15=59.93 (void). D=1792 s2 (Aura): also void. Terminal Law confirmed at D=2048 across 3 seeds (s1 QuadSpine, s3 Bookend, s4 Bookend — all L15 exact PR≈1.000).
+
+**New boundary: D ≥ 2048 → L(depth−1) exact. D=1792 is NOT guaranteed.**
+
+#### Depth Scaling Paradox
+
+D=1280 depth=24: wiki_ppl=68.18 — **ALL-TIME DuoNeural lab record** 🏆 — but M*=0, upstream void topology. By the TSQ Law, catastrophic SFT forgetting is predicted despite excellent base quality.
+
+**Depth and topology richness are orthogonal dimensions of model quality.** Base perplexity is not a sufficient metric for SFT readiness.
+
+#### Energy Budget Hypothesis
+
+Each soliton costs condensation energy proportional to cascade amplitude. A mega-cascade (D=1792 lyap=−3.78) spends all available energy at L0–L2, leaving zero residual for terminal condensation. Normal cascade leaves some residual; silent pathway leaves maximum residual for distributed formation. Cascade amplitude = energy budget; topology = energy routing.
+
+#### Dimension Topology Taxonomy (Complete, Nov 12–13 2026)
+
+| Topology | Example | Soliton Distribution | M* | Wiki |
+|---------|---------|---------------------|-----|------|
+| **Deep Spine** | D=1024 r=0 | Full depth distributed | 1 | 75.3 |
+| **Deep Tail** | D=1040 r=16 | L0 + L9–L15 concentrated | 0 | 75.7 |
+| **Early Cluster+Anchor** | D=896 | L0–L5 + L13 | 0 | — |
+| **QuadSpine** | D=2048 s1 | M*=3 distributed | 3 | 133 🏆 SFT |
+| **Bookend** | D=2048 s3/s4 | L0+L2+L15 sparse | 1 | 109 |
+| **Upstream Void** | D=1536 s3, D=1664 s4 | L0–L2 only | 0 | ~600 ☠️ |
+| **Extreme Void** | D=1792 s3 | L0+L2 only (mega-cascade) | 0 | ~600+ ☠️ |
+
+---
+
 ### 5. The Topological Bulk Shield Law & SFT Benchmark (D=1280)
 
 Fine-tuning the continuous bulk soliton tube on reasoning traces ([`cdm_reasoning_traces_v4_hard.jsonl`](https://huggingface.co/datasets/DuoNeural)) established the **Topological Bulk Shield Law**:
