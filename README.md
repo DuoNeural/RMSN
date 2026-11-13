@@ -368,6 +368,7 @@ Each soliton costs condensation energy proportional to cascade amplitude. A mega
 | **Bookend** | D=2048 s3/s4 | L0+L2+L15 sparse | 1 | 109 |
 | **Upstream Void** | D=1536 s3, D=1664 s4 | L0–L2 only | 0 | ~600 ☠️ |
 | **Extreme Void** | D=1792 s3 | L0+L2 only (mega-cascade) | 0 | ~600+ ☠️ |
+| **Topological Null** | D=1280 depth=28 | ZERO solitons anywhere | 0 | — ☠️ |
 
 ---
 
