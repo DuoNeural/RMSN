@@ -401,7 +401,7 @@ $$P = \frac{D}{M_w} \pmod 2$$
 This law was empirically validated across varying workspace slot widths ($M_w = 64, 72, 80$):
 * **Odd Parity Cascade ($M_w=64, D=960 \to 960/64 = 15$ ODD):** Plunges into sustained non-equilibrium turbulence ($\lambda \approx -4.26$), lowering the nucleation energy barrier and condensing **dual rank-1 singularities** ($L_9=1.000, L_{10}=1.000$). This configuration set the **all-time lab record for CoT hard reasoning: `2935.73` PPL 🏆**.
 * **Odd Parity Cascade ($M_w=80, D=1040 \to 1040/80 = 13$ ODD):** Reached a sustained turbulence peak of **$\lambda = -6.3009$** on Quad V100 SXM2 nodes, reproducing identical non-equilibrium dynamics on a distinct slot width!
-* **Even Parity Laminar ($M_w=72, D=1008 \to 1008/72 = 14$ EVEN):** Exhibits textbook laminar flow ($\lambda = -1.0719$, loss 4.1097, PPL 60.9), confirming that parity governs bulk turbulence independent of slot width.
+* **Even Parity Laminar ($M_w=72, D=1008 \to 1008/72 = 14$ EVEN):** Completed 100k steps with textbook laminar flow ($\lambda = -0.04$ to $-0.82$, final $\lambda = -0.0851$, Val PPL `70.9`). Touchdown evaluation confirmed excellent test retention (**`75.81` Wiki PPL**) and high reasoning compression (**`3419.09` CoT PPL 🏆**, beating standard $r=0$ and $r=16$ by $>770$ points). Sheaf probing discovered a **dual-singularity harmonic lattice** with exact macroscopic condensates at $L_8 = 1.000$ and $L_{14} = 1.000$ and period-2 harmonic spacing ($L_6=2.32, L_8=1.00, L_{10}=1.90$), confirming that even parity preserves involution-symmetric standing waves.
 
 ---
 
@@ -569,6 +569,7 @@ RMSN/
 │   ├── d1024_depth20_100k/         # 🏆 All-time WikiText record (72.87 PPL, 68.82 Val)
 │   ├── d960_seed1_100k/            # 🏆 All-time CoT reasoning record (2935.73 PPL)
 │   ├── casimir_d1056_r32/          # 🏆 Casimir series record (74.52 Wiki, 69.99 Val)
+│   ├── mw72_d1008_d16_100k/        # 🌊 Even Parity Ratio 14 (75.81 Wiki, 3419 CoT, dual L8/L14)
 │   └── t_rmsn_d1024_d16_50k/       # ⚡ 4-Laws 50k validation (77.75 Wiki in 50k steps)
 ├── EXPERIMENTS_LOG.md              # Full Phase 1–5 experimental record
 ├── rmsn_paper_draft_nov06_v07.md   # Current paper draft
