@@ -560,6 +560,7 @@ RMSN/
 ├── rmsn_train_lm.py                # Pretraining harness with real-time telemetry
 ├── rmsn_thermo_train.py            # Thermodynamic 4-Laws pretraining harness
 ├── rmsn_overnight.py               # Multi-GPU production training loop
+├── generate.py                     # Autoregressive text generation inference engine
 ├── probe_percolation_sheaf.py      # Sheaf probe for soliton topology analysis
 ├── eval_standard_benchmarks.py     # WikiText-103 & CoT standardized evaluation harness
 ├── sim_quantum_sheaf_tube.py       # BlueQubit QCPU 16-qubit spin chain simulation
@@ -579,7 +580,7 @@ RMSN/
 
 ---
 
-## 💻 Installation & Quickstart
+## 💻 Installation & Requirements
 
 ```bash
 git clone https://github.com/DuoNeural/RMSN.git
@@ -603,6 +604,86 @@ print('RMSN initialized successfully! Max Lyapunov:', telem['max_lyapunov'])
 
 ---
 
+## 🚀 Training & Inference
+
+### 1. Autoregressive Text Generation (Inference)
+Generate coherent token completions from any trained checkpoint using [`generate.py`](generate.py):
+```bash
+python3 generate.py \
+    --checkpoint /path/to/checkpoint.pt \
+    --prompt "The fundamental law of non-equilibrium thermodynamics states that" \
+    --dim 1024 \
+    --depth 20 \
+    --slots 64 \
+    --max_new_tokens 128 \
+    --temperature 0.7 \
+    --top_k 40 \
+    --top_p 0.9
+```
+
+### 2. Multi-GPU Production Pretraining
+To train an autoregressive Metriplectic Sheaf model with real-time Lyapunov telemetry ($\lambda_{\max} < 0$) using [`rmsn_overnight.py`](rmsn_overnight.py):
+```bash
+python3 rmsn_overnight.py \
+    --dim 1024 \
+    --depth 20 \
+    --slots 64 \
+    --vocab 49152 \
+    --seq-len 512 \
+    --batch 4 \
+    --total-steps 100000 \
+    --warmup 2000 \
+    --lr 3e-4 \
+    --grad-clip 1.0 \
+    --save-every 10000 \
+    --log-every 100 \
+    --out-dir ./checkpoints/d1024_depth20 \
+    --data-dir ./data
+```
+
+### 3. Thermodynamic 4-Laws Pretraining ($T$-RMSN)
+Train with active inter-layer thermal equilibration ($0^{\text{th}}$ Law) and Nernst ground-state entropy clamping ($3^{\text{rd}}$ Law) via [`rmsn_thermo_train.py`](rmsn_thermo_train.py):
+```bash
+python3 rmsn_thermo_train.py \
+    --dim 1024 \
+    --depth 16 \
+    --slots 64 \
+    --vocab 49152 \
+    --seq-len 512 \
+    --batch 8 \
+    --total-steps 100000 \
+    --warmup 2000 \
+    --lr 3e-4 \
+    --out-dir ./checkpoints/t_rmsn_d1024 \
+    --data-file ./data/tokens_wiki103_full.pt
+```
+
+### 4. Non-Euclidean Sheaf Percolation Probing
+Calculate the Participation Ratio ($PR$) spectrum and identify macroscopic rank-1 soliton singularities ($PR \approx 1.000$) via [`probe_percolation_sheaf.py`](probe_percolation_sheaf.py):
+```bash
+python3 probe_percolation_sheaf.py \
+    --ckpt ./checkpoints/d1024_depth20/rmsn_step100000.pt \
+    --dim 1024 \
+    --depth 20 \
+    --slots 64 \
+    --out ./probe_100k.json \
+    --name "RMSN D=1024 Depth=20 Step 100k"
+```
+
+### 5. Standardized Benchmark Evaluation
+Evaluate zero-shot test retention on WikiText-103 and multi-step Chain-of-Thought (CoT) reasoning via [`eval_standard_benchmarks.py`](eval_standard_benchmarks.py):
+```bash
+python3 eval_standard_benchmarks.py \
+    --ckpt ./checkpoints/d1024_depth20/rmsn_step100000.pt \
+    --dim 1024 \
+    --depth 20 \
+    --slots 64 \
+    --out ./eval_100k.json \
+    --name "RMSN D=1024 Depth=20 Step 100k"
+```
+
+---
+
 ## 🔗 DuoNeural Ecosystem
 
 * **[DuoNeural Lab on Hugging Face](https://huggingface.co/DuoNeural)** (75+ Models & Datasets)
@@ -612,7 +693,7 @@ print('RMSN initialized successfully! Max Lyapunov:', telem['max_lyapunov'])
 
 ---
 
-## 📚 Citation
+## 📚 Citation & Attribution
 
 ```bibtex
 @article{caldwell2026rmsn,
