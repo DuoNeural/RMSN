@@ -1,0 +1,83 @@
+{
+  "name": "Casimir D=1056 r=32 Step 100k",
+  "dim": 1056,
+  "ckpt": "/workspace/rmsn_project/casimir_d1056_r32/rmsn_step100000.pt",
+  "stored_lyap": null,
+  "soliton_layers": [
+    0,
+    5,
+    7,
+    8,
+    9,
+    10,
+    14,
+    15
+  ],
+  "soliton_type": "Upstream",
+  "layer_results": {
+    "0": {
+      "pr": 5.301,
+      "soliton": true
+    },
+    "1": {
+      "pr": 10.82,
+      "soliton": false
+    },
+    "2": {
+      "pr": 17.065,
+      "soliton": false
+    },
+    "3": {
+      "pr": 25.376,
+      "soliton": false
+    },
+    "4": {
+      "pr": 23.846,
+      "soliton": false
+    },
+    "5": {
+      "pr": 4.761,
+      "soliton": true
+    },
+    "6": {
+      "pr": 11.25,
+      "soliton": false
+    },
+    "7": {
+      "pr": 1.772,
+      "soliton": true
+    },
+    "8": {
+      "pr": 1.0,
+      "soliton": true
+    },
+    "9": {
+      "pr": 1.0,
+      "soliton": true
+    },
+    "10": {
+      "pr": 2.353,
+      "soliton": true
+    },
+    "11": {
+      "pr": 38.844,
+      "soliton": false
+    },
+    "12": {
+      "pr": 56.525,
+      "soliton": false
+    },
+    "13": {
+      "pr": 58.575,
+      "soliton": false
+    },
+    "14": {
+      "pr": 1.007,
+      "soliton": true
+    },
+    "15": {
+      "pr": 3.319,
+      "soliton": true
+    }
+  }
+}
