@@ -1,0 +1,74 @@
+{
+  "name": "T-RMSN (4-Laws) SFT 5k",
+  "dim": 1024,
+  "depth": 16,
+  "slots": 64,
+  "soliton_layers": [],
+  "soliton_type": "None",
+  "layer_results": {
+    "0": {
+      "pr": 14.596,
+      "soliton": false
+    },
+    "1": {
+      "pr": 10.753,
+      "soliton": false
+    },
+    "2": {
+      "pr": 8.622,
+      "soliton": false
+    },
+    "3": {
+      "pr": 37.583,
+      "soliton": false
+    },
+    "4": {
+      "pr": 39.212,
+      "soliton": false
+    },
+    "5": {
+      "pr": 14.702,
+      "soliton": false
+    },
+    "6": {
+      "pr": 26.813,
+      "soliton": false
+    },
+    "7": {
+      "pr": 9.65,
+      "soliton": false
+    },
+    "8": {
+      "pr": 19.264,
+      "soliton": false
+    },
+    "9": {
+      "pr": 24.499,
+      "soliton": false
+    },
+    "10": {
+      "pr": 38.262,
+      "soliton": false
+    },
+    "11": {
+      "pr": 19.857,
+      "soliton": false
+    },
+    "12": {
+      "pr": 21.114,
+      "soliton": false
+    },
+    "13": {
+      "pr": 13.193,
+      "soliton": false
+    },
+    "14": {
+      "pr": 12.309,
+      "soliton": false
+    },
+    "15": {
+      "pr": 13.834,
+      "soliton": false
+    }
+  }
+}
