@@ -1,0 +1,76 @@
+{
+  "name": "T-RMSN (4-Laws) D1024 L16 100k",
+  "dim": 1024,
+  "depth": 16,
+  "slots": 64,
+  "soliton_layers": [
+    15
+  ],
+  "soliton_type": "Terminal",
+  "layer_results": {
+    "0": {
+      "pr": 14.928,
+      "soliton": false
+    },
+    "1": {
+      "pr": 10.106,
+      "soliton": false
+    },
+    "2": {
+      "pr": 8.33,
+      "soliton": false
+    },
+    "3": {
+      "pr": 35.225,
+      "soliton": false
+    },
+    "4": {
+      "pr": 38.348,
+      "soliton": false
+    },
+    "5": {
+      "pr": 17.091,
+      "soliton": false
+    },
+    "6": {
+      "pr": 27.916,
+      "soliton": false
+    },
+    "7": {
+      "pr": 9.495,
+      "soliton": false
+    },
+    "8": {
+      "pr": 19.02,
+      "soliton": false
+    },
+    "9": {
+      "pr": 24.46,
+      "soliton": false
+    },
+    "10": {
+      "pr": 27.729,
+      "soliton": false
+    },
+    "11": {
+      "pr": 12.605,
+      "soliton": false
+    },
+    "12": {
+      "pr": 11.02,
+      "soliton": false
+    },
+    "13": {
+      "pr": 8.281,
+      "soliton": false
+    },
+    "14": {
+      "pr": 6.134,
+      "soliton": false
+    },
+    "15": {
+      "pr": 4.381,
+      "soliton": true
+    }
+  }
+}
