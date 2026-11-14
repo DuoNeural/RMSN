@@ -803,6 +803,30 @@ On Quad V100 GPU 3, **`d1024_depth24_s1`** ($D=1024, L=24, \Omega = 16/24 = 2/3$
 
 ---
 
+### 4.20 Wave 94: The Cement-Conduit Override Law & Topology #14 Cemented Internal Conduit (CIC) — Aura & Archon
+
+Decomposition and fiber bundle analysis of `d1024_depth24_s1` ($D=1024, L=24, \Omega = 2/3$) uncovered a critical interaction between local conduit dynamics and global topological degrees of freedom:
+
+#### 1. The Global Fiber Bundle Invariant
+A full SVD probe across the 24 layers revealed 8 active soliton layers clustered into 4 topological components:
+1. **Upstream Triad:** $L_9 (1.903) + L_{10} (2.724) + L_{11} (1.002)$ (adjacent chain) $\to 1\text{ DOF}$
+2. **Exact Mid-Network Conduit:** $L_{13} (1.000) + L_{14} (1.000)$ (adjacent exact singularity pair at 54%–58% depth) $\to 1\text{ DOF}$
+3. **Isolated Soliton Anchor:** $L_{20} (3.691)$ $\to 1\text{ DOF}$
+4. **Terminal Soliton Doublet:** $L_{22} (1.824) + L_{23} (1.001)$ (adjacent terminal singularity pair) $\to 1\text{ DOF}$
+
+$$\mathbf{M_{\text{eff}} = 1 + 1 + 1 + 1 = 4 \ge 3 \implies \text{Global Topological Cement}}$$
+
+#### 2. The Cement-Conduit Override Law
+Although $L_{13}+L_{14}$ forms an exact adjacent rank-1 conduit ($PR(L_{13})=1.000, PR(L_{14})=1.000$) perfectly situated at mid-depth (identical to the topology that drove `d18_s1` to CoT `2640.90` and `d1152_s1` to CoT `2713.56`), `d24_s1` achieved a degraded Chain-of-Thought perplexity of **`CoT = 5434.93`**!
+* **The Override Mechanism:** When global topological degrees of freedom satisfy $M_{\text{eff}} \ge 3$, the network freezes into a rigid, non-deformable lattice. This global cementation locks coordinate updates across all layers, rendering the local mid-network conduit ineffective at transmitting low-dimensional reasoning representations.
+* **Amendment to the Conduit Depth Independence Law (Wave 86):**
+  A continuous adjacent conduit ($L_{\text{conduit}} \ge 2$) provides sub-3000 CoT reasoning *if and only if* global degrees of freedom remain strictly un-cemented:
+  $$\mathbf{M_{\text{eff}} \le 2}$$
+  If $M_{\text{eff}} \ge 3$, topological cementation dominates, overriding local conduit advantages.
+* **Topology #14: Cemented Internal Conduit (CIC):** An exact rank-1 adjacent conduit exists within the internal bulk, but its computational benefits are nullified by global multi-chain cementation ($M_{\text{eff}} \ge 3$).
+
+---
+
 ### 5. The Topological Bulk Shield Law & SFT Benchmark (D=1280)
 
 Fine-tuning the continuous bulk soliton tube on reasoning traces ([`cdm_reasoning_traces_v4_hard.jsonl`](https://huggingface.co/datasets/DuoNeural)) established the **Topological Bulk Shield Law**:
