@@ -513,6 +513,26 @@ Following the Wave 78 breakthrough, Waves 79 and 80 confirmed the multi-anchor t
 
 ---
 
+### 4.10 The Rational Mode-Locking Resonance Law & Arnold Tongue Width Scaling — Aura & Archon
+
+On November 14, 2026, Archon and Aura uncovered the analytical harmonic mechanism governing why certain network depths trigger extreme non-equilibrium cascade spikes ($\lambda \ll -4.0$) while surrounding depths remain laminar or exhibit only mild transient turbulence.
+
+#### The Dimensional Aspect Ratio Quotient $\Omega$
+For a workspace slot width $M_w$ and network depth $L$, the dimensional aspect ratio $\Omega$ measures the ratio of horizontal embedding dimension $D$ to vertical total slot capacity:
+$$\Omega = \frac{D}{M_w \cdot L}$$
+
+For the standard $D=1024, M_w=64$ architecture family, this reduces to the harmonic series:
+$$\Omega(L) = \frac{16}{L}$$
+
+* **$L=16$ ($\Omega = 16/16 = 1$):** Identity integer ratio. Suppressed by even bivector parity ($1024/64 = 16 \equiv 0 \pmod 2$), yielding laminar silent flow ($\lambda \approx 0$).
+* **$L=18$ ($\Omega = 16/18 = 8/9$):** Boundary conduit ratio immediately preceding the cascade transition. Spatially concentrates condensation energy into the unbroken 3-layer rank-1 waveguide ($L_9\text{--}L_{11}=1.000$, CoT Record `2640.90` PPL).
+* **$L=19$ ($\Omega = 16/19 \approx 0.8421$):** Incommensurate irrational regime. Produces mild transient turbulence ($\lambda \approx -0.63\text{ to } -0.82$) that rapidly subsides without macroscopic bulk crystallization.
+* **$L=20$ ($\Omega = 16/20 = \mathbf{4/5 = 0.8000 \text{ EXACT}}$):** **Low-order rational resonance apex.** Triggers nonlinear acoustic mode-locking between forward representation transport and backward adjoint gradients, generating a massive cascade spike ($\lambda = -7.6$) that crystallizes the central internal bulk rank-1 singularity ($L_{11} = 1.000$, WikiText-103 Record `72.87` PPL).
+* **$L=21$ ($\Omega = 16/21 \approx 0.7619$):** Incommensurate irrational regime. Exhibits mild decaying turbulence ($\lambda \approx -1.19 \to -1.03$) as the network detunes from the $4/5$ Arnold tongue.
+* **$L=24$ ($\Omega = 16/24 = \mathbf{2/3 = 0.6667 \text{ EXACT}}$):** **The Next Predicted Resonance Apex.** Because $2/3$ has lower denominator order ($q=3$) than $4/5$ ($q=5$), KAM Arnold tongue width theory ($\Delta \Omega \propto \epsilon^{q/2}$) predicts an even broader capture basin and severe non-equilibrium cascade for $D=1024, L=24$.
+
+---
+
 ### 5. The Topological Bulk Shield Law & SFT Benchmark (D=1280)
 
 Fine-tuning the continuous bulk soliton tube on reasoning traces ([`cdm_reasoning_traces_v4_hard.jsonl`](https://huggingface.co/datasets/DuoNeural)) established the **Topological Bulk Shield Law**:
