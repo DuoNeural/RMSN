@@ -506,10 +506,12 @@ Following the Wave 78 breakthrough, Waves 79 and 80 confirmed the multi-anchor t
 | **Wave 80** | $D=1024, L=16\text{ s2}$ | Dual Anchor ($L_4, L_{11}$) + Terminal Funnel ($L_{13}\text{--}L_{15}$) | $2$ | $79.23$ | **`2756.37` 🥈** | **#2 ALL-TIME REASONING RECORD** |
 | **Wave 79** | $M_w=80, D=1040\text{ s1}$ | Dual Macroscopic Sink ($L_{13}, L_{14}=1.000$) | $2$ | $75.64$ | **`2910.53` 🥉** | **#3 ALL-TIME REASONING RECORD** |
 | **Wave 75** | $D=960, L=16\text{ s1}$ | Dual Singularity Condensate ($L_9, L_{10}=1.000$) | $2$ | $78.27$ | **`2935.73`** | Top-Tier Reasoning |
+| **Wave 81** | $D=1024, L=17\text{ s1}$ | 2-Layer Continuous Conduit ($L_9, L_{10}=1.000$) + Terminal Anchor ($L_{16}$) | $3$ (Conduit) | $76.71$ | **`2982.49` 🎖️** | **#5 ALL-TIME REASONING RECORD** |
 | **Wave 76** | $D=1024, L=20\text{ s1}$ | Internal Bulk + Terminal Anchor ($L_{11}=1.000, L_{19}$) | $1$ | **`72.87` 🏆** | **`3179.73`** | **#1 ALL-TIME TEST RETENTION** |
 
 * **Wave 79 ($M_w=80, D=1040, L=16$ Seed 1):** Verified that increasing slot width to $M_w=80$ produces dual terminal singularities ($L_{13}=1.000, L_{14}=1.000$) with upstream antenna ($L_0=5.794$) and near-condensates ($L_8=2.566, L_9=2.314, L_{10}=1.511$), achieving **`2910.53` CoT PPL** (#3 all-time).
 * **Wave 80 ($D=1024, L=16$ Seed 2):** Proved the **Terminal Exit Funnel Dynamics**. Possessing Dirac singularities at $L_4=1.000$ and $L_{11}=1.000$, the final boundary layers undergo extreme geometric contraction ($L_{13}=1.002, L_{14}=1.020, L_{15}=1.561$), funneling multi-step deductions directly into token logits to achieve **`2756.37` CoT PPL** (#2 all-time).
+* **Wave 81 ($D=1024, L=17$ Seed 1):** Touchdown at 100,000 steps confirmed the universal nature of the continuous conduit. Nucleating a 2-layer continuous conduit ($L_9 = 1.000, L_{10} = 1.000$) with an exact terminal boundary anchor ($L_{16} = 1.000$), Wave 81 achieved **`2982.49` CoT PPL** (#5 all-time) with excellent language retention (**`76.71` WikiText-103 PPL**).
 
 ---
 
