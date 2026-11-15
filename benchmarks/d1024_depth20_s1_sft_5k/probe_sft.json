@@ -1,0 +1,94 @@
+{
+  "name": "d20s1-SFT",
+  "dim": 1024,
+  "ckpt": "/workspace/rmsn_project/d1024_depth20_s1_sft/rmsn_sft_best.pt",
+  "stored_lyap": null,
+  "soliton_layers": [
+    7,
+    8,
+    11
+  ],
+  "soliton_type": "Internal Bulk",
+  "layer_results": {
+    "0": {
+      "pr": 14.131,
+      "soliton": false
+    },
+    "1": {
+      "pr": 27.14,
+      "soliton": false
+    },
+    "2": {
+      "pr": 11.861,
+      "soliton": false
+    },
+    "3": {
+      "pr": 29.668,
+      "soliton": false
+    },
+    "4": {
+      "pr": 23.347,
+      "soliton": false
+    },
+    "5": {
+      "pr": 23.634,
+      "soliton": false
+    },
+    "6": {
+      "pr": 11.063,
+      "soliton": false
+    },
+    "7": {
+      "pr": 1.59,
+      "soliton": true
+    },
+    "8": {
+      "pr": 3.817,
+      "soliton": true
+    },
+    "9": {
+      "pr": 13.089,
+      "soliton": false
+    },
+    "10": {
+      "pr": 12.474,
+      "soliton": false
+    },
+    "11": {
+      "pr": 1.0,
+      "soliton": true
+    },
+    "12": {
+      "pr": 63.225,
+      "soliton": false
+    },
+    "13": {
+      "pr": 11.797,
+      "soliton": false
+    },
+    "14": {
+      "pr": 62.311,
+      "soliton": false
+    },
+    "15": {
+      "pr": 63.927,
+      "soliton": false
+    },
+    "16": {
+      "pr": 63.847,
+      "soliton": false
+    },
+    "17": {
+      "pr": 63.652,
+      "soliton": false
+    },
+    "18": {
+      "pr": 14.983,
+      "soliton": false
+    },
+    "19": {
+      "pr": 25.148,
+      "soliton": false
+    }
+  }
+}

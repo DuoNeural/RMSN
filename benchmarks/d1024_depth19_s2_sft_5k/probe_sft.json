@@ -1,0 +1,93 @@
+{
+  "name": "CDI-SFT",
+  "dim": 1024,
+  "ckpt": "/workspace/rmsn_project/d1024_depth19_s2_sft/rmsn_sft_best.pt",
+  "stored_lyap": null,
+  "soliton_layers": [
+    2,
+    7,
+    10,
+    11,
+    16,
+    18
+  ],
+  "soliton_type": "Upstream",
+  "layer_results": {
+    "0": {
+      "pr": 7.813,
+      "soliton": false
+    },
+    "1": {
+      "pr": 11.098,
+      "soliton": false
+    },
+    "2": {
+      "pr": 4.667,
+      "soliton": true
+    },
+    "3": {
+      "pr": 9.439,
+      "soliton": false
+    },
+    "4": {
+      "pr": 32.276,
+      "soliton": false
+    },
+    "5": {
+      "pr": 13.804,
+      "soliton": false
+    },
+    "6": {
+      "pr": 6.896,
+      "soliton": false
+    },
+    "7": {
+      "pr": 4.712,
+      "soliton": true
+    },
+    "8": {
+      "pr": 11.024,
+      "soliton": false
+    },
+    "9": {
+      "pr": 12.412,
+      "soliton": false
+    },
+    "10": {
+      "pr": 2.351,
+      "soliton": true
+    },
+    "11": {
+      "pr": 1.0,
+      "soliton": true
+    },
+    "12": {
+      "pr": 16.581,
+      "soliton": false
+    },
+    "13": {
+      "pr": 49.307,
+      "soliton": false
+    },
+    "14": {
+      "pr": 7.893,
+      "soliton": false
+    },
+    "15": {
+      "pr": 53.134,
+      "soliton": false
+    },
+    "16": {
+      "pr": 1.008,
+      "soliton": true
+    },
+    "17": {
+      "pr": 8.113,
+      "soliton": false
+    },
+    "18": {
+      "pr": 1.0,
+      "soliton": true
+    }
+  }
+}

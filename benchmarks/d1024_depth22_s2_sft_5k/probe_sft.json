@@ -1,0 +1,106 @@
+{
+  "name": "MCCI-SFT",
+  "dim": 1024,
+  "ckpt": "/workspace/rmsn_project/d1024_depth22_s2_sft/rmsn_sft_best.pt",
+  "stored_lyap": null,
+  "soliton_layers": [
+    7,
+    8,
+    12,
+    13,
+    14,
+    20,
+    21
+  ],
+  "soliton_type": "Internal Bulk",
+  "layer_results": {
+    "0": {
+      "pr": 19.448,
+      "soliton": false
+    },
+    "1": {
+      "pr": 14.768,
+      "soliton": false
+    },
+    "2": {
+      "pr": 12.968,
+      "soliton": false
+    },
+    "3": {
+      "pr": 13.716,
+      "soliton": false
+    },
+    "4": {
+      "pr": 20.457,
+      "soliton": false
+    },
+    "5": {
+      "pr": 27.733,
+      "soliton": false
+    },
+    "6": {
+      "pr": 7.774,
+      "soliton": false
+    },
+    "7": {
+      "pr": 3.455,
+      "soliton": true
+    },
+    "8": {
+      "pr": 1.022,
+      "soliton": true
+    },
+    "9": {
+      "pr": 51.943,
+      "soliton": false
+    },
+    "10": {
+      "pr": 61.024,
+      "soliton": false
+    },
+    "11": {
+      "pr": 6.83,
+      "soliton": false
+    },
+    "12": {
+      "pr": 1.0,
+      "soliton": true
+    },
+    "13": {
+      "pr": 1.0,
+      "soliton": true
+    },
+    "14": {
+      "pr": 1.643,
+      "soliton": true
+    },
+    "15": {
+      "pr": 10.868,
+      "soliton": false
+    },
+    "16": {
+      "pr": 41.972,
+      "soliton": false
+    },
+    "17": {
+      "pr": 26.529,
+      "soliton": false
+    },
+    "18": {
+      "pr": 58.619,
+      "soliton": false
+    },
+    "19": {
+      "pr": 11.61,
+      "soliton": false
+    },
+    "20": {
+      "pr": 1.0,
+      "soliton": true
+    },
+    "21": {
+      "pr": 4.264,
+      "soliton": true
+    }
+  }
+}
