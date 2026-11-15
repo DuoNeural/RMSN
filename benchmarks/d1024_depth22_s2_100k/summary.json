@@ -1,0 +1,11 @@
+{
+  "total_steps": 100000,
+  "tokens_seen": 153600000,
+  "total_time_h": 15.06,
+  "avg_tps": 2832,
+  "best_val_loss": 4.36,
+  "best_val_ppl": 78.26,
+  "lyapunov_stable_pct": 100.0,
+  "params_M": 247.05,
+  "architecture": "D=1024 L=22 M_w=64"
+}
