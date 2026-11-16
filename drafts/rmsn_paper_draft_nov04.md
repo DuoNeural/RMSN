@@ -1557,6 +1557,15 @@ The difference is 0.0012 — well within measurement noise. Meanwhile, same-arch
 
 **Cross-law connection.** Width-Scaled Plasticity (🌊¹⁰⁴) predicts that M_eff=4 cement penalty dissolves at D=1664. Width-Scaled Basin Determinism extends this: width doesn't just affect penalty magnitude — it fundamentally changes whether the SFT attractor landscape has one basin or many. The cement-dissolution and basin-merging may be the same underlying transition viewed from different observables.
 
+**Amendment — Lyapunov Dissipation Rate Predicts CoT Within the Global Basin.** Width-Scaled Basin Determinism proves D=1664+ has a single globally attracting CoT basin (seeds converge to the same result). However, within that global basin, the Lyapunov contraction rate |λ| during SFT determines *how well* the model converges:
+
+| Run | SFT lyap range | CoT PPL |
+|-----|---------------|---------|
+| d1792_s2 | −0.11 to −0.22 (terminal −0.2247) | **6.62** 🏆 |
+| d1792_s3 | −0.012 to −0.015 (sustained) | ~7.8–8.5 (predicted) |
+
+The pretrain manifold determines |λ|: seed 2 falls into a basin with strong dissipative contraction during SFT; seed 3 falls into a weakly-contracting basin. At D=1024 this produces completely different topologies (riddled basins). At D=1792 it produces the same topology family but different convergence rates within it. Width-Scaled Basin Determinism guarantees convergence to the global attractor; the dissipation rate governs the depth of that convergence. **|λ| is the speed of attractor descent, CoT PPL is the final depth.**
+
 ---
 
 ## 🌊¹⁰⁸ T-RMSN Thermodynamic Soliton Forcing (Nov 16, 2026)
