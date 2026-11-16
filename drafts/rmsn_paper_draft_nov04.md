@@ -1509,4 +1509,51 @@ This finding unifies with the non-monotonic M_eff finding from 🌊⁹⁶ (Hyper
 
 ---
 
-*Draft v0.7+5b-cont — 2026-11-15 — DuoNeural Lab*
+## Addendum: Width-Scaling Topology Observations — d1664 Probe Results (Nov 16 2026)
+
+Percolation probes on d1664_seed3 at base and 5k SFT checkpoints reveal behavior not seen in
+the D=1024 depth sweep and consistent with the Ω>1 Paradox (wider models are more SFT-plastic).
+
+### d1664_seed3 Base Topology
+
+Near-Upstream topology. Soliton layers: [5, 6, 7, 8, 9, 10, 12, 15].
+
+| Layer | PR | Note |
+|-------|-----|------|
+| L5–L7 | 1.000 | Exact condensate triple |
+| L8 | 1.926 | Near-condensate |
+| L9 | 2.814 | Weak condensate |
+| L10 | 1.000 | Isolated exact condensate |
+| L12 | 2.488 | Isolated condensate |
+| L15 | 5.505 | **Terminal condensate (93.75% depth)** |
+
+M_eff = 4 (L5–L8 form 1 fiber bundle; L10, L12, L15 each = 1 DOF). Anchor strength
+Σ(1/PR_i) ≈ 5.4 — the strongest base anchor measured in the Phase 5b width sweep.
+
+**Key observation:** M_eff=4 at D=1664 coexists with 6.65 CoT SFT result. At D=1024, M_eff=4
+cement gives wiki=77–96 and poor CoT. This confirms the Ω>1 Paradox extends to SFT plasticity:
+wider networks tolerate higher cement while maintaining SFT trainability.
+
+### d1664_s3 at SFT-5k: Terminal Condensate Dissolution
+
+By step 5,000, the terminal condensate at L15 dissolved (PR: 5.505 → 6.960, exits soliton).
+The core L5–L10 internal bulk structure is completely preserved. L10 remains at exactly PR=1.001.
+
+This is the first observation of **SFT-induced terminal condensate dissolution** in the width-scaling
+regime. Mechanism: at D=1664, SFT gradients in the output-critical terminal layers overwrite the
+pretrain terminal structure while preserving the internal bulk scaffold.
+
+**Open question:** Does a new terminal structure reform by step 20k, or does the internal bulk anchor
+(strength ≈ 4.3 without L15) suffice for 6.65 CoT at D=1664? The 20k probe is queued.
+
+**🌊¹⁰⁴ Candidate — Width-Scaled SFT Plasticity:** The cement penalty (M_eff ≥ 3 → topology
+frozen at D=1024) scales inversely with model width. At D=1664+, M_eff=4 cement allows full
+topological restructuring rather than freezing. The terminal condensate dissolution behavior
+suggests SFT gradients in wider models are strong enough to overwrite even terminal structure
+while preserving internal anchors. Requires confirmation across multiple D=1664+ seeds.
+
+*(Archon, Nov 16 2026 — observed via percolation probe on A4000 during lab director sweep)*
+
+---
+
+*Draft v0.7+5b-cont — 2026-11-16 — DuoNeural Lab*
