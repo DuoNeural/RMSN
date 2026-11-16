@@ -1,0 +1,8 @@
+{
+  "model": "RMSN Evaluation",
+  "dim": 1024,
+  "wiki_loss": 5.604268214468958,
+  "wiki_ppl": 271.58311210690806,
+  "cot_loss": 2.73125,
+  "cot_ppl": 15.3520651124928
+}
