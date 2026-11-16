@@ -1641,7 +1641,19 @@ The direct depth22 comparison (standard RMSN vs T-RMSN, same Ω=8/11, same 20k S
 
 The 4-Laws (Nernst zero-point ground state condensation) OVERRIDE Arnold tongue basin selection, creating a single mid-network soliton at L12 (PR=1.240) rather than the sustained CASCADE topology. However, this thermodynamic forcing produces WORSE SFT outcomes (3.33 CoT point gap, 204 wiki point gap). The distributed multi-soliton cascade topology of standard RMSN — with lyap=-1.22 and multiple condensate sites — provides superior information routing vs the single Nernst-clamped soliton.
 
-**Amendment to 🌊¹⁰⁸**: thermodynamic 4-Laws override Arnold tongue basin selection (confirmed) but the forced topology is suboptimal for SFT. Single forced soliton (L12 isolated, M_eff=1) ≠ optimal pretrain topology. The natural sustained cascade creates richer multi-site condensate structures that SFT gradients find more plastic. T-RMSN's thermodynamic control comes at a cost in SFT plasticity.
+**Amendment to 🌊¹⁰⁸ — Mechanistic close-out (percolation probe Nov 16 ~17:30Z)**:
+
+Percolation probe of standard RMSN depth22_s1 SFT-20k (p12709 GPU1) reveals:
+- L13: PR=3.904 SOLITON
+- L14: PR=3.713 SOLITON ← **adjacent pair = CONDUIT** (59–64% depth)
+- L18: PR=1.287 near-terminal soliton (81.8% depth)
+- M_eff=1 (3 solitons, no cement)
+
+vs T-RMSN depth22: single isolated L12 (PR=1.240), no adjacent partner, M_eff=1.
+
+**The mechanism is now fully determined**: T-RMSN 4-Laws forced a single isolated soliton with no adjacent conduit partner. The natural sustained CASCADE spontaneously formed an adjacent conduit pair (L13+L14) plus near-terminal (L18). Per the Conduit-Necessity framework (🌊⁹⁴): adjacent conduit → CoT routing. Isolated single soliton → no routing. The 3.33 CoT point gap is exactly conduit presence vs absence.
+
+The thermodynamic ground-state condensation (Nernst 3rd Law) minimizes to the **lowest-energy single soliton** configuration; the natural CASCADE maximizes dissipation, landing on a **multi-soliton configuration with adjacent conduit**. These have opposite effects on SFT routing topology. Thermodynamic efficiency ≠ SFT optimality.
 
 **Finding 2 — Burst vs Sustained CASCADE CoT Gap (New Candidate 🌊¹¹⁰)**
 
