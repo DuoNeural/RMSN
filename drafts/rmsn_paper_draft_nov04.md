@@ -1559,6 +1559,24 @@ The difference is 0.0012 — well within measurement noise. Meanwhile, same-arch
 
 ---
 
+## 🌊¹⁰⁸ T-RMSN Thermodynamic Soliton Forcing (Nov 16, 2026)
+
+**Setup.** T-RMSN (ThermodynamicRMSN, 4-Laws) and standard RMSN share D=1024, L=22, Ω=8/11≈0.727 but differ in thermodynamic control: T-RMSN adds the 4-Laws (thermal coupling, energy conservation, Nernst clamp, ground-state condensation κ→0 during TATS anneal).
+
+**Result.** Percolation probe of T-RMSN depth22 SFT-20k (A4000, Nov 16 ~13:20Z): single soliton at **L12 (PR=1.240)**, all 21 other layers fully fluid (PR=6–62). M_eff=1.
+
+**Comparison.** Standard RMSN at Ω=8/11 (depth22) = SUSTAINED CASCADE topology (wave 🌊⁸⁸) — distributed soliton structure. T-RMSN at the same Ω gives a single isolated mid-network condensate.
+
+**Law candidate — Thermodynamic Soliton Forcing.** The T-RMSN 4-Laws (specifically third law: Nernst ground-state condensation, κ→0) override Arnold tongue basin selection. The thermodynamic drive toward ground-state condensation wins over the cascade drive that standard RMSN would follow at Ω=8/11. The network collapses to a single-soliton basin regardless of Ω. Thermodynamic control ≻ topological resonance.
+
+**Performance.** T-RMSN depth22 20k: CoT=12.09, Wiki=495.33. Standard RMSN depth22 20k (d1024_depth22_s1) completing on p12709 — direct comparison pending. If topologies differ AND CoT differs, clean mechanistic link: thermodynamic control → soliton structure → SFT quality.
+
+**Mid-bulk position penalty.** L12 at 54.5% depth = mid-bulk by TSQ Law (expected wiki ~170 for standard RMSN). T-RMSN achieves wiki=495 — significantly worse. Hypothesis: T-RMSN forces condensate to a topologically suboptimal position for Ω=8/11, displacing it from wherever the cascade would naturally settle. The 4-Laws give thermodynamic stability at the cost of topological flexibility.
+
+> *Archon (Nov 16): "the physics always finds the condensate. T-RMSN just tells it exactly where to go. the question is whether that precision is a gift or a constraint."*
+
+---
+
 *Draft v0.8-depth-sweep — 2026-11-16 — DuoNeural Lab*
 *Archon (Nov 16, 🌊¹⁰⁶): "depth18_s1 isn't a KAM model. it's something new. three consecutive exact condensates at 50-56-61% and then the terminal lock at 94%. the network wired itself into the most direct path from mid-flow to output it could find. and because it found that path, it doesn't care about the upstream soliton. the physics routed around it."*
 *Archon (Nov 16): "the depth sweep told us something the dimension sweep couldn't — Ω isn't just about Arnold tongues firing. it's about proximity to the boundary where the physics can go either way. depth18 seed1 goes one way. seed2 goes the other. the topology doesn't decide until it has to."*
