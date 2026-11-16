@@ -1666,14 +1666,42 @@ Burst cascades undergo acute initial mode collapse, topology locks in after step
 
 **Candidate 🌊¹¹⁰ — Cascade Persistence Law**: For CASCADE topologies, Lyapunov deepening during training (sustained cascade, dλ/dt < 0) → better SFT than burst cascade (early peak, dλ/dt > 0 after ~5k steps). Mechanism: sustained cascade creates richer, more permanent multi-site condensate structures. SUSTAINED cascade CoT < BURST cascade CoT (8.763 < 10.724). Burst cascade's topology locks early and cannot adapt further; sustained cascade's topology continues refining.
 
-**Finding 3 — SILENT Topology Wiki Advantage**
+**Topological mechanistic confirmation (depth24 percolation probe, Nov 16 ~18:30Z)**:
 
-depth23 (SILENT gap, lyap=-0.001 sustained) achieves wiki=276.30 — the BEST wiki retention across the entire depth sweep, beating both CASCADE topologies (depth22=291, depth24=290). However, CoT=10.29 (worse than depth22's 8.763). This establishes a topological trade-off:
+depth24_s1 SFT-20k topology:
+- L9 (PR=1.506, 39%) + L10 (3.274, 44%) + L11 (1.025, 48%): adjacent triple
+- L13 (PR=**1.000**, 57%) + L14 (PR=**1.000**, 61%): **EXACT double condensate**
+- L22 (PR=3.501, 96%) + L23 (PR=1.020, 100%): near-terminal doublet
+- Fiber bundles: [L9-L11] + [L13-L14] + [L22-L23] = **3 DOF → M_eff=3 → POST-SFT CEMENT**
 
-- CASCADE topology: CoT-optimal (lower CoT PPL, better reasoning), higher wiki PPL (more dissipation degrades retention)
-- SILENT topology: wiki-retention-optimal (lower wiki PPL, better factual recall), higher CoT PPL (less dynamic pressure, weaker reasoning routing)
+depth22_s1 SFT-20k (sustained CASCADE, Terminal Boundary): M_eff=1 (single fiber bundle L13-L14).
 
-This is consistent with the TSQ Law: mid-bulk condensates from SILENT topology preserve factual retention while CASCADE topology creates terminal and distributed anchors that favor reasoning routing. The SILENT gap is not an inferior topology — it is a different optimization target.
+The burst CASCADE (depth24) created M_eff=3 cement in the post-SFT topology, while the sustained CASCADE (depth22) created lean M_eff=1. The 🌊⁹⁴ Cement-Conduit Override operates post-SFT: depth24's exact L13+L14 conduit (PR=1.000) is overridden by M_eff=3 cement, suppressing the conduit benefit. The Cascade Persistence Law (🌊¹¹⁰) now has a topological mechanism: *burst cascades lock early and create multi-fiber post-SFT cement structures; sustained cascades keep refining until they produce lean single-fiber terminal boundary topologies*.
+
+New topology #25: **DCBT (Dual Conduit Burst Terminal)** — triple at 39-48%, exact double conduit at 57-61%, near-terminal doublet at 96-100%, M_eff=3.
+
+**Finding 3 — SILENT Topology Wiki Advantage: Mechanistic Explanation (probe Nov 16 ~18:15Z)**
+
+Percolation probe of depth23_s1 SFT-20k:
+- L8 (PR=3.169, 35%) + L9 (PR=1.710, 39%): adjacent conduit pair
+- L11 (PR=1.983, 48%) + L12 (PR=1.006, 52%): adjacent conduit pair (L12 near-exact)
+- L16 (PR=1.878, 70%): isolated soliton
+- L20 (PR=1.037, 87%) + L21 (PR=1.108, 91%) + L22 (PR=1.233, 96%): **terminal TRIPLE conduit chain**
+- Result: Internal Bulk topology, 8 solitons, topology type: **IBTT (Internal Bulk Triple Terminal)** — Topology #24
+
+Compare to depth22_s1 (CASCADE → Terminal Boundary): 3 solitons total (L13+L14 conduit + L18).
+
+**Why SILENT → richer SFT topology**: The SILENT pretrain (lyap≈0, no existing condensates from cascade) is maximally plastic. SFT gradients encounter no competing pretrain topology and are free to create the richest possible Internal Bulk structure. The cascade creates 3 solitons; the SILENT gap allows 8.
+
+**Why SILENT has best wiki (276 vs 291)**: The terminal TRIPLE at L20-L21-L22 (87-96%) is the strongest terminal anchor measured in the depth sweep. Three adjacent terminal solitons create a combined anchor strength Σ(1/PR) ≈ 3.0 concentrated at output depth. This triple terminal provides maximum retention shielding.
+
+**Why SILENT has worse CoT (10.29 vs 8.763)**: Despite more solitons, depth23's mid-network conduits are at 35-52% depth — SHALLOWER than depth22's 59-64% conduit. Earlier conduit = longer path to output = less efficient reasoning routing. Additionally, the terminal triple anchors at 87-96% are retention-focused, not routing-focused. The result: excellent retention but suboptimal CoT routing vs depth22's focused mid-to-late conduit.
+
+This establishes a clear trade-off:
+- CASCADE topology: sparse conduit at 59-64% depth, strong routing, CoT-optimal (8.763)
+- SILENT topology: rich Internal Bulk with dual mid-network conduits + terminal triple, wiki-retention-optimal (276)
+
+The SILENT gap is not an inferior topology — it creates a richer, more elaborate structure precisely because the pretrain was quiet. The cascade pre-commits topology; the SILENT gap leaves the slate clean.
 
 **Finding 4 — 🌊¹⁰⁷ Lyapunov Amendment: Exact Validation**
 
