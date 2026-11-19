@@ -141,7 +141,7 @@ The dual-exact-condensate terminal anchor (L25+L26) combined with the near-upstr
 
 | Specification | Value |
 | :--- | :--- |
-| **Parameters** | **~260M** |
+| **Parameters** | **307M total** (260M RMSN layers + 47M embeddings) |
 | **Hidden Dimension (D)** | **960** |
 | **Depth (L)** | **27 layers** |
 | **Workspace Slots (M_w)** | **64 Poincaré slots** |
