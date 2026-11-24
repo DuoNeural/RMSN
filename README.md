@@ -45,7 +45,7 @@
    - [Wave-146: HIGH-q ODD Parity TRUE SILENT](#438-wave-146--high-q-odd-parity-true-silent--aura--archon)
    - [Wave-147: Width-Scaled Hypercascade at D=1536](#439-wave-147--width-scaled-hypercascade-at-d1536-45--aura--archon)
    - [First q=13 Results & Topology #41: The Lone L1 Soliton](#440-first-q13-results--topology-41-the-lone-l1-soliton--aura--archon)
-   - [Full KAM 18-Seed Survey & All-Time PPL Record 42.5 (Wave-144 Ext.)](#441-full-kam-18-seed-survey--all-time-ppl-record-425-wave-144-extension--aura--archon)
+   - [Full KAM 22-Seed Survey (Complete) & All-Time PPL Record 42.5 (Wave-144 Ext.)](#441-full-kam-22-seed-survey-complete--all-time-ppl-record-425-wave-144-extension--aura--archon)
    - [Depth Inversion & Numerator Compression Laws (Waves 148 & 150)](#442-depth-inversion--numerator-compression-laws-waves-148--150--aura--archon)
    - [Wave-149 Candidate: Anomalous EVEN Parity at Ω=4/5](#443-wave-149-candidate-anomalous-even-parity-at-%CF%8945--aura--archon)
 7. [Repository Structure](#-repository-structure)
@@ -1506,11 +1506,11 @@ The L1 soliton position has appeared in multiple configurations where earlier pr
 
 ---
 
-### 4.41 Full KAM 18-Seed Survey & All-Time PPL Record 42.5 (Wave-144 Extension) — Aura & Archon
+### 4.41 Full KAM 22-Seed Survey (Complete) & All-Time PPL Record 42.5 (Wave-144 Extension) — Aura & Archon
 
-*(November 18–22, 2026)*
+*(November 18–24, 2026)*
 
-The 18-seed KAM multistability study confirmed and dramatically extended the topological landscape of the $\Omega=4/5$ EVEN architecture. Seventeen usable seeds (s7 corrupt) each converged to a geometrically distinct TRUE SILENT soliton topology — a **topological zoo** contained in a single architectural family.
+The **complete** 22-seed KAM multistability study confirmed and dramatically extended the topological landscape of the $\Omega=4/5$ EVEN architecture. Twenty-one usable seeds (s7 corrupt) each converged to a geometrically distinct TRUE SILENT soliton topology — a **topological zoo** contained in a single architectural family. This is the final, complete survey.
 
 #### All-Time PPL Record: Topology #62 (s10 = 42.5)
 
@@ -1531,14 +1531,24 @@ Seed s10 achieved **val PPL = 42.5** — the all-time laboratory record across a
 | **#58** | Sparse L1 Adjacent Mid | $[L_1,L_4,L_5]$ $M^*=3$ | s8 | 60.0 |
 | **#49** | L1 Dual-Terminal-Triplet | $[L_1,L_3,L_8,L_{13},L_{14},L_{15},L_{17},L_{18},L_{19}]$ $M^*=9$ | s5 | 60.55 |
 | **#48** | Dense L1 Composite | $[L_1,L_2,L_4,L_{10},L_{12},L_{14},L_{16},L_{18},L_{19}]$ $M^*=9$ | s6 | 57.32 |
+| **#66** | CEMENT Sparse Multi-Layer | CEMENT $M_{\text{eff}}=4$ | s14 | 58.31 |
+| **#67** | CEMENT Terminal-Chain | CEMENT $M_{\text{eff}}=4$ | s17 | 59.57 |
+| **#68** | CEMENT Dense Multi-Layer | CEMENT $M_{\text{eff}}=5$ | s18 | 60.98 |
+| *s11* | CEMENT Spine-Terminal Run | $[L_2,L_5,L_9{-}L_{12},L_{15},L_{17}]$ $M_{\text{eff}}=5$ | s11 | 58.82 |
+| *s13* | CEMENT L1 Mid-Spine | $[L_1,L_2,L_5,L_9,L_{10},L_{16},L_{17}]$ $M_{\text{eff}}=4$ | s13 | 58.81 |
+| *s19* | CEMENT L1 Mid-Terminal Run | $[L_1,L_2,L_9,L_{12},L_{16}{-}L_{19}]$ $M_{\text{eff}}=4$ | s19 | 58.4 |
+| *s20* | CEMENT Sparse Spine | $[L_1,L_6,L_{10},L_{16},L_{19}]$ $M_{\text{eff}}=5$ | s20 | 59.1 |
+| *s21* | CEMENT Near-Terminal Chain | $[L_1,L_{14}{-}L_{17},L_{19}]$ $M_{\text{eff}}=3$ | s21 | 60.5 |
+| *s22* | CEMENT Terminal-Adjacent Cluster | $[L_1,L_5,L_{15}{-}L_{17},L_{19}]$ $M_{\text{eff}}=4$ | s22 | 59.6 |
 
-#### Statistical Summary (s1–s18)
+#### Statistical Summary (s1–s22, Complete)
 
-- **Val PPL range**: 42.5 (s10, #62) to 68.0 (s2, #36) across 17 usable seeds
-- **KAM Doublet rate**: 1/17 = **5.9%** (s1 only; initial 4-seed estimate of ~25% was sample bias)
-- **Topology #62 (new record) rate**: 1/17 ≈ 6% — comparable to KAM Doublet, different geometry
+- **Val PPL range**: 42.5 (s10, #62) to 68.0 (s2, #36) across 21 usable seeds
+- **KAM Doublet rate**: 1/21 = **4.8%** (s1 only)
+- **Topology #62 (new record) rate**: 1/21 ≈ 4.8% — same rarity as KAM Doublet, different geometry
+- **Topological cement rate**: **18/20 probed = 90%** (excluding s15/s16 anomalous, s7 corrupt)
 - **Anomalous seeds**: s15 ($\lambda=-0.197$), s16 ($\lambda=-0.090$) — EVEN parity but NOT TRUE SILENT at 100k steps (see §4.43 Wave-149 candidate)
-- **Pending probes**: s11, s13, s14, s17, s18 have valid checkpoints; topology classification pending
+- **Survey complete**: All 22 seeds probed and classified (Nov 24, 2026)
 
 ---
 

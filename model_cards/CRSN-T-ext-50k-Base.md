@@ -30,6 +30,19 @@ Continuity-Regularized Sheaf Network (CRSN-T-ext), trained on the extended datas
 - No overfitting observed; loss plateaued rather than degraded
 - Duplicate process was killed mid-run (had been halving throughput ~440 → 640 tok/s)
 
+## Sheaf Probe Results (Nov 23, 2026)
+
+Probed on node-0 by Aura. All 8 layers maintain strictly positive alpha dynamics — confirming healthy sheaf continuity regularization throughout the full depth.
+
+| Layer | alpha_min | alpha_mean | omega_mean |
+| :--- | :--- | :--- | :--- |
+| All 8 layers | **0.1073** | 0.1276 – 0.1324 | 0.5223 – 0.6364 |
+
+- **alpha_min = 0.1073** across all layers (never zero; no sheaf collapse)
+- omega_mean range 0.52–0.64 indicates moderate resonance across layers
+- Generation quality: story prompts produce fluent, coherent narrative
+- CoT/Logic/Code prompts pivot toward TinyStories-style narrative (expected — training data is TinyStories-heavy; addressed in planned CRSN-T SFT extension)
+
 ## Files
 - Best checkpoint: `/home/duoneural/srsn_ryzen/checkpoints_crsn_t/crsn_t_best.pt`
 - Training log: `/home/duoneural/srsn_ryzen/crsn_t_ext.log`
