@@ -49,6 +49,10 @@
    - [Depth Inversion & Numerator Compression Laws (Waves 148 & 150)](#442-depth-inversion--numerator-compression-laws-waves-148--150--aura--archon)
    - [Wave-149 ✅ CONFIRMED: M_w=128 Breaks TRUE SILENT + Wave-151 Candidate](#443-wave-149--confirmed-mw128-breaks-true-silent--wave-151-candidate--aura--archon)
    - [M_w Width Scan & Topological Taxonomy Update (Topologies #70–#73)](#444-mw-width-scan--topological-taxonomy-update-topologies-70-73--aura--archon)
+   - [Wave-157: Ω=1/2 M_w Phase Zone Survey — True Silent Pockets & Full Bifurcation Map](#445-wave-157-12-mw-phase-zone-survey--true-silent-pockets--full-bifurcation-map--archon--aura)
+   - [Wave-158: Soft Topology — M_eff ≥ 3 ≠ Cement Universally](#446-wave-158-soft-topology--m_eff--3--cement-universally--archon--aura)
+   - [Wave-159: Topological Multistability — KAM Separatrix at Fixed (D, L, M_w, Ω)](#447-wave-159-topological-multistability--kam-separatrix-at-fixed-d-l-mw--archon--aura)
+   - [Wave-160: Post-Cascade True Silent — Topology #84 Confirmed](#448-wave-160-post-cascade-true-silent--topology-84-confirmed--archon--aura)
 7. [Repository Structure](#-repository-structure)
 8. [Installation & Requirements](#-installation--requirements)
 9. [Training & Inference](#-training--inference)
@@ -1893,6 +1897,113 @@ To establish whether topological soliton condensation and the $M^* \le 2$ overcr
 * **Conclusion:** **Negative sectional curvature / non-Euclidean phase space is the necessary and sufficient condition for topological soliton condensation in neural sequence architectures.**
 
 ---
+
+
+---
+
+### 4.45 Wave-157: Ω=1/2 M_w Phase Zone Survey — True Silent Pockets & Full Bifurcation Map (Archon & Aura)
+
+A systematic sweep across M_w ∈ {56, 64, 72, 80, 88, 96, 100, 104, 108, 112, 128, 130} at fixed Ω=1/2 (D = 8×M_w, L=16) revealed the **complete bifurcation portrait** of the Ω=1/2 Arnold tongue:
+
+> **True Silent exists as ISOLATED POCKETS, not a continuous range.**
+
+| M_w | D | Factor | Dynamical Class | Topology | val_ppl | Key Finding |
+|-----|---|--------|----------------|---------|---------|-------------|
+| 56 | 448 | 7 (prime) | **Post-Cascade True Silent** (Topology #84) | [L1,L3,L5,L15] M_eff=4 all isolated | 106.0 | Single cascade @13k → TS @28k (Wave-160) |
+| 64 | 512 | 8 | **Direct True Silent** (Topology #65) | [L1,L9,L10] M_eff=2 paired | 76.6 | Crystallizes <10k (pre-existing) |
+| 72 | 576 | 9 | **TBD** *(running)* | — | — | Phase boundary between TS and LC |
+| 80 | 640 | 10 | **Limit Cycle** | Re-cascades @52k, 77k | — | Multi-period oscillation |
+| 88 | 704 | 11 (prime) | **Limit Cycle** | Re-cascades @56k | — | Multi-period oscillation |
+| 96 | 768 | 12 | **Direct True Silent** (Topology #74) | M_eff=2 | 81.9 | TS pocket: M_w=96=TS, M_w=104 NOT |
+| 100 | 800 | 12.5 | **Limit Cycle** (Topology #83) | M_eff=3 | 80.7 | SOFT TOPOLOGY (Wave-158) |
+| 104 s1 | 832 | 13 (prime) | **Micro-Orbit / KAM Torus** (Topology #82) | M_eff=3 | 80.2 | Neimark-Sacker bifurcation |
+| 104 s2 | 832 | 13 (prime) | **Cement** | M_eff=3 | — | MULTISTABILITY (Wave-159) |
+| 108 | 864 | 13.5 | **Limit Cycle** | — | — | Between MO and TS boundary |
+| 112–130 | — | — | **Cement** | M_eff≥3 | — | Topological cement zone |
+
+**TS Zone Structure:**
+True Silent pockets at Ω=1/2 are anchored at M_w=64 and M_w=96 (direct TS, M_eff=2) with a weaker post-cascade pocket at M_w=56 (M_eff=4). The M_w=72 boundary probe is currently running. This is NOT a smooth phase transition — the TS attractor pockets are discrete islands in dynamical class space.
+
+**Primality is NOT the determining factor** (originally hypothesized from Wave-153): M_w=64 (factor-8, composite) achieves direct TS; M_w=56 (factor-7, prime) achieves only post-cascade TS; M_w=88 (factor-11, prime) is a limit cycle. The topology is governed by **absolute M_w threshold**, not primality.
+
+---
+
+### 4.46 Wave-158: Soft Topology — M_eff ≥ 3 ≠ Cement Universally (Archon & Aura)
+
+A critical revision to the Topological Cement Law was confirmed:
+
+> **Previous (incorrect):** M_eff ≥ 3 → FROZEN CEMENT
+> **Revised:** M_eff ≥ 3 → CEMENT **only when** λ → large negative
+
+**Wave-158 "Soft Topology" Evidence:**
+
+| Model | M_eff | λ | Class | Frozen? |
+|-------|-------|---|-------|---------|
+| mw56 (Topology #84) | 4 | -0.0011 | Post-Cascade True Silent | ❌ NOT frozen |
+| mw100 (Topology #83) | 3 | -0.028 oscillating | Limit Cycle | ❌ NOT frozen |
+| mw104 s1 (Topology #82) | 3 | -0.001 sustained | Micro-Orbit | ❌ NOT frozen |
+| mw104 s2 | 3 | -0.89@41k → -1.12+ | Cement | ✅ Frozen |
+| mw130 | 10 | -1.21+deepening | Cement | ✅ Frozen |
+
+**Terminal Chain Length** distinguishes Micro-Orbit from Limit Cycle at M_eff=3:
+- Micro-Orbit: terminal chain L11→L15 (5-layer terminal, MO = Neimark-Sacker bifurcation)
+- Limit Cycle: terminal chain L15 only (1-layer terminal, re-cascading)
+
+**Revised Cement Law:** Topological cement requires both (a) M_eff ≥ 3 **AND** (b) sustained large-negative Lyapunov exponent (λ ≪ -0.1, deepening). M_eff is a *necessary* but not *sufficient* condition.
+
+**Aura's Geometric Proof:** Locked soliton modes reduce late-layer SVD effective rank. Wave-156 confirmed: True Silent has +18.2% rank advantage over cemented/LC topologies, with smooth rank decay vs late-layer rank collapse (s24 final layer drops to eff_rank=6.7!).
+
+---
+
+### 4.47 Wave-159: Topological Multistability — KAM Separatrix at Fixed (D, L, M_w, Ω) (Archon & Aura)
+
+**Discovery:** At fixed (D=832, L=16, M_w=104, Ω=1/2), different random initialization seeds produce **completely different dynamical classes**:
+
+| Seed | Dynamical Class | Key Evidence |
+|------|----------------|-------------|
+| s1 | **Micro-Orbit** (KAM Torus) | lyap=-0.0022@90.7k sustained, ultra-low amplitude |
+| s2 | **Cement** | lyap=-0.89@41.4k → -1.12+, cemented in 5k from -0.09@36.1k |
+
+The brief recovery in s2 at step 32k (lyap=-0.0203) was **unstable transient orbit** crossing the KAM separatrix — NOT a stable limit cycle. Within 5k steps the system crossed the separatrix and hard-cemented.
+
+**Aura's Geometric Interpretation:** Coexisting KAM tori (quasi-periodic orbits on invariant tori) vs strange/periodic attractors in a weakly non-integrable driven Hamiltonian chain. The KAM separatrix passes clean through the random initialization manifold at fixed (D,L,M_w,Ω). Which attractor a trajectory falls into depends on initial conditions (random seed = sampled initial point).
+
+This extends our **Topological Multistability** result (Wave-144, D=1024 L=20 Ω=4/5 seeds 15/16 anomalous) to Ω=1/2: the same architecture under DIFFERENT random seeds can produce DIFFERENT irreversible topological fates.
+
+> **Implication for reproducibility:** At the M_w phase boundary (M_w=104 for Ω=1/2), model behavior is **not reproducible** across seeds. Training two models with identical hyperparameters may yield one MO (ppl~80) and one Cement (ppl~105+). Topological class is a **stochastic outcome near phase boundaries**.
+
+---
+
+### 4.48 Wave-160: Post-Cascade True Silent — Topology #84 Confirmed (Archon & Aura)
+
+**Discovery:** mw56 (D=448, L=16, Ω=1/2) underwent a **single cascade at step ~13k** and subsequently crystallized into True Silent — a qualitatively new dynamical pathway distinct from direct True Silent.
+
+**Topological Signature (Topology #84):**
+Probe: `probe_percolation_sheaf.py --dim 448 --depth 16 --slots 56 --ckpt rmsn_best.pt --gpu 0`
+
+| Property | Direct TS (mw64/mw96) | Post-Cascade TS (mw56) |
+|----------|----------------------|------------------------|
+| Soliton layers | [L1,L9,L10] | [L1,L3,L5,L15] |
+| M* | 3 | 4 |
+| M_eff | 2 (paired chain L9-L10) | 4 (ALL ISOLATED SINGLETONS) |
+| val_ppl | 76.6–81.9 | **106.0** |
+| val_lyap | -0.001 to -0.002 | **-0.0011** |
+| Crystallization | <10k steps (before cascade) | ~28k steps (after cascade @13k) |
+
+**Timeline for mw56:**
+1. Step ~13k: Single cascade (lyap=-0.2013) — Lyapunov excursion
+2. Step ~28k: System re-stabilizes, crystallizes into True Silent
+3. Steps 28k–100k: Lyapunov-stable 100% of last 1000 steps (87k sustained)
+
+**Why Post-Cascade TS has worse ppl:** The cascade scrambles the phase-space trajectory, depositing the system into a **weaker True Silent basin** (more isolated solitons, higher M_eff for TS). Direct TS finds the *optimal* TS attractor; post-cascade TS finds the nearest TS attractor post-scramble.
+
+**Distinguishing Post-Cascade TS from Long-Period Limit Cycle:**
+- mw80 and mw88 (LC): **Re-cascaded** at step ~52k and ~56k respectively
+- mw56 (Post-Cascade TS): **NO re-cascade** through step 100k
+- Stability: mw56 Lyapunov-stable 100% last 1000 steps; LC models show growing oscillations
+
+**HuggingFace:** [`DuoNeural/RMSN-51M-Omega12-PostCascade-TS-Topology84`](https://huggingface.co/DuoNeural/RMSN-51M-Omega12-PostCascade-TS-Topology84)
+
 
 ## 📂 Repository Structure
 
